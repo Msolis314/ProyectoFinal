@@ -1,2 +1,2 @@
-# ProyectoFinal
-Repositorio para el proyecto en python
+# Proyecto_Python
+Respositorio para una interfaz de manejo de expensas
