@@ -6,7 +6,7 @@ from tools.Usos import reader_image
 from tools.Usos import center
 from tools.Usos import set_font 
 from system_vars.Vars import COLOR_BG, COLOR_BODY , COLOR_MENU, COLOR_SUPERIOR, FG_COLOR,TEXT_COLOR,TEXT_COLOR2,HOVER_COLOR,BUTTOM_HOVER
-
+from entry_classes.income import IncomeFrame
 global path_image
 path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
 
@@ -80,7 +80,7 @@ class UpperBar(customtkinter.CTkFrame):
     ''' Clase de la barra superior'''
     def __init__(self,master,User):
         super().__init__(master)
-        self.configure(master, fg_color=COLOR_SUPERIOR, height=50)
+        self.configure(master, fg_color=FG_COLOR, height=50)
         self.pack(side=ttk.TOP, fill ='both')
         self.User = User
     #Display barra superior
@@ -258,7 +258,27 @@ class EntradaDatosFrame(SubFrames):
         #Para entrar un nuevo Frame
         self._layout.grid_forget()
         self.new_frame._layout.grid(row=0, column=2, sticky = "nsew")
-        self.new_frame.columnconfigure(0, weight=1)
+        self.new_frame._layout.columnconfigure(0, weight=1)
+        IncomeFrame(self.new_frame._layout)
+
+        """self.general_info = customtkinter.CTkFrame(master=self.new_frame._layout)
+        self.general_info.grid(row = 0 , column=0)
+
+        self.name_label = customtkinter.CTkLabel(self.general_info,text="Descripcion del ingreso",
+                                                 text_color=TEXT_COLOR,
+                                                 font=set_font('Cascadia mono'))
+        self.name_label.grid(row=0, column=0,padx=20,pady=20)
+        self.name_entry = customtkinter.CTkEntry(self.general_info,
+                                                 text_color=TEXT_COLOR,placeholder_text="Nombre del ingreso", 
+                                                 font=set_font('Cascadia mono'))
+        self.name_entry.grid(row=1, column=0, padx=20,pady=20)
+        self.descriptive_label = customtkinter.CTkLabel(self.general_info,text="Tipo de ingreso",
+                                                 text_color=TEXT_COLOR,
+                                                 font=set_font('Cascadia mono'))
+        self.descriptive_label.grid(row=0, column=1,padx=20,pady=20)
+
+        self.options_income= customtkinter.CTkOptionMenu(self.general_info, values=["Salario","Rentas","Ventas","Misc"])
+        self.options_income.grid(row=1, column=1,padx=20,pady=20)"""
 class Analisis(SubFrames):
     #Clase para el boton analisis
     def __init__(self,master):

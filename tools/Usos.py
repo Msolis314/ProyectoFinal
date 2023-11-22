@@ -44,15 +44,23 @@ def center(screen, weight_app, height_app):
     # Retorna lo debe ir en geometru
     return screen.geometry(f"{weight_app}x{height_app}+{x}+{y}")
 
-def set_font(family,tam=12):
+def set_font(family='Cascadia mono',tam=12):
     ''' Funcion para setear una fuente'''
     try:
         return customtkinter.CTkFont(family=family, size=tam)
     except:
-        return customtkinter.CTkFont(family='calibri', size=tam)
+        return customtkinter.CTkFont(family='Cascadia mono', size=tam)
     
 class ExceptionSystem(Exception):
     ''' Clase para el manejo de excepciones'''
     def __init__(self, mensaje="Error"):
         self.mensaje = mensaje
         super().__init__(self.mensaje)
+
+def convertir_moneda(amount:float, coin_type:str = 'colon'):
+    if coin_type == 'dolar':
+        return amount*532
+    elif coin_type == 'peso mexicano':
+        return amount*30,93
+    elif coin_type == 'colon':
+        return amount
