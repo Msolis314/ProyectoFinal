@@ -7,9 +7,10 @@ from tools.Usos import center
 from tools.Usos import set_font 
 from system_vars.Vars import COLOR_BG, COLOR_BODY , COLOR_MENU, COLOR_SUPERIOR, FG_COLOR,TEXT_COLOR,TEXT_COLOR2,HOVER_COLOR,BUTTOM_HOVER
 from entry_classes.income import IncomeFrame
+from entry_classes.spend import GastosFrame
 global path_image
 path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
-
+import system_vars.config 
 
 class MainWindow(customtkinter.CTk):
     """
@@ -80,7 +81,7 @@ class UpperBar(customtkinter.CTkFrame):
     ''' Clase de la barra superior'''
     def __init__(self,master,User):
         super().__init__(master)
-        self.configure(master, fg_color=FG_COLOR, height=50)
+        self.configure(master, height=50)
         self.pack(side=ttk.TOP, fill ='both')
         self.User = User
     #Display barra superior
@@ -242,7 +243,8 @@ class EntradaDatosFrame(SubFrames):
         self.buttom_gastos =customtkinter.CTkButton(master=self._layout,
                                                     text="Gastos",
                                                     image=self.image_gastos, 
-                                                    compound="top")
+                                                    compound="top",
+                                                    command=self.event_boton2)
         self.buttom_gastos.grid(row=1 , column= 0, padx=20,pady=10, sticky ="nsew")
 
         #Boton 3
@@ -253,32 +255,22 @@ class EntradaDatosFrame(SubFrames):
                                                    compound="top")
         self.buttom_budget.grid(row=2 , column= 0, padx=20,pady=10, sticky ="nsew")
         #Nuevo frame
-        self.new_frame=SubFrames(master)
+        self.new_frame_income=SubFrames(master)
+        self.new_frame_gastos= SubFrames(master)
+        self.new_frame_budget = SubFrames(master)
     def event_boton1(self):
         #Para entrar un nuevo Frame
         self._layout.grid_forget()
-        self.new_frame._layout.grid(row=0, column=2, sticky = "nsew")
-        self.new_frame._layout.columnconfigure(0, weight=1)
-        IncomeFrame(self.new_frame._layout)
-
-        """self.general_info = customtkinter.CTkFrame(master=self.new_frame._layout)
-        self.general_info.grid(row = 0 , column=0)
-
-        self.name_label = customtkinter.CTkLabel(self.general_info,text="Descripcion del ingreso",
-                                                 text_color=TEXT_COLOR,
-                                                 font=set_font('Cascadia mono'))
-        self.name_label.grid(row=0, column=0,padx=20,pady=20)
-        self.name_entry = customtkinter.CTkEntry(self.general_info,
-                                                 text_color=TEXT_COLOR,placeholder_text="Nombre del ingreso", 
-                                                 font=set_font('Cascadia mono'))
-        self.name_entry.grid(row=1, column=0, padx=20,pady=20)
-        self.descriptive_label = customtkinter.CTkLabel(self.general_info,text="Tipo de ingreso",
-                                                 text_color=TEXT_COLOR,
-                                                 font=set_font('Cascadia mono'))
-        self.descriptive_label.grid(row=0, column=1,padx=20,pady=20)
-
-        self.options_income= customtkinter.CTkOptionMenu(self.general_info, values=["Salario","Rentas","Ventas","Misc"])
-        self.options_income.grid(row=1, column=1,padx=20,pady=20)"""
+        self.new_frame_income._layout.grid(row=0, column=2, sticky = "nsew")
+        self.new_frame_income._layout.columnconfigure(0, weight=1)
+        self.new_frame_income._layout.rowconfigure(0,weight=1)
+        IncomeFrame(self.new_frame_income._layout)
+    def event_boton2(self):
+        self._layout.grid_forget()
+        self.new_frame_gastos._layout.grid(row=0,column=2,sticky='nsew')
+        self.new_frame_gastos._layout.columnconfigure(0,weight=1)
+        self.new_frame_gastos._layout.rowconfigure(0,weight=1)
+        GastosFrame(self.new_frame_gastos._layout)
 class Analisis(SubFrames):
     #Clase para el boton analisis
     def __init__(self,master):

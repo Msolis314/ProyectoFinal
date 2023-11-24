@@ -8,7 +8,7 @@ from tablesetting.users_mem import Usuario_mem
 from CTkMessagebox import CTkMessagebox
 from .interfaz_register import Register
 import tools.crypto as cr
-
+import system_vars.config as config
 class MainApp(AbstractLogin):
     """Clase donde se crean los metodos propios del Login"""
     def __init__(self):
@@ -29,8 +29,8 @@ class MainApp(AbstractLogin):
         byte_pass = cr.uncrypting_pass(user.password)
         if( contra == byte_pass):
             self.destroy()
-            app = MainWindow(user.username)
-            app.mainloop()
+            config.app = MainWindow(user.username)
+            config.app.mainloop()
         else:
             CTkMessagebox(message="Incorrect username or password",title='Error',icon='cancel')
 

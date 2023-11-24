@@ -1,29 +1,11 @@
-import customtkinter 
-import tkinter as tk
+import customtkinter
+from .template import *
 from tools.Usos import *
 from system_vars.Vars import *
-from tools.Usos import center
-from .template import TopCalendar
-from system_vars.Vars import *
 import system_vars.config as config
-"""Módulo para las caracteristicas de la entrada de ingresos"""
-class Usuario:
-    def __init__(self,nombre):
-        self.name = nombre
-
-class Income:
-    """Clase padre para el manejo de ingresos, gestiona los atributos y los metodos para validar y escribir en la base de datos"""
-    def __init__(self):
-        self._date= None
-        self._salario = None
-        self._wages= None
-        self._rentas=None
-        self._comisiones = None
-        self._ventas= None
-        self._misc = None
-
-class IncomeFrame(Income):
-    """Clase que maneja el layout de la interfaz para los ingresos"""
+"""Modulo para configurar el panel de ingresos de gastos del usuario"""
+class GastosFrame(Economy):
+    """Clase para gesionar la interfaz para la entrada de una gasto por parte del usuario"""
     def __init__(self,layout):
         super().__init__()
         self.general_info = customtkinter.CTkFrame(master=layout)
@@ -31,22 +13,26 @@ class IncomeFrame(Income):
         self.general_info.grid_columnconfigure(5,weight=1)
         self.general_info.grid(row = 1 , column=0,sticky="nsew",pady=20)
         #Widgets para darle un nombre a la entrada de ingreso
-        self.name_label = customtkinter.CTkLabel(self.general_info,text="Descripcion del ingreso",
+        self.name_label = customtkinter.CTkLabel(self.general_info,text="Descripcion del gasto",
                                                  text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia mono'))
         self.name_label.grid(row=0, column=1,padx=20,pady=20)
         self.name_entry = customtkinter.CTkEntry(self.general_info,
-                                                 text_color=TEXT_COLOR,placeholder_text="Nombre del ingreso", 
+                                                 text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia mono'))
         self.name_entry.grid(row=1, column=1, padx=20,pady=20)
         #Eleccion del tipo de ingreso
-        self.descriptive_label = customtkinter.CTkLabel(self.general_info,text="Tipo de ingreso",
+        self.descriptive_label = customtkinter.CTkLabel(self.general_info,text="Categoría de Gasto",
                                                  text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia mono'))
         self.descriptive_label.grid(row=0, column=2,padx=20,pady=20)
+        #Variable que guarda la eleccion de la categoria
+        self.options_spend_var = customtkinter.StringVar(value="Domicilio")
 
-        self.options_income= customtkinter.CTkOptionMenu(self.general_info, values=["Salario","Comisiones","Ventas","Otros"])
-        self.options_income.grid(row=1, column=2,padx=20,pady=20)
+        self.options_spend= customtkinter.CTkOptionMenu(self.general_info, values=["Domicilio","Comida","Higene","Transporte","Vestimenta","Entretenimiento","Deudas","Ahorros","Seguros","Servicios","Otros"],
+                                                         dropdown_hover_color=HOVER_COLOR,dropdown_font=set_font('Shanti'),variable=self.options_spend_var)
+        #se accederia al valor self.options_spend_var.get() este hay que pasarlo por una funcion set de Economy y asignarlo al atributo categoria
+        self.options_spend.grid(row=1, column=2,padx=20,pady=20)
         #Digitar el monto
         self.amount_label= customtkinter.CTkLabel(self.general_info, 
                                                   text="Mónto", text_color=TEXT_COLOR, 
@@ -64,14 +50,12 @@ class IncomeFrame(Income):
                                                 font=set_font(), 
                                                 text_color=TEXT_COLOR)
         self.coin_label.grid(row=0, column=4,padx=20,pady=20,sticky="nsew")
-        self.coin_var=customtkinter.StringVar(value="Dólar")
-        self.coin_entry = customtkinter.CTkSegmentedButton(self.general_info, values=["Dólar", "Colón", "Euro"],
-                                                     command=self.coin_label_callback,
-                                                     font=set_font('Shanti'),
+        self.coin_var=customtkinter.StringVar(value="Dolar")
+        self.coin_entry = customtkinter.CTkSegmentedButton(self.general_info, values=["Dolar", "Colon", "Euro"],
+                                                     command=self.coin_label_callback,font=set_font('Shanti')
                                                      variable=self.coin_var)
         self.coin_entry.grid(row=1,column=4,padx=20,pady=20,sticky="nsew")
-
-        #creo un nuevo frame
+         #creo un nuevo frame
         self._others_frame= customtkinter.CTkFrame(master=layout,height=400)
         self._others_frame.grid_columnconfigure(0,weight=1)
         self._others_frame.grid_columnconfigure(4,weight=1)
@@ -115,8 +99,3 @@ class IncomeFrame(Income):
     def update_date(self,n):
         """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
         self._date=n
-
-
-
-    
-
