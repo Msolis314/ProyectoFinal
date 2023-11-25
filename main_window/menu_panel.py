@@ -5,9 +5,10 @@ from PIL import Image
 from tools.Usos import reader_image
 from tools.Usos import center
 from tools.Usos import set_font 
-from system_vars.Vars import COLOR_BG, COLOR_BODY , COLOR_MENU, COLOR_SUPERIOR, FG_COLOR,TEXT_COLOR,TEXT_COLOR2,HOVER_COLOR,BUTTOM_HOVER
+from system_vars.Vars import *
 from entry_classes.income import IncomeFrame
 from entry_classes.spend import GastosFrame
+from entry_classes.budget import PresupuestoFrame
 global path_image
 path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
 import system_vars.config 
@@ -81,11 +82,11 @@ class UpperBar(customtkinter.CTkFrame):
     ''' Clase de la barra superior'''
     def __init__(self,master,User):
         super().__init__(master)
-        self.configure(master, height=50)
+        self.configure(master, height=50,fg_color=FG_COLOR2)
         self.pack(side=ttk.TOP, fill ='both')
         self.User = User
-    #Display barra superior
     def widgets_upper_bar(self):
+        #Display barra superior
         self.title=customtkinter.CTkLabel(self, 
                                           text_color=TEXT_COLOR,
                                           text="Presupuesto digital",
@@ -109,7 +110,7 @@ class MenuFrame(customtkinter.CTkFrame):
         self.image2=reader_image(path_image,"salary.png",(20,20))
         self.image3=reader_image(path_image,"line-chart.png",(20,20))
         self.image4=reader_image(path_image,"file.png",(20,20))
-        self.configure(master,width=400)
+        self.configure(master,width=400,fg_color=FG_COLOR2)
         self.pack(side=ttk.LEFT, fill='both', expand=False)
         self.grid_rowconfigure(5,weight=1)
    
@@ -252,25 +253,35 @@ class EntradaDatosFrame(SubFrames):
         self.buttom_budget=customtkinter.CTkButton(master=self._layout,
                                                    text="Presupuesto",
                                                    image=self.image_presupuesto, 
-                                                   compound="top")
+                                                   compound="top",
+                                                   command=self.event_boton3)
         self.buttom_budget.grid(row=2 , column= 0, padx=20,pady=10, sticky ="nsew")
         #Nuevo frame
         self.new_frame_income=SubFrames(master)
         self.new_frame_gastos= SubFrames(master)
         self.new_frame_budget = SubFrames(master)
     def event_boton1(self):
-        #Para entrar un nuevo Frame
+        #Para entrar un nuevo Frame de ingresos
         self._layout.grid_forget()
         self.new_frame_income._layout.grid(row=0, column=2, sticky = "nsew")
         self.new_frame_income._layout.columnconfigure(0, weight=1)
         self.new_frame_income._layout.rowconfigure(0,weight=1)
         IncomeFrame(self.new_frame_income._layout)
     def event_boton2(self):
+        #Para entrar al nuevo frame de ingreso de gastos
         self._layout.grid_forget()
         self.new_frame_gastos._layout.grid(row=0,column=2,sticky='nsew')
         self.new_frame_gastos._layout.columnconfigure(0,weight=1)
         self.new_frame_gastos._layout.rowconfigure(0,weight=1)
         GastosFrame(self.new_frame_gastos._layout)
+    def event_boton3(self):
+        #Para entrar al nuevo frame de ingreso de presupuesto 
+        self._layout.grid_forget()
+        self.new_frame_budget._layout.grid(row=0,column=2,sticky='nsew')
+        self.new_frame_budget._layout.columnconfigure(0,weight=1)
+        self.new_frame_budget._layout.rowconfigure(0,weight=1)
+        PresupuestoFrame(self.new_frame_budget._layout)
+        
 class Analisis(SubFrames):
     #Clase para el boton analisis
     def __init__(self,master):

@@ -5,8 +5,40 @@ from system_vars.Vars import *
 import system_vars.config as config
 """Modulo para configurar el panel de ingresos de gastos del usuario"""
 class GastosFrame(Economy):
-    """Clase para gesionar la interfaz para la entrada de una gasto por parte del usuario"""
+    """Clase para gesionar la interfaz para la entrada de una gasto por parte del usuario
+
+    ...
+    Atributos
+    ---------
+    general_info: CTkFrame 
+        contiene los widgets que corresponde a la entrada de datos general 
+    name_entry : CTkEntry 
+        Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
+    options_spend_var: str
+        variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
+    amount_entry_var: 
+        variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada
+    coin_var:str
+        variable donde se almacena el tipo de cambio, coin_var.get() para acceder 
+    
+    other_frame : CTkFrame
+        contiene widgets de otras entradas
+    final_frame: CTkFrame
+        frame con el boton de salida
+    final_buttom: CTKButton
+        Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso
+    
+    Métodos
+    ---------
+    coin_label_callback(value)
+        este metodo deberia convertir de una vez la moneda en colones
+    buttom_calendar_callback()
+        llama a la ventana de elegir mes 
+    update_date(n)
+        conecta la ventana de elegir mes con la principal
+    """
     def __init__(self,layout):
+
         super().__init__()
         self.general_info = customtkinter.CTkFrame(master=layout)
         self.general_info.grid_columnconfigure(0,weight=1)
@@ -15,11 +47,11 @@ class GastosFrame(Economy):
         #Widgets para darle un nombre a la entrada de ingreso
         self.name_label = customtkinter.CTkLabel(self.general_info,text="Descripcion del gasto",
                                                  text_color=TEXT_COLOR,
-                                                 font=set_font('Cascadia mono'))
+                                                 font=set_font('Cascadia Mono'))
         self.name_label.grid(row=0, column=1,padx=20,pady=20)
         self.name_entry = customtkinter.CTkEntry(self.general_info,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
-                                                 font=set_font('Cascadia mono'))
+                                                 font=set_font('Cascadia Mono'))
         self.name_entry.grid(row=1, column=1, padx=20,pady=20)
         #Eleccion del tipo de ingreso
         self.descriptive_label = customtkinter.CTkLabel(self.general_info,text="Categoría de Gasto",
@@ -38,9 +70,10 @@ class GastosFrame(Economy):
                                                   text="Mónto", text_color=TEXT_COLOR, 
                                                   font=set_font('Cascadia mono'))
         self.amount_label.grid(row=0, column=3,padx=20,pady=20)
+        self.amount_entry_var= customtkinter.StringVar()
 
         self.amount_entry = customtkinter.CTkEntry(self.general_info, 
-                                                   font=set_font('Cascadia mono'),
+                                                   font=set_font('Cascadia mono'),textvariable= self.amount_entry_var,
                                                    text_color=TEXT_COLOR)
         self.amount_entry.grid(row=1,column=3,padx=20,pady=20)
 
@@ -52,7 +85,7 @@ class GastosFrame(Economy):
         self.coin_label.grid(row=0, column=4,padx=20,pady=20,sticky="nsew")
         self.coin_var=customtkinter.StringVar(value="Dolar")
         self.coin_entry = customtkinter.CTkSegmentedButton(self.general_info, values=["Dolar", "Colon", "Euro"],
-                                                     command=self.coin_label_callback,font=set_font('Shanti')
+                                                     command=self.coin_label_callback,font=set_font('Shanti'),
                                                      variable=self.coin_var)
         self.coin_entry.grid(row=1,column=4,padx=20,pady=20,sticky="nsew")
          #creo un nuevo frame
