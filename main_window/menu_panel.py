@@ -1,3 +1,4 @@
+"""Módulo que contiene toda la estructura de la ventana principal del programa"""
 import customtkinter 
 import os
 import ttkbootstrap as ttk
@@ -14,11 +15,17 @@ path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents
 import system_vars.config 
 
 class MainWindow(customtkinter.CTk):
-    """
-    Clase de la vetana princiapal
-    hereda de customtkinter.CTk
+    """Clase que controla la ventana principal
+
+    :param customtkinter: Clase padre de la biblioteca
+    :type customtkinter: Class
     """
     def __init__(self, currentuser):
+        """Constructora de la clase, se encarga de aspectos de la configuracion
+
+        :param currentuser: Usuario actual que hizo login en el sistema
+        :type currentuser: str
+        """
         super().__init__()
         #Configurar la principal
         self.title("Presupuesto Mensual")
@@ -32,8 +39,14 @@ class MainWindow(customtkinter.CTk):
         self.sections()
 
     def sections(self):
-        """
-         funcion donde se declaran las secciones presentes en el display
+        """Funcion donde se crean las instancias de las diferentes secciones del programa
+
+        :param up_panel: Panel superior
+        :type up_panel: UpperBar
+        :param menu_panel: Panel del menu
+        :type menu_panel: MenuFrame
+        :param body_panel: Panel de la seccion de display del programa
+        :type body_panel:BodyFrame
         """
         #Frames de las secciones principales
         self.up_panel= UpperBar(self,self.user)
@@ -55,7 +68,7 @@ class MainWindow(customtkinter.CTk):
 
         #Metodos para desplegar widgets
         self.up_panel.widgets_upper_bar()
-        self.menu_panel.widgets_menu(self.body_panel)
+        self.menu_panel.widgets_menu(self.body_panel,self)
     
     def toggle_panel(self):
         """
@@ -79,10 +92,18 @@ class BodyFrame(customtkinter.CTkFrame):
         
         self.grid_columnconfigure(2, weight=1)
 class UpperBar(customtkinter.CTkFrame):
-    ''' Clase de la barra superior'''
+    """Clase de la barra superior
+    """
     def __init__(self,master,User):
+        """Constructora de la clase, configura aspectos del Frame
+
+        :param master: Ventana superior donde va la barra
+        :type master: CTk
+        :param User: Usuario actual
+        :type User: str
+        """
         super().__init__(master)
-        self.configure(master, height=50,fg_color=FG_COLOR2)
+        self.configure(master, height=50,fg_color=FG_COLOR2,border_width=0)
         self.pack(side=ttk.TOP, fill ='both')
         self.User = User
     def widgets_upper_bar(self):
@@ -103,8 +124,15 @@ class UpperBar(customtkinter.CTkFrame):
         self._current_user.pack(side=ttk.RIGHT)
 
 class MenuFrame(customtkinter.CTkFrame):
-    """Clase que define al menu lateral"""
+    """Clase que define al menu lateral
+
+    """
     def __init__(self,master):
+        """Constructora de la clase, configura las imagenes
+
+        :param master: Ventana principal donde se quiere posicionar el frame
+        :type master: CTK
+        """
         super().__init__(master)
         self.menu_icon=reader_image(path_image,"menu.png",(40,40))
         self.image2=reader_image(path_image,"salary.png",(20,20))
@@ -114,11 +142,21 @@ class MenuFrame(customtkinter.CTkFrame):
         self.pack(side=ttk.LEFT, fill='both', expand=False)
         self.grid_rowconfigure(5,weight=1)
    
-    def widgets_menu(self,body):
+    def widgets_menu(self,body,root):
+        """Funcion que maneja los widgets del menu
+
+        :param body: Frame donde se quieren posicionar los widgets
+        :type body: CTkFrame
+        :param root: Ventana Principal
+        :type root: CTk
+        :param data_user: Boton que despliega las opciones para la entrada del usuario
+        :type data_user: CTkButtom
+        :param _analisis: Boton que despliega las opciones para graficacion
+        :type _analisis: CTkButtom
+        :param exportar_datos: Boton que despliega las opciones para exportar
+        :type exportar_datos: CTkButtom
         """
-        funcion que maneja los widgets del menu
-        recibe por parametro el body que representan donde se debe colocar cada widget
-        """
+        self.Main=root
        #Opciones del menu lateral
         self.menu_label=customtkinter.CTkLabel(self, text = " ",compound="top",image=self.menu_icon)
         self.menu_label.grid(row=0, column=0,padx=20,pady=20,sticky="nsew")
@@ -126,6 +164,7 @@ class MenuFrame(customtkinter.CTkFrame):
         self.data_user= customtkinter.CTkButton(self, text ="Datos del usuario",
                                                 corner_radius=0,
                                                 height=30,
+                                                font=set_font(),
                                                 border_spacing=10,
                                                 fg_color='transparent', 
                                                 text_color=("gray10", "gray90"), 
@@ -135,7 +174,7 @@ class MenuFrame(customtkinter.CTkFrame):
                                                 command=self.evento_data_user)
         self.data_user.grid(row=2,column=0, sticky="nsew")
         self._analisis= customtkinter.CTkButton(self, text ="Visualizacion de datos",
-                                            corner_radius=0,
+                                            corner_radius=0,font=set_font(),
                                             height=30,
                                             border_spacing=10,
                                             fg_color='transparent', 
@@ -145,9 +184,9 @@ class MenuFrame(customtkinter.CTkFrame):
                                             image=self.image3,
                                             command=self.evento_analisis)
         self._analisis.grid(row=3,column=0, sticky="nsew")
-        self.exportar_datos= customtkinter.CTkButton(self, text ="Exportar_Datos",
+        self.exportar_datos= customtkinter.CTkButton(self, text ="Exportar Datos",
                                             corner_radius=0,
-                                            height=30,
+                                            height=30,font=set_font(),
                                             border_spacing=10,
                                             fg_color='transparent', 
                                             text_color=("gray10", "gray90"), 
@@ -156,8 +195,10 @@ class MenuFrame(customtkinter.CTkFrame):
                                             image=self.image4,
                                             command=self.evento3)
         self.exportar_datos.grid(row=4,column=0, sticky="nsew")
-        self.menu_display= customtkinter.CTkOptionMenu(master=self,values = ['blue','dark-blue','green'], command=self.evento_color)
-        self.menu_display.grid(row =6, column=0,padx=20,pady=20 ,sticky = "s")
+        #self.menu_display= customtkinter.CTkOptionMenu(master=self,values = ['blue','dark-blue','green'], command=self.evento_color)
+        #self.menu_display.grid(row =6, column=0,padx=20,pady=20 ,sticky = "s")
+        self.logout=customtkinter.CTkButton(master=self,text='Log Out', font=set_font(),command=self.evento_logout)
+        self.logout.grid(row=6,column=0,padx=20,pady=20,sticky='s')
         self.menu_display= customtkinter.CTkOptionMenu(master=self,
                                                        values = ['dark','system','light'], 
                                                        command=self.evento_apariencia)
@@ -166,9 +207,10 @@ class MenuFrame(customtkinter.CTkFrame):
     def evento_apariencia(self,op):
         #Definir eventos para los botones y menus
         customtkinter.set_appearance_mode(op)
-    def evento_color(self,color_theme):
-        #Eventocolor
-        customtkinter.set_default_color_theme(color_theme)   
+    def evento_logout(self):
+        #Evento para logout
+        self.Main.destroy()
+         
     def evento_data_user(self):
         #Al clickear entrada de datos 
         self.change_window("data_user")
@@ -179,10 +221,11 @@ class MenuFrame(customtkinter.CTkFrame):
         #evento para exportar datos
         self.change_window("export")
 
-    def change_window(self,buttom):
+    def change_window(self,buttom:str):
         """
         Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal
-        parametro el boton elegido
+        :param buttom: Boton seleccionado
+        :type buttom:str
         """
         #Esto es para que quede marcada la opcion que se muestra en el momento en pantalla
         if buttom == "analisis":

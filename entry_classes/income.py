@@ -1,3 +1,4 @@
+"""Módulo para las caracteristicas de la entrada de ingresos"""
 import customtkinter 
 import tkinter as tk
 from tools.Usos import *
@@ -6,7 +7,7 @@ from tools.Usos import center
 from .template import TopCalendar
 from system_vars.Vars import *
 import system_vars.config as config
-"""Módulo para las caracteristicas de la entrada de ingresos"""
+
 class Usuario:
     def __init__(self,nombre):
         self.name = nombre
@@ -23,8 +24,33 @@ class Income:
         self._misc = None
 
 class IncomeFrame(Income):
-    """Clase que maneja el layout de la interfaz para los ingresos"""
+    """Clase que maneja el layout de la interfaz para los ingresos
+
+    :param Income: Clase padre que maneja los atributos de categoria en conjunto con los métodos de escritura en la base de datos
+    :type Income: Class
+    :param general_info: contiene los widgets que corresponde a la entrada de datos general 
+    :type general_infor: CTkFrame
+    :param name_entry:Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
+    :type name_entry:CTkEntry
+    :param options_income_var:variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
+    :type options_income_var:str
+    :param amount_entry_var:variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada
+    :type amount_entry_var: str
+    :param coin_var:variable donde se almacena el tipo de cambio, coin_var.get() para acceder 
+    :type coin_var:str
+    :param others_frame: contiene widgets de otras entradas
+    :type others_frame: CTkFrame
+    :param final_frame: frame con el boton de salida
+    :type final_frame:CTkFrame
+    :param final_buttom: Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso
+    :type final_buttom: CTkButtom
+    """
     def __init__(self,layout):
+        """Constructor de la clase, configura aspectos de la ventana y carga otras carecteristicas de la apariencia
+
+        :param layout: Frame padre donde se quiren posicionar los frames de la clase
+        :type layout: CTkFrame
+        """
         super().__init__()
         self.general_info = customtkinter.CTkFrame(master=layout)
         self.general_info.grid_columnconfigure(0,weight=1)
@@ -44,18 +70,20 @@ class IncomeFrame(Income):
                                                  text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia mono'))
         self.descriptive_label.grid(row=0, column=2,padx=20,pady=20)
+        self.options_income_var=customtkinter.StringVar(value="Salario")
 
-        self.options_income= customtkinter.CTkOptionMenu(self.general_info, values=["Salario","Comisiones","Ventas","Otros"])
+        self.options_income= customtkinter.CTkOptionMenu(self.general_info, values=["Salario","Comisiones","Ventas","Otros"],variable=self.options_income_var)
         self.options_income.grid(row=1, column=2,padx=20,pady=20)
         #Digitar el monto
         self.amount_label= customtkinter.CTkLabel(self.general_info, 
                                                   text="Mónto", text_color=TEXT_COLOR, 
                                                   font=set_font('Cascadia mono'))
         self.amount_label.grid(row=0, column=3,padx=20,pady=20)
+        self.amount_entry_var= customtkinter.StringVar()
 
         self.amount_entry = customtkinter.CTkEntry(self.general_info, 
                                                    font=set_font('Cascadia mono'),
-                                                   text_color=TEXT_COLOR)
+                                                   text_color=TEXT_COLOR,variable=self.amount_entry_var)
         self.amount_entry.grid(row=1,column=3,padx=20,pady=20)
 
         #Tipo de moneda 
@@ -99,6 +127,9 @@ class IncomeFrame(Income):
 
         self.final_buttom= customtkinter.CTkButton(master=self.final_frame,text="Guardar",height=100,width=500,font=set_font(tam=20))
         self.final_buttom.pack(fill=tk.BOTH,expand=True)
+    def event_guardar(self):
+        """Aqui se deben verificar las entradas del usuario y guardar el nuevo ingreso en la base de datos"""
+        pass
 
         
     def coin_label_callback(self,value):
@@ -107,6 +138,8 @@ class IncomeFrame(Income):
     def buttom_notas_callback(self):
         pass
     def buttom_calendar_callback(self):
+        """llama a la ventana de elegir mes 
+        """
         if self.topCalendar is None or not self.topCalendar.winfo_exists():
             self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed
             self.topCalendar.wm_transient(config.app)

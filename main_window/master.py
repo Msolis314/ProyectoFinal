@@ -9,6 +9,7 @@ from tools.Usos import center
 global path_image
 path_image=os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
 class Panel(customtkinter.CTk):
+    
     """Panel principal, hereda de CTk"""
     def __init__(self):
         super().__init__()

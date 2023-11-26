@@ -4,6 +4,7 @@ import tkinter as tk
 from tools.Usos import *
 from system_vars.Vars import *
 class Economy:
+    """Clase padre para atributos y caracteristicas de las clases de presupuesto y gasto"""
     def __init__(self):
         self._date= None
         self._category= None
@@ -44,7 +45,12 @@ class TopCalendar(customtkinter.CTkToplevel):
                                                          variable=self.option_menu_var)
         self.update_date=update
         self.option_calendar.pack(fill=tk.BOTH,expand=True)
-    def option_menu_callback(self,var):
-        """En esta funcion se llama a la funcion de la otra clase, se encarga de pasarle el valor elegido de fecha a la ventana principal"""
+    def option_menu_callback(self,var:str):
+        """En esta funcion se llama a la funcion de la otra clase, se encarga de pasarle el valor elegido de fecha a la ventana principal
+        :param var: mes seleccionado
+        :type var: str
+        ...
+        :return: llama a la funcion que actualiza a la fecha
+        """
         self.update_date(var)
         self.destroy()
