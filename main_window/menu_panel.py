@@ -10,6 +10,7 @@ from system_vars.Vars import *
 from entry_classes.income import IncomeFrame
 from entry_classes.spend import GastosFrame
 from entry_classes.budget import PresupuestoFrame
+from graph_classes.graph_choice import GraphChoice
 global path_image
 path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
 import system_vars.config 
@@ -201,7 +202,11 @@ class MenuFrame(customtkinter.CTkFrame):
         self.logout.grid(row=6,column=0,padx=20,pady=20,sticky='s')
         self.menu_display= customtkinter.CTkOptionMenu(master=self,
                                                        values = ['dark','system','light'], 
-                                                       command=self.evento_apariencia)
+                                                       command=self.evento_apariencia,fg_color=BORDER_COLOR,dropdown_fg_color=BORDER_COLOR,
+                                                       button_color=BORDER_COLOR,
+                                                       button_hover_color=HOVER_COLOR,
+                                                       font=set_font(),
+                                                       dropdown_font=set_font())
         self.menu_display.grid(row =5, column=0,padx=20,pady=20 ,sticky = "s")
         self.change_window("data_user")
     def evento_apariencia(self,op):
@@ -279,22 +284,22 @@ class EntradaDatosFrame(SubFrames):
         self.buttom_ingresos= customtkinter.CTkButton(master=self._layout,
                                                       text="Ingresos",
                                                       image=self.image_ingresos, 
-                                                      compound="top",
+                                                      compound="top",font=set_font(),
                                                       command=self.event_boton1)
         self.buttom_ingresos.grid(row=0 , column= 0, padx=20,pady=10, sticky ="nsew")
         # Boton 2 
         self.image_gastos=customtkinter.CTkImage(Image.open(os.path.join(path_image,"expense.png")), size=(40,40))
         self.buttom_gastos =customtkinter.CTkButton(master=self._layout,
-                                                    text="Gastos",
-                                                    image=self.image_gastos, 
-                                                    compound="top",
+                                                    text="Gastos",fg_color=BORDER_COLOR,
+                                                    image=self.image_gastos,hover_color=HOVER_COLOR, 
+                                                    compound="top",font=set_font(),
                                                     command=self.event_boton2)
         self.buttom_gastos.grid(row=1 , column= 0, padx=20,pady=10, sticky ="nsew")
 
         #Boton 3
         self.image_presupuesto= customtkinter.CTkImage(Image.open(os.path.join(path_image,"budget.png")), size=(40,40))
         self.buttom_budget=customtkinter.CTkButton(master=self._layout,
-                                                   text="Presupuesto",
+                                                   text="Presupuesto",font=set_font(),
                                                    image=self.image_presupuesto, 
                                                    compound="top",
                                                    command=self.event_boton3)
@@ -329,10 +334,11 @@ class Analisis(SubFrames):
     #Clase para el boton analisis
     def __init__(self,master):
         super().__init__(master)
-        self.option_men_var= customtkinter.StringVar(value = "grafica")
-        self.options_analisis= customtkinter.CTkOptionMenu(self._layout, values=["Grafica","Pie chart","muestreo","Comparacion"],command=self.get_option_menu_choice ,variable=self.option_men_var)
+        GraphChoice(self._layout)
+        #self.option_men_var= customtkinter.StringVar(value = "grafica")
+        #self.options_analisis= customtkinter.CTkOptionMenu(self._layout, values=["Grafica","Pie chart","muestreo","Comparacion"],command=self.get_option_menu_choice ,variable=self.option_men_var)
 
-        self.options_analisis.grid(row=0, column=0,padx=20,pady=10,sticky="nsew")
+        #self.options_analisis.grid(row=0, column=0,padx=20,pady=10,sticky="nsew")
    #Prueba
     def get_option_menu_choice(self,choice):
         print(choice)

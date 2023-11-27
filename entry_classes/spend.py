@@ -1,44 +1,38 @@
+"""Modulo para configurar el panel de ingresos de gastos del usuario"""
 import customtkinter
 from .template import *
 from tools.Usos import *
 from system_vars.Vars import *
 import system_vars.config as config
-"""Modulo para configurar el panel de ingresos de gastos del usuario"""
+
 class GastosFrame(Economy):
-    """Clase para gesionar la interfaz para la entrada de una gasto por parte del usuario
+    """Clase que maneja el layout de la interfaz para los gastos
 
-    ...
-    Atributos
-    ---------
-    general_info: CTkFrame 
-        contiene los widgets que corresponde a la entrada de datos general 
-    name_entry : CTkEntry 
-        Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
-    options_spend_var: str
-        variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
-    amount_entry_var: 
-        variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada
-    coin_var:str
-        variable donde se almacena el tipo de cambio, coin_var.get() para acceder 
-    
-    other_frame : CTkFrame
-        contiene widgets de otras entradas
-    final_frame: CTkFrame
-        frame con el boton de salida
-    final_buttom: CTKButton
-        Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso
-    
-    Métodos
-    ---------
-    coin_label_callback(value)
-        este metodo deberia convertir de una vez la moneda en colones
-    buttom_calendar_callback()
-        llama a la ventana de elegir mes 
-    update_date(n)
-        conecta la ventana de elegir mes con la principal
-    """
+    :param Income: Clase padre que maneja los atributos de categoria en conjunto con los métodos de escritura en la base de datos
+    :type Income: Class
+    :param general_info: contiene los widgets que corresponde a la entrada de datos general 
+    :type general_infor: CTkFrame
+    :param name_entry:Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
+    :type name_entry:CTkEntry
+    :param options_spend_var:variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
+    :type options_spend_var:str
+    :param amount_entry_var:variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada
+    :type amount_entry_var: str
+    :param coin_var:variable donde se almacena el tipo de cambio, coin_var.get() para acceder 
+    :type coin_var:str
+    :param others_frame: contiene widgets de otras entradas
+    :type others_frame: CTkFrame
+    :param final_frame: frame con el boton de salida
+    :type final_frame:CTkFrame
+    :param final_buttom: Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso
+    :type final_buttom: CTkButtom
+    """  
     def __init__(self,layout):
+        """Contructora de la clase, configura aspectos de la apariencia
 
+        :param layout: Frame padre donde se quieren posicionar los widgets
+        :type layout: CTkFrame
+        """
         super().__init__()
         self.general_info = customtkinter.CTkFrame(master=layout)
         self.general_info.grid_columnconfigure(0,weight=1)
@@ -111,6 +105,7 @@ class GastosFrame(Economy):
                                                       command=self.buttom_calendar_callback)
         self.calendario.grid(row=0 , column= 2, padx=20,pady=10, sticky ="nsew")
         self.topCalendar=None
+        self.topNotas=None
         self.final_frame=customtkinter.CTkFrame(master=layout,height=600)
         self.final_frame.grid(row=3,column=0,sticky="nsew",pady=40)
 
@@ -122,8 +117,20 @@ class GastosFrame(Economy):
         print(value)
 
     def buttom_notas_callback(self):
-        pass
+        """llama a la ventana para notas
+        ...
+        :return: actualiza el atributo de notas 
+        :rtype: str
+        
+        """
+        if self.topNotas is None or not self.topNotas.winfo_exists():
+            self.topNotas = TopNotas(self.update_notas,config.app)  #Crear la ventana sino existe
+            self.topNotas.wm_transient(config.app)
+        else:
+            self.topNotas.focus()  #Si existe la enfoca
     def buttom_calendar_callback(self):
+        """llama a la ventana de elegir mes 
+        """
         if self.topCalendar is None or not self.topCalendar.winfo_exists():
             self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed
             self.topCalendar.wm_transient(config.app)
@@ -132,3 +139,6 @@ class GastosFrame(Economy):
     def update_date(self,n):
         """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
         self._date=n
+    def update_notas(self,n):
+        """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
+        self._notas=n

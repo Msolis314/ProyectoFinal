@@ -5,8 +5,10 @@ from tools.Usos import *
 from system_vars.Vars import *
 from tools.Usos import center
 from .template import TopCalendar
+from .template import TopNotas
 from system_vars.Vars import *
 import system_vars.config as config
+
 
 class Usuario:
     def __init__(self,nombre):
@@ -16,6 +18,7 @@ class Income:
     """Clase padre para el manejo de ingresos, gestiona los atributos y los metodos para validar y escribir en la base de datos"""
     def __init__(self):
         self._date= None
+        self._notas=None
         self._salario = None
         self._wages= None
         self._rentas=None
@@ -28,8 +31,7 @@ class IncomeFrame(Income):
 
     :param Income: Clase padre que maneja los atributos de categoria en conjunto con los métodos de escritura en la base de datos
     :type Income: Class
-    :param general_info: contiene los widgets que corresponde a la entrada de datos general 
-    :type general_infor: CTkFrame
+    
     :param name_entry:Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
     :type name_entry:CTkEntry
     :param options_income_var:variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
@@ -80,11 +82,15 @@ class IncomeFrame(Income):
                                                   font=set_font('Cascadia mono'))
         self.amount_label.grid(row=0, column=3,padx=20,pady=20)
         self.amount_entry_var= customtkinter.StringVar()
-
         self.amount_entry = customtkinter.CTkEntry(self.general_info, 
+                                                   font=set_font('Cascadia mono'),textvariable= self.amount_entry_var,
+                                                   text_color=TEXT_COLOR)
+        self.amount_entry.grid(row=1,column=3,padx=20,pady=20)
+
+        """self.amount_entry = customtkinter.CTkEntry(master=self.general_info, 
                                                    font=set_font('Cascadia mono'),
                                                    text_color=TEXT_COLOR,variable=self.amount_entry_var)
-        self.amount_entry.grid(row=1,column=3,padx=20,pady=20)
+        self.amount_entry.grid(row=1,column=3,padx=20,pady=20)"""
 
         #Tipo de moneda 
         self.coin_label = customtkinter.CTkLabel(self.general_info,
@@ -122,6 +128,7 @@ class IncomeFrame(Income):
                                                       command=self.buttom_calendar_callback)
         self.calendario.grid(row=0 , column= 2, padx=20,pady=10, sticky ="nsew")
         self.topCalendar=None
+        self.topNotas = None
         self.final_frame=customtkinter.CTkFrame(master=layout,height=600)
         self.final_frame.grid(row=3,column=0,sticky="nsew",pady=40)
 
@@ -136,18 +143,31 @@ class IncomeFrame(Income):
         print(value)
 
     def buttom_notas_callback(self):
-        pass
+        """llama a la ventana para notas
+        ...
+        :return: actualiza el atributo de notas 
+        :rtype: str
+        
+        """
+        if self.topNotas is None or not self.topNotas.winfo_exists():
+            self.topNotas = TopNotas(self.update_notas,config.app)  #Crear la ventana sino existe
+            self.topNotas.wm_transient(config.app)
+        else:
+            self.topNotas.focus()  #Si existe la enfoca
     def buttom_calendar_callback(self):
         """llama a la ventana de elegir mes 
         """
         if self.topCalendar is None or not self.topCalendar.winfo_exists():
-            self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed
+            self.topCalendar = TopCalendar(self.update_date ,config.app) 
             self.topCalendar.wm_transient(config.app)
         else:
-            self.topCalendar.focus()  # if window exists focus it
+            self.topCalendar.focus()  
     def update_date(self,n):
         """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
         self._date=n
+    def update_notas(self,n):
+        """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
+        self._notas=n
 
 
 
