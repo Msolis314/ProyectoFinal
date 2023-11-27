@@ -4,15 +4,18 @@ from PIL import Image
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 def reader_image(path,name, tam= (20,20)):
-    """
-    Funcion para leer imagenes
-    ----------
-    <path(directorio donde esta la imagen)>:string
-    <name(nombre de la imagen)>:string
-    <tam(size que se quiere de la imagen)>: int 
-    Retorno
-    ----------
-    carga la imagen con la funcion customtkinter.CTkImage
+    """Funcion para leer imagenes
+
+    :param path : directorio donde esta la imagen
+    :type path :str
+    :param name: nombre de la imagen
+    :type name :string
+    :param tam:size que se quiere de la imagen
+    :type tam : int 
+    .....
+
+    :return:carga la imagen con la funcion customtkinter.CTkImage
+    :rtype:CTkImage
     """
     try:
         return customtkinter.CTkImage(Image.open(os.path.join(path,name)), size=tam)
@@ -20,16 +23,18 @@ def reader_image(path,name, tam= (20,20)):
         print(f"Error al cargar las imagenes: {e}")
         
 def center(screen, weight_app, height_app):
-    """
-    Funcion para colocar la ventana en el centro de la pantalla
-    Parametros
-    ----------
-    <objeto de pantalla>:
-    <ancho ventana>:int
-    <largo ventana>: int 
-    Retorno
-    ----------
-    Geometria de ventana: instancia de CTk
+    """Funcion para colocar la ventana en el centro de la pantalla
+    
+    :param screen : objeto de pantalla
+    :type screen: CTk
+    :param weight_app:ancho ventana
+    :type weight_app:int
+    :param height_app:largo ventana
+    :type height_app: int 
+    
+    ........
+    :return:Geometria de ventana
+    :rtype: instancia de CTk
     """
     screen_weight= screen.winfo_screenwidth()
     screen_height= screen.winfo_screenheight()

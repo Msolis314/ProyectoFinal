@@ -1,11 +1,12 @@
-from cryptography.fernet import Fernet
 """ Módulo para manejar la parte de encriptación de contraseñas"""
+from cryptography.fernet import Fernet
 def crypting_pass(contra):
     """Esta es una funcion que permite generar la encriptacion de los pass
-    Parametro:
-    <contra>:string
-    Returns:
-    <encriptacion>:string
+    :param contra: una contraseña
+    :type contra: str
+    ....
+    :return: Encriptacion 
+    :rtype: str
     """
     #Generar una clave de encriptacion
     f= Fernet(b'ZdBDHMopkW1IOg9LXL3MHdx4Thw30kTnW3KsFnV4jJ4=')
@@ -18,10 +19,11 @@ def crypting_pass(contra):
 
 def uncrypting_pass(contra):
     """Función para desencriptar la contraseña
-    Parametro:
-    <contra>:string
-    Returns:
-    <contra desencriptada>
+     :param contra: una contraseña
+    :type contra: str
+    ....
+    :return: desencriptacion
+    :rtype: str
     """
     f= Fernet(b'ZdBDHMopkW1IOg9LXL3MHdx4Thw30kTnW3KsFnV4jJ4=')
     #convertir a bytes
