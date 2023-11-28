@@ -62,10 +62,10 @@ class ExceptionSystem(Exception):
         self.mensaje = mensaje
         super().__init__(self.mensaje)
 
-def convertir_moneda(amount:float, coin_type:str = 'colon'):
-    if coin_type == 'dolar':
+def convertir_moneda(amount:float, coin_type:str = 'Colón'):
+    if coin_type == 'Dólar':
         return amount*532
-    elif coin_type == 'peso mexicano':
-        return amount*30,93
-    elif coin_type == 'colon':
+    elif coin_type == 'Euro':
+        return amount*580.44
+    elif coin_type == 'Colón':
         return amount

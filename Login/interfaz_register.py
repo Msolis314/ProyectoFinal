@@ -9,7 +9,7 @@ from tablesetting.users_mem import Usuario_mem
 from tablesetting.tablelogin import Usuario
 import tools.crypto as cr
 from system_vars.Vars import TEXT_COLOR, HOVER_COLOR,BUTTOM_HOVER,TEXT_COLOR2
-
+import system_vars.config as config
 global path_image
 path_image=os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
 print(path_image)
@@ -135,6 +135,7 @@ class Register(customtkinter.CTkToplevel):
             if  (self.User_not_in(search_user)):
                 usuario.password = cr.crypting_pass(self.password.get())
                 self.usuario_mem.new_user(usuario)
+                config.newuser = True
                 CTkMessagebox(title='Message',message='Registro completado')
                 self.destroy()
 

@@ -1,14 +1,16 @@
 """Módulo para las caracteristicas de la entrada de ingresos"""
 import customtkinter 
+from CTkMessagebox import CTkMessagebox
 import tkinter as tk
 from tools.Usos import *
 from system_vars.Vars import *
 from tools.Usos import center
 from .template import TopCalendar
 from .template import TopNotas
+from .template import valid_amount
 from system_vars.Vars import *
 import system_vars.config as config
-
+import sqlite3
 
 class Usuario:
     def __init__(self,nombre):
@@ -17,14 +19,28 @@ class Usuario:
 class Income:
     """Clase padre para el manejo de ingresos, gestiona los atributos y los metodos para validar y escribir en la base de datos"""
     def __init__(self):
-        self._date= None
-        self._notas=None
+        self._name : str
+        self._date= "Enero"
+        self._notas : str
         self._salario = None
         self._wages= None
         self._rentas=None
         self._comisiones = None
         self._ventas= None
         self._misc = None
+    def escribir_base_data(self,data):
+        # Insertar datos en la tabla
+        escribir_valores = '''
+        INSERT INTO ingresos (nombre, tipo, monto, moneda, notas, mes)
+        VALUES (?, ?, ?, ?, ?, ?)
+        '''
+        current_data_base = f'{config.currentuser}.db'
+        self.conn = sqlite3.connect(current_data_base)
+        self.conn.execute(escribir_valores, data)
+        self.conn.commit()
+
+        self.conn.close()
+
 
 class IncomeFrame(Income):
     """Clase que maneja el layout de la interfaz para los ingresos
@@ -81,11 +97,12 @@ class IncomeFrame(Income):
                                                   text="Mónto", text_color=TEXT_COLOR, 
                                                   font=set_font('Cascadia mono'))
         self.amount_label.grid(row=0, column=3,padx=20,pady=20)
-        self.amount_entry_var= customtkinter.StringVar()
+        #self.amount_entry_var= customtkinter.IntVar(value=0)
         self.amount_entry = customtkinter.CTkEntry(self.general_info, 
-                                                   font=set_font('Cascadia mono'),textvariable= self.amount_entry_var,
+                                                   font=set_font('Cascadia mono'),
                                                    text_color=TEXT_COLOR)
         self.amount_entry.grid(row=1,column=3,padx=20,pady=20)
+        #self.amount_entry_var_true= self.amount_entry_var.get()
 
         """self.amount_entry = customtkinter.CTkEntry(master=self.general_info, 
                                                    font=set_font('Cascadia mono'),
@@ -132,11 +149,43 @@ class IncomeFrame(Income):
         self.final_frame=customtkinter.CTkFrame(master=layout,height=600)
         self.final_frame.grid(row=3,column=0,sticky="nsew",pady=40)
 
-        self.final_buttom= customtkinter.CTkButton(master=self.final_frame,text="Guardar",height=100,width=500,font=set_font(tam=20))
+        self.final_buttom= customtkinter.CTkButton(master=self.final_frame,
+                                                   text="Guardar",height=100,width=500,font=set_font(tam=20),
+                                                   command=self.event_guardar)
         self.final_buttom.pack(fill=tk.BOTH,expand=True)
+         #Conectar con la base de datos
+        self.conn=None
+        self.conn = sqlite3.connect('ingresos.db')
+        self.crear_tabla()
+        self.conn.close()
+
+    def crear_tabla(self):
+        # Crear una tabla si no existe
+        tabla_ingresos = '''
+        CREATE TABLE IF NOT EXISTS ingresos (
+            nombre TEXT,
+            tipo TEXT,
+            monto REAL,
+            moneda TEXT,
+            notas TEXT,
+            mes TEXT
+        )
+        '''
+        self.conn.execute(tabla_ingresos)
+        self.conn.commit()
     def event_guardar(self):
         """Aqui se deben verificar las entradas del usuario y guardar el nuevo ingreso en la base de datos"""
-        pass
+        self.retrive_data()
+        nombre = self._name
+        tipo = self.options_income_var.get()
+        monto = self._salario
+        moneda = self.coin_var.get()
+        notas = self._notas
+        mes = self._date
+        tuple_data = (nombre, tipo , monto,moneda,notas,mes)
+        self.escribir_base_data(tuple_data)
+        self.amount_entry.delete(0,'end')
+        self.name_entry.delete(0,'end')
 
         
     def coin_label_callback(self,value):
@@ -168,6 +217,15 @@ class IncomeFrame(Income):
     def update_notas(self,n):
         """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
         self._notas=n
+    def retrive_data(self):
+        if valid_amount(self.amount_entry.get(),self.coin_var.get()) == False:
+            CTkMessagebox(title="Error",message="Entrada invalida de dinero",icon='cancel')
+        else:
+            self._salario= valid_amount(self.amount_entry.get(),self.coin_var.get())
+        self._name = self.name_entry.get()
+        
+
+
 
 
 

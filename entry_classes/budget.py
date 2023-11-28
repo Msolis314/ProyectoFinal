@@ -263,7 +263,7 @@ class Entry(customtkinter.CTkFrame):
                                                  text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia Mono SemiBold',15))
         self.title_label.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
-        economy_atr=['domicilio','higiene','transporte','entretenimiento','deudas','seguros','servicios','otros']
+        economy_atr=['Domicilio','Higiene','Transporte','Entretenimiento','Deudas','Seguros','Servicios','Otros']
         for index,atr in enumerate(economy_atr):
             customtkinter.CTkLabel(self,text=atr,text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia Mono')).grid(row = 1+ index, column=1,pady=5,padx=5)
