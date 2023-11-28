@@ -46,9 +46,17 @@ class MonthlyBudgetGraph():
     def show_month_graph(self):
         
         # Cargar datos desde un archivo Excel
-        salary, extra_income, annual_budget, annual_expense, savings, rent, transport, entertainment, services, micelane, feeding = self.data_manager.load_data_from_excel('FILE.xlsx', 'Data')
-        annual_budget = [value for value in annual_budget if not pd.isna(value)]
-        annual_expense = [value for value in annual_expense if not pd.isna(value)]
+        rent, transport, entertainment, services, personal_hygiene, insurance, debts, others = self.data_manager.load_data_expenses_from_excel('FILE.xlsx', 'Data')
+        rent, transport, entertainment, services, personal_hygiene, insurance, debts, others = self.data_manager.load_data_budget_from_excel('FILE.xlsx', 'Data')
+        
+        # Calcular gastos totales por mes.
+        list_expenses = zip(rent, transport, entertainment, services, personal_hygiene, insurance, debts, others)
+        monthly_expenses = [sum(tupla) for tupla in list_expenses]
+        
+        # Calcular presupuesto totales por mes.
+        list_budget = zip(rent, transport, entertainment, services, personal_hygiene, insurance, debts, others)
+        monthly_budget = [sum(tupla) for tupla in list_budget]
+            
         
         # Obtiene el mes seleccionado y el índice de este mes.
         selected_month = self.month_var.get()
@@ -66,8 +74,8 @@ class MonthlyBudgetGraph():
         ax = fig.add_subplot(111)
 
         # Configura posiciones de las barras y sus dimensiones.
-        ax.bar(0, annual_budget[index], width=0.4, label='Budget', align='center')
-        ax.bar(1, annual_expense[index], width=0.4, label='Expenses', align='center')
+        ax.bar(0, monthly_budget[index], width=0.4, label='Budget', align='center')
+        ax.bar(1, monthly_expenses[index], width=0.4, label='Expenses', align='center')
 
         # Agrega barras para el presupuesto y los gastos.
         ax.set_xticks([0, 1])

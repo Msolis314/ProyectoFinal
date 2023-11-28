@@ -52,13 +52,17 @@ class IncomesPie():
         selected_month_index = self.months.index(selected_month_name)
         
         #Carga datos del excel.
-        salary, extra_income, annual_budget, annual_expense, savings, rent, transport, entertainment, services, micelane, feeding = self.data_manager.load_data_from_excel('FILE.xlsx', 'Data')
+        salary, commissions, sales, others = self.data_manager.load_data_incomes_from_excel('FILE.xlsx', 'Data')
         
         # Filtrar los valores no nulos para las categorías de ingresos del excel.
         list_salary = [value for value in salary if not pd.isna(value)]
         selected_salary = list_salary[selected_month_index]
-        list_extra_income = [value for value in extra_income if not pd.isna(value)]
-        selected_extra_income = list_extra_income[selected_month_index]
+        list_commissions = [value for value in commissions if not pd.isna(value)]
+        selected_commissions = list_commissions[selected_month_index]
+        list_sales = [value for value in sales if not pd.isna(value)]
+        selected_sales = list_sales[selected_month_index]
+        list_others = [value for value in others if not pd.isna(value)]
+        selected_others = list_others[selected_month_index]
         
         # Crea y muestra gráfica circular.
         self.graphs.frame.grid_forget()
@@ -70,8 +74,8 @@ class IncomesPie():
         ax = fig.add_subplot(111)
 
         # Crear la lista de ingresos y la lista de sus montos para la gráfica circular.
-        categories = ['Salary', 'Extra Income']
-        data = [selected_salary, selected_extra_income]
+        categories = ['Salario', 'Comisiones', 'Ventas', 'Otros']
+        data = [selected_salary, selected_commissions, selected_sales, selected_others]
 
         pie_patches, texts, autotexts = ax.pie(data, autopct='%1.1f%%', startangle=90)
         ax.axis('equal')

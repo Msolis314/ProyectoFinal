@@ -52,11 +52,9 @@ class ExpensePie():
         selected_month_index = self.months.index(selected_month_name)
         
         #Carga datos del excel.
-        salary, extra_income, annual_budget, annual_expense, savings, rent, transport, entertainment, services, micelane, feeding = self.data_manager.load_data_from_excel('FILE.xlsx', 'Data')
+        rent, transport, entertainment, services, personal_hygiene, insurance, debts, others = self.data_manager.load_data_expenses_from_excel('FILE.xlsx', 'Data')
         
         # Filtrar los valores no nulos para las categorías de gastos del excel.
-        list_savings = [value for value in savings if not pd.isna(value)]
-        selected_savings = list_savings[selected_month_index]
         list_rent = [value for value in rent if not pd.isna(value)]
         selected_rent = list_rent[selected_month_index]
         list_transport = [value for value in transport if not pd.isna(value)]
@@ -65,10 +63,15 @@ class ExpensePie():
         selected_entertainment = list_entertainment[selected_month_index]
         list_services = [value for value in services if not pd.isna(value)]
         selected_services = list_services[selected_month_index]
-        list_micelane = [value for value in micelane if not pd.isna(value)]
-        selected_micelane = list_micelane[selected_month_index]
-        list_feeding = [value for value in feeding if not pd.isna(value)]
-        selected_feeding = list_feeding[selected_month_index]
+        list_personal_hygiene = [value for value in personal_hygiene if not pd.isna(value)]
+        selected_personal_hygiene = list_personal_hygiene[selected_month_index]
+        list_insurance = [value for value in insurance if not pd.isna(value)]
+        selected_insurance = list_insurance[selected_month_index]
+        list_debts = [value for value in debts if not pd.isna(value)]
+        selected_debts = list_debts[selected_month_index]
+        list_others = [value for value in others if not pd.isna(value)]
+        selected_others = list_others[selected_month_index]
+        
 
         # Crea y muestra gráfica circular.
         self.graphs.frame.grid_forget()
@@ -76,18 +79,19 @@ class ExpensePie():
         self.graph_frame = tkk.Frame(self.root, padding="10")
         self.graph_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
-        fig = Figure(figsize=(5, 5), dpi=100)
+        fig = Figure(figsize=(6, 6), dpi=100)
         ax = fig.add_subplot(111)
 
         # Crear la lista de categorias y la lista de gastos para la gráfica circular.
-        categories = ['Savings', 'Rent', 'Transport', 'Entertainment', 'Services', 'Micelane', 'Feeding']
-        data = [selected_savings, selected_rent, selected_transport, selected_entertainment, selected_services, selected_micelane, selected_feeding]
+        categories = ['Domicilio', 'Transporte', 'Entretenimiento', 'Servicios', 'Higiene Personal', 'Seguros', 'Deudas', 'Otros']
+        data = [selected_rent, selected_transport, selected_entertainment, selected_services, selected_personal_hygiene, selected_insurance, selected_debts, selected_others]
 
+        # Configurar la gráfica circular con la leyenda y los porcentajes.
         pie_patches, texts, autotexts = ax.pie(data, autopct='%1.1f%%', startangle=90)
         ax.axis('equal')
-
+        
         ax.legend(pie_patches, categories, loc='lower right')
-
+        
         canvas = FigureCanvasTkAgg(fig, master=self.graph_frame)
         canvas_widget = canvas.get_tk_widget()
         canvas_widget.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
