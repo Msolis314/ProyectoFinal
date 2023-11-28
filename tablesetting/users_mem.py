@@ -1,7 +1,8 @@
+"""Módulo con la operaciones para buscar en la bse de datos"""
 import sqlalchemy as db
 from .tablelogin import Usuario
 from sqlalchemy.orm import Session
-"""Módulo con la operaciones para buscar en la bse de datos"""
+
 class Usuario_mem():
     """Clase que se encarga de gestionar la tabla de datos del usuario"""
     def __init___(self):

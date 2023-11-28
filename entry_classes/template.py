@@ -83,3 +83,20 @@ class TopNotas(customtkinter.CTkToplevel):
         text_var=self.notas_text.get("1.0",'end-1c')
         self.update_text(text_var)
         self.destroy()
+
+def negative_value_excep(value):
+    if value < 0 : 
+        raise ExceptionSystem("Valor ingresado no puede ser negativo")
+def valid_amount(money_amount,moneda:str):
+    try: 
+        value = float(money_amount)
+        negative_value_excep(value)
+    except ValueError as e:
+        print(f"Error:{e}")
+        return False
+    except ExceptionSystem as e:
+        print(f'Error:{e}')
+        return False
+    else:
+        return convertir_moneda(value,moneda)
+    

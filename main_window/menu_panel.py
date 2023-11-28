@@ -6,14 +6,17 @@ from PIL import Image
 from tools.Usos import reader_image
 from tools.Usos import center
 from tools.Usos import set_font 
+from tablesetting.data_base_user import new_data
 from system_vars.Vars import *
 from entry_classes.income import IncomeFrame
 from entry_classes.spend import GastosFrame
 from entry_classes.budget import PresupuestoFrame
 from graph_classes.graph_choice import GraphChoice
+from pathlib import Path
+#path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
+import system_vars.config  as config
 global path_image
-path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
-import system_vars.config 
+path_image=Path('.') / "Imagenes"
 
 class MainWindow(customtkinter.CTk):
     """Clase que controla la ventana principal
@@ -36,7 +39,7 @@ class MainWindow(customtkinter.CTk):
         center(self,weight,height)
         self.resizable(False,False)
         self.user = currentuser
-
+        config.currentuser = currentuser
         self.sections()
 
     def sections(self):

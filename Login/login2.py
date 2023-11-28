@@ -9,6 +9,7 @@ from CTkMessagebox import CTkMessagebox
 from .interfaz_register import Register
 import tools.crypto as cr
 import system_vars.config as config
+from tablesetting.data_base_user import new_data
 class MainApp(AbstractLogin):
     """Clase donde se crean los metodos propios del Login"""
     def __init__(self):
@@ -28,6 +29,7 @@ class MainApp(AbstractLogin):
         '''Funcion para revisar si la contra es correcta'''
         byte_pass = cr.uncrypting_pass(user.password)
         if( contra == byte_pass):
+            new_data(user.username)
             self.destroy()
             config.app = MainWindow(user.username)
             config.app.mainloop()
