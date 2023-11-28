@@ -6,9 +6,9 @@ from tools.Usos import center
 from tools.Usos import set_font 
 from system_vars.Vars import COLOR_BG
 from system_vars.Vars import TEXT_COLOR, HOVER_COLOR,BUTTOM_HOVER
-
+from pathlib import Path
 global path_image
-path_image=os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
+path_image=Path('.') / "Imagenes"
 class AbstractLogin(customtkinter.CTk):
     """Clase abstracta con el frame del login"""
     def __init__(self):

@@ -21,18 +21,16 @@ class Income:
     def __init__(self):
         self._name : str
         self._date= "Enero"
-        self._notas : str
-        self._salario = None
-        self._wages= None
-        self._rentas=None
+        self._notas = ""
+        self._salario = 0
         self._comisiones = None
-        self._ventas= None
-        self._misc = None
+        self._ventas= 0
+        self._otros = 0
     def escribir_base_data(self,data):
         # Insertar datos en la tabla
         escribir_valores = '''
-        INSERT INTO ingresos (nombre, tipo, monto, moneda, notas, mes)
-        VALUES (?, ?, ?, ?, ?, ?)
+        INSERT INTO ingresos (nombre, salario, comisiones, ventas, otros , notas, mes)
+        VALUES (?, ?, ?, ?, ?, ?,?)
         '''
         current_data_base = f'{config.currentuser}.db'
         self.conn = sqlite3.connect(current_data_base)
@@ -154,38 +152,23 @@ class IncomeFrame(Income):
                                                    command=self.event_guardar)
         self.final_buttom.pack(fill=tk.BOTH,expand=True)
          #Conectar con la base de datos
-        self.conn=None
-        self.conn = sqlite3.connect('ingresos.db')
-        self.crear_tabla()
-        self.conn.close()
+        
 
-    def crear_tabla(self):
-        # Crear una tabla si no existe
-        tabla_ingresos = '''
-        CREATE TABLE IF NOT EXISTS ingresos (
-            nombre TEXT,
-            tipo TEXT,
-            monto REAL,
-            moneda TEXT,
-            notas TEXT,
-            mes TEXT
-        )
-        '''
-        self.conn.execute(tabla_ingresos)
-        self.conn.commit()
+   
     def event_guardar(self):
         """Aqui se deben verificar las entradas del usuario y guardar el nuevo ingreso en la base de datos"""
         self.retrive_data()
         nombre = self._name
-        tipo = self.options_income_var.get()
-        monto = self._salario
-        moneda = self.coin_var.get()
         notas = self._notas
         mes = self._date
-        tuple_data = (nombre, tipo , monto,moneda,notas,mes)
+        tuple_data = (nombre, self._salario , self._comisiones, self._ventas,self._otros,notas,mes)
         self.escribir_base_data(tuple_data)
         self.amount_entry.delete(0,'end')
         self.name_entry.delete(0,'end')
+        self._salario =0
+        self._comisiones =0
+        self._ventas =0
+        self._otros = 0
 
         
     def coin_label_callback(self,value):
@@ -221,7 +204,17 @@ class IncomeFrame(Income):
         if valid_amount(self.amount_entry.get(),self.coin_var.get()) == False:
             CTkMessagebox(title="Error",message="Entrada invalida de dinero",icon='cancel')
         else:
-            self._salario= valid_amount(self.amount_entry.get(),self.coin_var.get())
+            if self.options_income_var.get() == "Salario":
+                self._salario= valid_amount(self.amount_entry.get(),self.coin_var.get())
+            elif self.options_income_var.get() == "Comisiones":
+                self._comisiones = valid_amount(self.amount_entry.get(),self.coin_var.get())
+            elif self.options_income_var.get() == "Ventas":
+                self._ventas = valid_amount(self.amount_entry.get(),self.coin_var.get())
+            elif self.options_income_var.get() == "Otros":
+                self._otros=valid_amount(self.amount_entry.get(),self.coin_var.get())
+            else:
+                CTkMessagebox(title="Error", message="Error al escribir en la base de datos")
+                raise ExceptionSystem("Error por entrada de tipo de ingreso no valida")
         self._name = self.name_entry.get()
         
 

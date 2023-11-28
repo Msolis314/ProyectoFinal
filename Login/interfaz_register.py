@@ -8,10 +8,11 @@ from tools.Usos import set_font
 from tablesetting.users_mem import Usuario_mem
 from tablesetting.tablelogin import Usuario
 import tools.crypto as cr
+from pathlib import Path
 from system_vars.Vars import TEXT_COLOR, HOVER_COLOR,BUTTOM_HOVER,TEXT_COLOR2
 import system_vars.config as config
 global path_image
-path_image=os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
+path_image=Path('.') / "Imagenes"
 print(path_image)
 class Register(customtkinter.CTkToplevel):
     """Clase para el registro de usuario"""

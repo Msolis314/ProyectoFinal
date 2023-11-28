@@ -9,9 +9,10 @@ def new_data(user):
     tabla_ingresos = '''
     CREATE TABLE IF NOT EXISTS ingresos (
         nombre TEXT,
-        tipo TEXT,
-        monto REAL,
-        moneda TEXT,
+        salario REAL,
+        comisiones REAL,
+        ventas REAL,
+        otros REAL,
         notas TEXT,
         mes TEXT
     )
