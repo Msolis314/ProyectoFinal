@@ -2,6 +2,7 @@
 import customtkinter
 from .template import *
 from tools.Usos import *
+import sqlite3
 from system_vars.Vars import *
 import system_vars.config as config
 
@@ -55,7 +56,7 @@ class GastosFrame(Economy):
         #Variable que guarda la eleccion de la categoria
         self.options_spend_var = customtkinter.StringVar(value="Domicilio")
 
-        self.options_spend= customtkinter.CTkOptionMenu(self.general_info, values=["Domicilio","Comida","Higene","Transporte","Vestimenta","Entretenimiento","Deudas","Ahorros","Seguros","Servicios","Otros"],
+        self.options_spend= customtkinter.CTkOptionMenu(self.general_info, values=["Domicilio","Comida","Higiene","Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros"],
                                                          dropdown_hover_color=HOVER_COLOR,dropdown_font=set_font('Shanti'),variable=self.options_spend_var)
         #se accederia al valor self.options_spend_var.get() este hay que pasarlo por una funcion set de Economy y asignarlo al atributo categoria
         self.options_spend.grid(row=1, column=2,padx=20,pady=20)
@@ -64,10 +65,9 @@ class GastosFrame(Economy):
                                                   text="Mónto", text_color=TEXT_COLOR, 
                                                   font=set_font('Cascadia mono'))
         self.amount_label.grid(row=0, column=3,padx=20,pady=20)
-        self.amount_entry_var= customtkinter.StringVar()
 
         self.amount_entry = customtkinter.CTkEntry(self.general_info, 
-                                                   font=set_font('Cascadia mono'),textvariable= self.amount_entry_var,
+                                                   font=set_font('Cascadia mono'),
                                                    text_color=TEXT_COLOR)
         self.amount_entry.grid(row=1,column=3,padx=20,pady=20)
 
@@ -109,12 +109,49 @@ class GastosFrame(Economy):
         self.final_frame=customtkinter.CTkFrame(master=layout,height=600)
         self.final_frame.grid(row=3,column=0,sticky="nsew",pady=40)
 
-        self.final_buttom= customtkinter.CTkButton(master=self.final_frame,text="Guardar",height=100,width=500,font=set_font(tam=20))
+        self.final_buttom= customtkinter.CTkButton(master=self.final_frame,text="Guardar",height=100,width=500,font=set_font(tam=20),command=self.retrive_data)
         self.final_buttom.pack(fill=tk.BOTH,expand=True)
 
         
     def coin_label_callback(self,value):
         print(value)
+    def write_data(self,data):
+        try:
+            escribir_valores = '''
+            INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)
+            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)
+            '''
+            current_data_base = f'{config.currentuser}.db'
+            self.conn = sqlite3.connect(current_data_base)
+            self.conn.execute(escribir_valores, data)
+            self.conn.commit()
+            CTkMessagebox(title="info",message='Datos ingresados exitosamente')
+        except:
+            CTkMessagebox(title="Error", message = "Error al escribir en la base de datos",icon='cancel')
+
+        self.conn.close()
+    def retrive_data(self):
+        name = self.name_entry.get()
+        print(self.amount_entry.get(),self.options_spend_var.get())
+        self.set_atr(self.amount_entry.get(),self.options_spend_var.get(),self.coin_var.get())
+        notas = self._notas
+        mes = self._date
+        tuple_data = (name, self._domicilio, self._higiene, self._transporte,self._vestimenta, self._entretenimiento, self._deudas, self._seguros,self._servicios,self._otros, notas, mes)
+        self.write_data(tuple_data)
+        self._domicilio = 0
+        self._higiene = 0 
+        self._ahorros = 0 
+        self._transporte = 0 
+        self._vestimenta = 0 
+        self._entretenimiento = 0 
+        self._deudas = 0 
+        self._seguros = 0 
+        self._servicios = 0 
+        self._otros = 0 
+        self._notas = ""
+        self.amount_entry.delete(0,'end')
+        self.name_entry.delete(0,'end')
+
 
     def buttom_notas_callback(self):
         """llama a la ventana para notas

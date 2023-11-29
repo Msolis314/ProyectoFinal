@@ -1,5 +1,6 @@
 """Modulo para crear la clase base de funcionalidad para los gastos y el presupuesto"""
 import customtkinter
+from CTkMessagebox import CTkMessagebox
 import tkinter as tk
 from tools.Usos import *
 from system_vars.Vars import *
@@ -10,6 +11,7 @@ class Economy:
         self._notas=None
         self._category= None
         self._domicilio = None
+        self._domicilio = 0
         self._higiene = None
         self._transporte = None
         self._vestimenta = None
@@ -19,9 +21,33 @@ class Economy:
         self._ahorros = None
         self._servicios = None
         self._otros = None
-    def set_atr(self,entry):
+    def set_atr(self,entry,type,coin):
         """Esta funcion seria para setear alguno de los atributos una vez resibida la entrada"""
-        pass
+        if valid_amount(entry,coin) == False:
+            CTkMessagebox(title="Error",message="Valor invalido",icon='cancel')
+            raise ExceptionSystem("Error en el valor")
+        if type == "Domicilio":
+            self._domicilio= valid_amount(entry,coin)
+        elif type == "Comida":
+            self._domicilio = valid_amount(entry,coin)
+        elif type == "Higiene":
+            self._higiene = valid_amount(entry, coin)
+        elif type == "Transporte":
+            self._transporte = valid_amount(entry,coin)
+        elif type == "Vestimenta":
+            self._vestimenta = valid_amount(entry, coin)
+        elif type == "Entretenimiento":
+            self._entretenimiento = valid_amount(entry,coin)
+        elif type == "Deudas":
+            self._deudas = valid_amount(entry,coin)
+        elif type == "Seguros":
+            self._seguros = valid_amount(entry,coin)
+        elif type == "Servicios":
+            self._servicios= valid_amount(entry,coin)
+        elif type == "Otros":
+            self._otros = valid_amount(entry,coin)
+        else:
+            raise ExceptionSystem("Error en los atributos permitidos")
     def get_atr(self):
         """Esta funcion deberia buscar en la base de datos por los atributos, seria para la del presupuesto"""
         pass

@@ -20,14 +20,6 @@ def new_data(user):
     tabla_gastos= '''
     CREATE TABLE IF NOT EXISTS gastos (
         nombre TEXT,
-        tipo TEXT,
-        monto TEXT,
-        notas TEXT,
-        mes TEXT
-    )
-    '''
-    tabla_presupuesto= '''
-    CREATE TABLE IF NOT EXISTS presupuesto (
         Domicilio TEXT,
         Higiene TEXT,
         Transporte TEXT,
@@ -36,7 +28,21 @@ def new_data(user):
         Seguros TEXT,
         Servicios TEXT,
         Otros TEXT,
+        notas TEXT,
         mes TEXT
+    )
+    '''
+    tabla_presupuesto= '''
+    CREATE TABLE IF NOT EXISTS presupuesto (
+        mes TEXT,
+        Domicilio TEXT,
+        Higiene TEXT,
+        Transporte TEXT,
+        Entretenimiento TEXT,
+        Deudas TEXT,
+        Seguros TEXT,
+        Servicios TEXT,
+        Otros TEXT
     )
     '''
     c.execute(tabla_ingresos)
