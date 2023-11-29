@@ -7,20 +7,18 @@ from system_vars.Vars import *
 class Economy:
     """Clase padre para atributos y caracteristicas de las clases de presupuesto y gasto"""
     def __init__(self):
-        self._date= None
-        self._notas=None
-        self._category= None
-        self._domicilio = None
+        self._date= "Enero"
+        self._notas=""
         self._domicilio = 0
-        self._higiene = None
-        self._transporte = None
-        self._vestimenta = None
-        self._entretenimiento = None
-        self._deudas = None
-        self._seguros = None
-        self._ahorros = None
-        self._servicios = None
-        self._otros = None
+        self._higiene = 0
+        self._transporte = 0
+        self._vestimenta = 0
+        self._entretenimiento = 0
+        self._deudas = 0
+        self._seguros = 0
+        self._ahorros = 0
+        self._servicios = 0
+        self._otros = 0
     def set_atr(self,entry,type,coin):
         """Esta funcion seria para setear alguno de los atributos una vez resibida la entrada"""
         if valid_amount(entry,coin) == False:

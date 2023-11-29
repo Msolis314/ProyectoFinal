@@ -1,0 +1,666 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="es" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main_window.menu_panel &#8212; documentación de Presupuesto Digital - 0.0.1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/main_window/menu_panel';</script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">documentación de Presupuesto Digital - 0.0.1</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/main_window.html">main_window</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Código fuente para main_window.menu_panel</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Módulo que contiene toda la estructura de la ventana principal del programa&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span> 
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">ttkbootstrap</span> <span class="k">as</span> <span class="nn">ttk</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="n">reader_image</span>
+<span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="n">center</span>
+<span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="n">set_font</span> 
+<span class="kn">from</span> <span class="nn">tablesetting.data_base_user</span> <span class="kn">import</span> <span class="n">new_data</span>
+<span class="kn">from</span> <span class="nn">system_vars.Vars</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">entry_classes.income</span> <span class="kn">import</span> <span class="n">IncomeFrame</span>
+<span class="kn">from</span> <span class="nn">entry_classes.spend</span> <span class="kn">import</span> <span class="n">GastosFrame</span>
+<span class="kn">from</span> <span class="nn">entry_classes.budget</span> <span class="kn">import</span> <span class="n">PresupuestoFrame</span>
+<span class="kn">from</span> <span class="nn">graph_classes.graph_choice</span> <span class="kn">import</span> <span class="n">GraphChoice</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="c1">#path_image =path_image= os.path.join(os.path.dirname(os.path.realpath(&quot;Documents&quot;)),r&quot;./Imagenes&quot;)</span>
+<span class="kn">import</span> <span class="nn">system_vars.config</span>  <span class="k">as</span> <span class="nn">config</span>
+<span class="k">global</span> <span class="n">path_image</span>
+<span class="n">path_image</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;Imagenes&quot;</span>
+
+<div class="viewcode-block" id="MainWindow"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.MainWindow.html#main_window.menu_panel.MainWindow">[documentos]</a><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTk</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase que controla la ventana principal</span>
+
+<span class="sd">    :param customtkinter: Clase padre de la biblioteca</span>
+<span class="sd">    :type customtkinter: Class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">currentuser</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructora de la clase, se encarga de aspectos de la configuracion</span>
+
+<span class="sd">        :param currentuser: Usuario actual que hizo login en el sistema</span>
+<span class="sd">        :type currentuser: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1">#Configurar la principal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Presupuesto Mensual&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iconbitmap</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;icon.ico&quot;</span><span class="p">))</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="mi">1000</span>
+        <span class="n">height</span> <span class="o">=</span> <span class="mi">600</span>
+        <span class="n">center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">weight</span><span class="p">,</span><span class="n">height</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">currentuser</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">currentuser</span> <span class="o">=</span> <span class="n">currentuser</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sections</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MainWindow.sections"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.MainWindow.html#main_window.menu_panel.MainWindow.sections">[documentos]</a>    <span class="k">def</span> <span class="nf">sections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion donde se crean las instancias de las diferentes secciones del programa</span>
+
+<span class="sd">        :param up_panel: Panel superior</span>
+<span class="sd">        :type up_panel: UpperBar</span>
+<span class="sd">        :param menu_panel: Panel del menu</span>
+<span class="sd">        :type menu_panel: MenuFrame</span>
+<span class="sd">        :param body_panel: Panel de la seccion de display del programa</span>
+<span class="sd">        :type body_panel:BodyFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#Frames de las secciones principales</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">up_panel</span><span class="o">=</span> <span class="n">UpperBar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="c1">#La declaracion de este widget sucede en esta seccion para acceder a la funcion que contrae y despliega el menu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">side_menu_image</span><span class="o">=</span><span class="n">reader_image</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;sidemenu.png&quot;</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+        <span class="c1">#Boton de abrir y cerrar menu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_menu_bottom</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">up_panel</span><span class="p">,</span>
+                                                   <span class="n">text</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> 
+                                                   <span class="n">border_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                                                   <span class="n">fg_color</span><span class="o">=</span><span class="n">COLOR_SUPERIOR</span><span class="p">,</span>
+                                                   <span class="n">hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span>
+                                                   <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span>
+                                                   <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">side_menu_image</span><span class="p">,</span>
+                                                   <span class="n">compound</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+                                                   <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">toggle_panel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_menu_bottom</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_panel</span><span class="o">=</span> <span class="n">MenuFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body_panel</span><span class="o">=</span><span class="n">BodyFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1">#Metodos para desplegar widgets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">up_panel</span><span class="o">.</span><span class="n">widgets_upper_bar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_panel</span><span class="o">.</span><span class="n">widgets_menu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">body_panel</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="MainWindow.toggle_panel"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.MainWindow.html#main_window.menu_panel.MainWindow.toggle_panel">[documentos]</a>    <span class="k">def</span> <span class="nf">toggle_panel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        funcion para contraer o desplegar el menu lateral</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">menu_panel</span><span class="o">.</span><span class="n">winfo_ismapped</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_panel</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">menu_panel</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span></div></div>
+<span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Definicion de los Frames de cada seccion </span>
+<span class="sd">Heredan de customtkinter.CTkFrame</span>
+<span class="sd">Necesitan que se les pase el Master</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BodyFrame"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.BodyFrame.html#main_window.menu_panel.BodyFrame">[documentos]</a><span class="k">class</span> <span class="nc">BodyFrame</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase que configura la ventana principal&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">COLOR_BODY</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
+<div class="viewcode-block" id="UpperBar"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.UpperBar.html#main_window.menu_panel.UpperBar">[documentos]</a><span class="k">class</span> <span class="nc">UpperBar</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase de la barra superior</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">,</span><span class="n">User</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructora de la clase, configura aspectos del Frame</span>
+
+<span class="sd">        :param master: Ventana superior donde va la barra</span>
+<span class="sd">        :type master: CTk</span>
+<span class="sd">        :param User: Usuario actual</span>
+<span class="sd">        :type User: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">FG_COLOR2</span><span class="p">,</span><span class="n">border_width</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">TOP</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">User</span> <span class="o">=</span> <span class="n">User</span>
+    <span class="k">def</span> <span class="nf">widgets_upper_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Display barra superior</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                                          <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span>
+                                          <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Presupuesto digital&quot;</span><span class="p">,</span>
+                                          <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Cascadia Mono SemiBold&quot;</span><span class="p">,</span><span class="mi">15</span><span class="p">),</span>
+                                          <span class="n">fg_color</span><span class="o">=</span><span class="s1">&#39;transparent&#39;</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                          <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                          <span class="n">width</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+        <span class="c1">#Usuario actual</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_user</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                                    <span class="n">text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">User</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                    <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span>
+                                                    <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Cascadia Mono SemiBold&quot;</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_user</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">RIGHT</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MenuFrame"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.MenuFrame.html#main_window.menu_panel.MenuFrame">[documentos]</a><span class="k">class</span> <span class="nc">MenuFrame</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase que define al menu lateral</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructora de la clase, configura las imagenes</span>
+
+<span class="sd">        :param master: Ventana principal donde se quiere posicionar el frame</span>
+<span class="sd">        :type master: CTK</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_icon</span><span class="o">=</span><span class="n">reader_image</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;menu.png&quot;</span><span class="p">,(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image2</span><span class="o">=</span><span class="n">reader_image</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;salary.png&quot;</span><span class="p">,(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image3</span><span class="o">=</span><span class="n">reader_image</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;line-chart.png&quot;</span><span class="p">,(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image4</span><span class="o">=</span><span class="n">reader_image</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;file.png&quot;</span><span class="p">,(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">master</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">FG_COLOR2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">ttk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid_rowconfigure</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+   
+<div class="viewcode-block" id="MenuFrame.widgets_menu"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.MenuFrame.html#main_window.menu_panel.MenuFrame.widgets_menu">[documentos]</a>    <span class="k">def</span> <span class="nf">widgets_menu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">body</span><span class="p">,</span><span class="n">root</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion que maneja los widgets del menu</span>
+
+<span class="sd">        :param body: Frame donde se quieren posicionar los widgets</span>
+<span class="sd">        :type body: CTkFrame</span>
+<span class="sd">        :param root: Ventana Principal</span>
+<span class="sd">        :type root: CTk</span>
+<span class="sd">        :param data_user: Boton que despliega las opciones para la entrada del usuario</span>
+<span class="sd">        :type data_user: CTkButtom</span>
+<span class="sd">        :param _analisis: Boton que despliega las opciones para graficacion</span>
+<span class="sd">        :type _analisis: CTkButtom</span>
+<span class="sd">        :param exportar_datos: Boton que despliega las opciones para exportar</span>
+<span class="sd">        :type exportar_datos: CTkButtom</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Main</span><span class="o">=</span><span class="n">root</span>
+       <span class="c1">#Opciones del menu lateral</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_label</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">compound</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">menu_icon</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">=</span><span class="n">body</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_user</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span><span class="s2">&quot;Datos del usuario&quot;</span><span class="p">,</span>
+                                                <span class="n">corner_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                                                <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                                <span class="n">border_spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                                <span class="n">fg_color</span><span class="o">=</span><span class="s1">&#39;transparent&#39;</span><span class="p">,</span> 
+                                                <span class="n">text_color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gray10&quot;</span><span class="p">,</span> <span class="s2">&quot;gray90&quot;</span><span class="p">),</span> 
+                                                <span class="n">hover_color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gray70&quot;</span><span class="p">,</span> <span class="s2">&quot;gray30&quot;</span><span class="p">),</span>
+                                                <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image2</span><span class="p">,</span> 
+                                                <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+                                                <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">evento_data_user</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_user</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_analisis</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span><span class="s2">&quot;Visualizacion de datos&quot;</span><span class="p">,</span>
+                                            <span class="n">corner_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                            <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+                                            <span class="n">border_spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                            <span class="n">fg_color</span><span class="o">=</span><span class="s1">&#39;transparent&#39;</span><span class="p">,</span> 
+                                            <span class="n">text_color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gray10&quot;</span><span class="p">,</span> <span class="s2">&quot;gray90&quot;</span><span class="p">),</span> 
+                                            <span class="n">hover_color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gray70&quot;</span><span class="p">,</span> <span class="s2">&quot;gray30&quot;</span><span class="p">),</span> 
+                                            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+                                            <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image3</span><span class="p">,</span>
+                                            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">evento_analisis</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_analisis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exportar_datos</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span><span class="s2">&quot;Exportar Datos&quot;</span><span class="p">,</span>
+                                            <span class="n">corner_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                            <span class="n">height</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                            <span class="n">border_spacing</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                                            <span class="n">fg_color</span><span class="o">=</span><span class="s1">&#39;transparent&#39;</span><span class="p">,</span> 
+                                            <span class="n">text_color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gray10&quot;</span><span class="p">,</span> <span class="s2">&quot;gray90&quot;</span><span class="p">),</span> 
+                                            <span class="n">hover_color</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;gray70&quot;</span><span class="p">,</span> <span class="s2">&quot;gray30&quot;</span><span class="p">),</span> 
+                                            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+                                            <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image4</span><span class="p">,</span>
+                                            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">evento3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exportar_datos</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="c1">#self.menu_display= customtkinter.CTkOptionMenu(master=self,values = [&#39;blue&#39;,&#39;dark-blue&#39;,&#39;green&#39;], command=self.evento_color)</span>
+        <span class="c1">#self.menu_display.grid(row =6, column=0,padx=20,pady=20 ,sticky = &quot;s&quot;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logout</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Log Out&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">evento_logout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logout</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_display</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkOptionMenu</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+                                                       <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dark&#39;</span><span class="p">,</span><span class="s1">&#39;system&#39;</span><span class="p">,</span><span class="s1">&#39;light&#39;</span><span class="p">],</span> 
+                                                       <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">evento_apariencia</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span><span class="n">dropdown_fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                       <span class="n">button_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                       <span class="n">button_hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span>
+                                                       <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                                       <span class="n">dropdown_font</span><span class="o">=</span><span class="n">set_font</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">menu_display</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span> <span class="p">,</span><span class="n">sticky</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_window</span><span class="p">(</span><span class="s2">&quot;data_user&quot;</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">evento_apariencia</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">op</span><span class="p">):</span>
+        <span class="c1">#Definir eventos para los botones y menus</span>
+        <span class="n">customtkinter</span><span class="o">.</span><span class="n">set_appearance_mode</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">evento_logout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Evento para logout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Main</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+         
+    <span class="k">def</span> <span class="nf">evento_data_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Al clickear entrada de datos </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_window</span><span class="p">(</span><span class="s2">&quot;data_user&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">evento_analisis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Evento para analisis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_window</span><span class="p">(</span><span class="s2">&quot;analisis&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">evento3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#evento para exportar datos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">change_window</span><span class="p">(</span><span class="s2">&quot;export&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="MenuFrame.change_window"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.MenuFrame.html#main_window.menu_panel.MenuFrame.change_window">[documentos]</a>    <span class="k">def</span> <span class="nf">change_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buttom</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal</span>
+<span class="sd">        :param buttom: Boton seleccionado</span>
+<span class="sd">        :type buttom:str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#Esto es para que quede marcada la opcion que se muestra en el momento en pantalla</span>
+        <span class="k">if</span> <span class="n">buttom</span> <span class="o">==</span> <span class="s2">&quot;analisis&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_analisis</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BUTTOM_HOVER</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_analisis</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">fg_color</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">buttom</span> <span class="o">==</span> <span class="s2">&quot;data_user&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_user</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BUTTOM_HOVER</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_user</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">fg_color</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">buttom</span> <span class="o">==</span> <span class="s2">&quot;export&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exportar_datos</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BUTTOM_HOVER</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exportar_datos</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">fg_color</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
+        <span class="c1">#Creo las instancias de los frames </span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">EntradaDatosFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">)</span>
+        <span class="n">analisis</span><span class="o">=</span> <span class="n">Analisis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">)</span>
+        <span class="n">export</span> <span class="o">=</span> <span class="n">Exportardatos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">)</span>
+        <span class="c1">#Posiciono los Frames</span>
+        <span class="k">if</span> <span class="n">buttom</span> <span class="o">==</span> <span class="s2">&quot;data_user&quot;</span><span class="p">:</span>   
+            <span class="n">data</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span> <span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">buttom</span> <span class="o">==</span> <span class="s2">&quot;analisis&quot;</span><span class="p">:</span>
+            <span class="n">analisis</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span> <span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">analisis</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">buttom</span> <span class="o">==</span> <span class="s2">&quot;export&quot;</span><span class="p">:</span>
+            <span class="n">export</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span> <span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">export</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span></div></div>
+<div class="viewcode-block" id="SubFrames"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.SubFrames.html#main_window.menu_panel.SubFrames">[documentos]</a><span class="k">class</span> <span class="nc">SubFrames</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">):</span>
+    <span class="c1">#Clase abstracta para definir caracteristicas de las otras subclases de la ventana</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">master</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">corner_radius</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="c1">#Devuelve el Frame</span>
+         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span></div>
+   
+
+
+
+<div class="viewcode-block" id="EntradaDatosFrame"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.EntradaDatosFrame.html#main_window.menu_panel.EntradaDatosFrame">[documentos]</a><span class="k">class</span> <span class="nc">EntradaDatosFrame</span><span class="p">(</span><span class="n">SubFrames</span><span class="p">):</span>
+    <span class="c1">#Clase para el boton data_user</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
+        <span class="c1">#Boton 1</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_ingresos</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;profits.png&quot;</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_ingresos</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span>
+                                                      <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">,</span>
+                                                      <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_ingresos</span><span class="p">,</span> 
+                                                      <span class="n">compound</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                                      <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">event_boton1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_ingresos</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span> <span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="c1"># Boton 2 </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_gastos</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;expense.png&quot;</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_gastos</span> <span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span>
+                                                    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Gastos&quot;</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                    <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_gastos</span><span class="p">,</span><span class="n">hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span> 
+                                                    <span class="n">compound</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                                    <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">event_boton2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_gastos</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span> <span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+
+        <span class="c1">#Boton 3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_presupuesto</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;budget.png&quot;</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_budget</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span>
+                                                   <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Presupuesto&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span>
+                                                   <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_presupuesto</span><span class="p">,</span> 
+                                                   <span class="n">compound</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+                                                   <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">event_boton3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_budget</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span> <span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="c1">#Nuevo frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_income</span><span class="o">=</span><span class="n">SubFrames</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_gastos</span><span class="o">=</span> <span class="n">SubFrames</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_budget</span> <span class="o">=</span> <span class="n">SubFrames</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">event_boton1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Para entrar un nuevo Frame de ingresos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_income</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span> <span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_income</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_income</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">IncomeFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_frame_income</span><span class="o">.</span><span class="n">_layout</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">event_boton2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Para entrar al nuevo frame de ingreso de gastos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_gastos</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;nsew&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_gastos</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_gastos</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">GastosFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_frame_gastos</span><span class="o">.</span><span class="n">_layout</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">event_boton3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#Para entrar al nuevo frame de ingreso de presupuesto </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_budget</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s1">&#39;nsew&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_budget</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">new_frame_budget</span><span class="o">.</span><span class="n">_layout</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">PresupuestoFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_frame_budget</span><span class="o">.</span><span class="n">_layout</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="Analisis"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.Analisis.html#main_window.menu_panel.Analisis">[documentos]</a><span class="k">class</span> <span class="nc">Analisis</span><span class="p">(</span><span class="n">SubFrames</span><span class="p">):</span>
+    <span class="c1">#Clase para el boton analisis</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="n">GraphChoice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">)</span>
+        <span class="c1">#self.option_men_var= customtkinter.StringVar(value = &quot;grafica&quot;)</span>
+        <span class="c1">#self.options_analisis= customtkinter.CTkOptionMenu(self._layout, values=[&quot;Grafica&quot;,&quot;Pie chart&quot;,&quot;muestreo&quot;,&quot;Comparacion&quot;],command=self.get_option_menu_choice ,variable=self.option_men_var)</span>
+
+        <span class="c1">#self.options_analisis.grid(row=0, column=0,padx=20,pady=10,sticky=&quot;nsew&quot;)</span>
+   <span class="c1">#Prueba</span>
+    <span class="k">def</span> <span class="nf">get_option_menu_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">choice</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Exportardatos"><a class="viewcode-back" href="../../_autosummary/main_window.menu_panel.Exportardatos.html#main_window.menu_panel.Exportardatos">[documentos]</a><span class="k">class</span> <span class="nc">Exportardatos</span><span class="p">(</span><span class="n">SubFrames</span><span class="p">):</span>
+    <span class="c1"># Clase para el boton de exportar datos</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame3</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span><span class="s2">&quot;Opciones de descarga&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFont</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Century Gothic&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">,</span><span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1">#Radio buttoms</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radio_var</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">IntVar</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op1</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkRadioButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Excel&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFont</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Century Gothic&quot;</span><span class="p">),</span><span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_event</span><span class="p">,</span><span class="n">variable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_var</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op2</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkRadioButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Graficos&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFont</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s2">&quot;Century Gothic&quot;</span><span class="p">),</span><span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_event</span><span class="p">,</span><span class="n">variable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_var</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pady</span> <span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">radio_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;radio var is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">radio_var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Mariana Solis, Mario Reyes y Candy Rojas
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Mariana Solis, Mario Reyes y Candy Rojas.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
