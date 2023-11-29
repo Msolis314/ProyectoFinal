@@ -25,6 +25,7 @@ class Economy:
             CTkMessagebox(title="Error",message="Valor invalido",icon='cancel')
             raise ExceptionSystem("Error en el valor")
         if type == "Domicilio":
+            print(entry)
             self._domicilio= valid_amount(entry,coin)
         elif type == "Comida":
             self._domicilio = valid_amount(entry,coin)
@@ -115,7 +116,6 @@ def valid_amount(money_amount,moneda:str):
     try: 
         value = float(money_amount)
         negative_value_excep(value)
-        print(convertir_moneda(value,moneda))
         return convertir_moneda(value,moneda)
     except ValueError as e:
         print(f"Error:{e}")

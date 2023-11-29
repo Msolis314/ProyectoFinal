@@ -26,6 +26,7 @@ def new_data(user):
         Entretenimiento TEXT,
         Deudas TEXT,
         Seguros TEXT,
+        Vestimenta TEXT,
         Servicios TEXT,
         Otros TEXT,
         notas TEXT,
@@ -40,6 +41,7 @@ def new_data(user):
         Transporte TEXT,
         Entretenimiento TEXT,
         Deudas TEXT,
+        Vestimenta TEXT,
         Seguros TEXT,
         Servicios TEXT,
         Otros TEXT

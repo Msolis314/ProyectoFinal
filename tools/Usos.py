@@ -69,3 +69,5 @@ def convertir_moneda(amount:float, coin_type:str = 'Colón'):
         return amount*580.44
     elif coin_type == 'Colón':
         return amount
+    else: 
+        return False

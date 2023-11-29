@@ -2,9 +2,12 @@
     """
 import customtkinter
 import tkinter as tk
+import sqlite3
 from .template import *
 from system_vars import *
 from tools.Usos import *
+import system_vars.config as config
+
 font_exam= 'Berlin Sans FB'
 class PresupuestoFrame(Economy):
     """Clase para el manejo de la entrada del presupuesto
@@ -147,7 +150,8 @@ class PresupuestoFrame(Economy):
         self.safe_buttom= customtkinter.CTkButton(self.final_frame,text='Guardar',border_color=BORDER_COLOR,
                                                   text_color=TEXT_COLOR,font=set_font('Cascadia mono SemiBold', 18),
                                                   fg_color=BORDER_COLOR,
-                                                  hover_color=HOVER_COLOR)
+                                                  hover_color=HOVER_COLOR,
+                                                  command=self.event_guardar)
         self.safe_buttom.pack(fill='both', expand=True,pady=20)
         self.layout=layout
         
@@ -162,10 +166,12 @@ class PresupuestoFrame(Economy):
         :param month: mes correspondiente al boton 
         :type month: string
         """
+        self._date = None
         if month == 'Enero':
             #Aqui debe ir una funcion que revise si hay datos en enero y le dice al usuario
             self.enero.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Enero')
+            self._date='Enero'
            
         else:
             self.enero.configure(fg_color='transparent')
@@ -174,62 +180,96 @@ class PresupuestoFrame(Economy):
 
             self.febrero.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Febrero')
+            self._date='Febrero'
         else:
             self.febrero.configure(fg_color='transparent')
             
         if month == 'Marzo':
             self.marzo.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Marzo')
+            self._date = 'Marzo'
         else:
             self.marzo.configure(fg_color='transparent')
         if month == 'Abril':
             self.abril.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Abril')
+            self._date - 'Abril'
         else:
             self.abril.configure(fg_color='transparent')
         if month == 'Mayo':
             self.mayo.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Mayo')
+            self._date = 'Mayo'
         else:
             self.mayo.configure(fg_color='transparent')
         if month == 'Junio':
             self.junio.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Junio')
+            self._date = 'Junio'
         else:
             self.junio.configure(fg_color='transparent')
         if month == 'Julio':
             self.julio.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Julio')
+            self._date = 'Julio'
         else:
             self.julio.configure(fg_color='transparent')
         if month == 'Agosto':
             self.agosto.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Agosto')
+            self._date = 'Agosto'
         else:
             self.agosto.configure(fg_color='transparent')
         if month == 'Septiembre':
             self.septiembre.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Septiembre')
+            self._date= 'Septiembre'
         else:
             self.septiembre.configure(fg_color='transparent')
         if month == 'Octubre':
             self.octubre.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Octubre')
+            self._date = 'Octubre'
         else:
             self.octubre.configure(fg_color='transparent')
         if month == 'Noviembre':
             self.noviembre.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Noviembre')
+            self._date = 'Noviembre'
         else:
             self.noviembre.configure(fg_color='transparent')
         if month == 'Diciembre':
             self.diciembre.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Diciembre')
+            self._date = 'Diciembre'
         else:
             self.diciembre.configure(fg_color='transparent')
     def event_guardar(self):
         """Aqui se debe verificar las entradas del usuario y escribirlas en la base de datos"""
-        pass
+        data =self.user_entry.get_data()
+        data.insert(0,self._date)
+        newdata = tuple(data)
+        print(data)
+        if self._date == None:
+            CTkMessagebox(title="Error", message='Debe elegir una fecha',icon='cancel')
+            raise ExceptionSystem("Error en la escritura")
+        if data != None and self._date != None:
+            self.write_data(newdata)
+        else:
+            CTkMessagebox(title="Error", message="Error al escribir en la base de datos",icon='cancel')
+
+    def write_data(self,data):
+        escribir_valores = '''
+        INSERT INTO presupuesto (mes, Domicilio,Higiene , Transporte,Entretenimiento,Deudas,Seguros,Vestimenta,Servicios,Otros)
+        VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)
+        '''
+        current_data_base = f'{config.currentuser}.db'
+        self.conn = sqlite3.connect(current_data_base)
+        self.conn.execute(escribir_valores, data)
+        self.conn.commit()
+        self.conn.close()
+        CTkMessagebox(title="info",message='Datos ingresados exitosamente')
+
 class Entry(customtkinter.CTkFrame):
     """Clase con las entradas del presupuesto
 
@@ -256,14 +296,14 @@ class Entry(customtkinter.CTkFrame):
         self.grid_columnconfigure(0,weight=1)
         self.grid_columnconfigure(3,weight=1)
         self.grid_columnconfigure(5,weight=1)
-        self.grid_rowconfigure(9,weight=1)
+        self.grid_rowconfigure(11,weight=1)
         self.title_frame=customtkinter.CTkFrame(self,fg_color=FG_COLOR)
         self.title_frame.grid(row=0,column=3,sticky='nsew')
         self.title_label = customtkinter.CTkLabel(self.title_frame,text="Presupuesto",
                                                  text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia Mono SemiBold',15))
         self.title_label.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
-        economy_atr=['Domicilio','Higiene','Transporte','Entretenimiento','Deudas','Seguros','Servicios','Otros']
+        economy_atr=['Domicilio','Higiene','Transporte','Entretenimiento','Deudas','Seguros','Vestimenta','Servicios','Otros']
         for index,atr in enumerate(economy_atr):
             customtkinter.CTkLabel(self,text=atr,text_color=TEXT_COLOR,
                                                  font=set_font('Cascadia Mono')).grid(row = 1+ index, column=1,pady=5,padx=5)
@@ -276,7 +316,7 @@ class Entry(customtkinter.CTkFrame):
                                                  textvariable=self.domicilio_var)
         self.domicilio_entry.grid(row=1, column=4,pady=5)
     
-        self.higiene_var = customtkinter.StringVar()
+        self.higiene_var = customtkinter.StringVar(value=0)
         self.higiene_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -314,6 +354,12 @@ class Entry(customtkinter.CTkFrame):
                                                  font=set_font('Cascadia Mono'),
                                                  textvariable=self.seguros_var)
         self.seguros_entry.grid(row=6, column=4,pady=5)
+        self.vestimenta_var = customtkinter.StringVar()
+        self.vestimenta_entry = customtkinter.CTkEntry(self,
+                                                 text_color=TEXT_COLOR,placeholder_text="descripcion", 
+                                                 font=set_font('Cascadia Mono'),
+                                                 textvariable=self.vestimenta_var)
+        self.vestimenta_entry.grid(row=7, column=4,pady=5)
 
         
         self.servicios_var = customtkinter.StringVar()
@@ -321,7 +367,7 @@ class Entry(customtkinter.CTkFrame):
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
                                                  textvariable=self.servicios_var)
-        self.servicios_entry.grid(row=7, column=4,pady=5)
+        self.servicios_entry.grid(row=8, column=4,pady=5)
 
         
         self.otros_var = customtkinter.StringVar()
@@ -329,8 +375,28 @@ class Entry(customtkinter.CTkFrame):
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
                                                  textvariable=self.otros_var)
-        self.otros_entry.grid(row=8, column=4,pady=5)
-        
+        self.otros_entry.grid(row=9, column=4,pady=5)
+        self.money_frame=customtkinter.CTkFrame(self,fg_color=FG_COLOR)
+        self.money_frame.grid(row=10,column=3,sticky='nsew')
+        self.coin_label = customtkinter.CTkLabel(self.money_frame,
+                                                text='Tipo de cambio',
+                                                font=set_font(), 
+                                                text_color=TEXT_COLOR)
+        self.coin_label.pack(side= tk.TOP, fill = 'both',expand=True)
+        self.coin_var=customtkinter.StringVar(value="Dolar")
+        self.coin_entry = customtkinter.CTkSegmentedButton(self.money_frame, values=["Dólar", "Colón", "Euro"],
+                                                     font=set_font('Shanti'),
+                                                     variable=self.coin_var)
+        self.coin_entry.pack(side= tk.BOTTOM, fill = 'both',expand=True)
+    def get_data(self):
+        tuple_data = (self.domicilio_var.get(),self.higiene_var.get(),self.transporte_var.get(),self.entretenimiento_var.get(),self.deudas_var.get(),self.seguros_var.get(),self.vestimenta_var.get(),self.servicios_var.get(),self.otros_var.get())
+        check_tuple = []
+        money_type = self.coin_var.get()
+        for data in tuple_data:
+            check_tuple.append(valid_amount(data,money_type))
+            continue
+        return check_tuple
+    
 
         
 

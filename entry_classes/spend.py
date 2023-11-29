@@ -78,7 +78,7 @@ class GastosFrame(Economy):
                                                 text_color=TEXT_COLOR)
         self.coin_label.grid(row=0, column=4,padx=20,pady=20,sticky="nsew")
         self.coin_var=customtkinter.StringVar(value="Dolar")
-        self.coin_entry = customtkinter.CTkSegmentedButton(self.general_info, values=["Dolar", "Colon", "Euro"],
+        self.coin_entry = customtkinter.CTkSegmentedButton(self.general_info, values=["Dólar", "Colón", "Euro"],
                                                      command=self.coin_label_callback,font=set_font('Shanti'),
                                                      variable=self.coin_var)
         self.coin_entry.grid(row=1,column=4,padx=20,pady=20,sticky="nsew")
@@ -116,18 +116,19 @@ class GastosFrame(Economy):
     def coin_label_callback(self,value):
         print(value)
     def write_data(self,data):
-        try:
-            escribir_valores = '''
-            INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)
-            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)
-            '''
-            current_data_base = f'{config.currentuser}.db'
-            self.conn = sqlite3.connect(current_data_base)
-            self.conn.execute(escribir_valores, data)
-            self.conn.commit()
-            CTkMessagebox(title="info",message='Datos ingresados exitosamente')
-        except:
-            CTkMessagebox(title="Error", message = "Error al escribir en la base de datos",icon='cancel')
+        
+        escribir_valores = '''
+        INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)
+        VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)
+        '''
+        current_data_base = f'{config.currentuser}.db'
+        self.conn = sqlite3.connect(current_data_base)
+        self.conn.execute(escribir_valores, data)
+        self.conn.commit()
+        CTkMessagebox(title="info",message='Datos ingresados exitosamente')
+        self.conn.close()
+        
+          
 
         self.conn.close()
     def retrive_data(self):
@@ -137,6 +138,7 @@ class GastosFrame(Economy):
         notas = self._notas
         mes = self._date
         tuple_data = (name, self._domicilio, self._higiene, self._transporte,self._vestimenta, self._entretenimiento, self._deudas, self._seguros,self._servicios,self._otros, notas, mes)
+        print(tuple_data)
         self.write_data(tuple_data)
         self._domicilio = 0
         self._higiene = 0 
