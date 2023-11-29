@@ -5,9 +5,21 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import pandas as pd
 from DataManager import DataManager
 
+# The AnnualGraph class is a Python class that creates a graphical interface for displaying an annual
+# budget graph.
 class AnnualGraph():
     
     def __init__(self, root, graphs_instance):
+        """
+        The above function is the initialization method for a class that creates an interface for an
+        annual budget graph.
+        
+        :param root: The "root" parameter is the main window or the root window of the application. It
+        is typically an instance of the Tk class from the tkinter module in Python
+        :param graphs_instance: The `graphs_instance` parameter is an instance of a class that contains
+        methods for creating and updating graphs. It is used to access the graphing functionality in the
+        code
+        """
         self.root= root
         self.root.title("Annual Budget Graph Interface")
         self.month_var = tk.StringVar()
@@ -18,6 +30,10 @@ class AnnualGraph():
     
     # Método para mostrar la gráfica de gastos y presupuesto anuales.
     def show_annual_graph(self):
+        """
+        The `show_annual_graph` function creates a bar graph to display monthly incomes, expenses, and
+        savings.
+        """
         
         # Carga datos desde un archivo Excel
         salary, commissions, sales, others = self.data_manager.load_data_incomes_from_excel('FILE.xlsx', 'Data')

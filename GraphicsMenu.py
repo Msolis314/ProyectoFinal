@@ -6,8 +6,17 @@ from IncomesPie  import IncomesPie
 from MonthlyBudgetGraph import MonthlyBudgetGraph
 from AnnualGraph import AnnualGraph
 
+# The `Graphs` class is a main graph interface that creates instances of various graph components and
+# provides buttons to display different types of graphs.
 class Graphs:
     def __init__(self, root):
+        """
+        The function initializes the main graph interface and creates instances of various graph
+        components.
+        
+        :param root: The "root" parameter is the main window or the root window of the application. It
+        is the top-level window that contains all other widgets and elements of the user interface
+        """
         self.root = root
         self.root.title("Main Graph Interface")
         self.datamanager= DataManager()
@@ -20,6 +29,10 @@ class Graphs:
 
     # Método para crear el marco principal de la interfaz gráfica
     def create_main_frame(self):
+        """
+        The function creates the main frame of a GUI application and adds buttons for displaying
+        different types of graphs.
+        """
         frame = tkk.Frame(self.root, padding="10")
         frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
         self.frame = frame
@@ -48,11 +61,17 @@ class Graphs:
     
     # Método para volver a la interfaz principal desde otras pantallas.    
     def return_to_main_interface(self):
+        """
+        The function returns to the main interface by destroying the current frame, creating a new main
+        frame, and updating the title of the root window.
+        """
         self.frame.destroy()
         self.create_main_frame()
         self.root.title("Main Graph Interface")
 
 # Punto de entrada principal,           
+# The code block `if __name__ == "__main__":` is a common Python idiom that allows a module to be run
+# as a standalone script or imported by other modules.
 if __name__ == "__main__":
     root = tk.Tk()
     root.geometry("800x600")

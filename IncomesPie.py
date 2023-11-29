@@ -9,6 +9,16 @@ from DataManager import DataManager
 class IncomesPie():
     
     def __init__(self, root, graphs_instance):
+        """
+        The above function is the initialization method for a class that creates an interface for
+        displaying income graphs.
+        
+        :param root: The "root" parameter is the main window or root window of the application. It is
+        typically an instance of the Tk class from the tkinter module
+        :param graphs_instance: The `graphs_instance` parameter is an instance of a class that contains
+        methods for generating and displaying graphs. It is used to access the graphing functionality in
+        the code
+        """
         self.root = root
         self.root.title("Income Graph Interface")
         self.month_var = tk.StringVar() # Variable para almacenar el mes seleccionado.
@@ -19,6 +29,10 @@ class IncomesPie():
         
     # Método para mostrar el menú desplegable de selección de mes.    
     def show_select_month(self):
+        """
+        The function creates a dropdown menu for selecting a month and includes buttons for showing a
+        graph and returning to the main interface.
+        """
         
         # Ocultar el marco de la interfaz principal, si está visible.
         self.graphs.frame.grid_forget()
@@ -44,6 +58,10 @@ class IncomesPie():
         
     # Método para mostrar la gráfica de ingresos.
     def show_income_graph(self):
+        """
+        The function `show_income_graph` displays a pie chart of income categories based on the selected
+        month's data from an Excel file.
+        """
         
         # Obtiene el mes seleccionado.
         selected_month_name = self.month_var.get()
@@ -94,6 +112,9 @@ class IncomesPie():
 
     #Método para volver a la selección de mes.
     def return_to_month_menu(self):
+        """
+        The function returns to the month menu and updates the title of the root window.
+        """
         self.month_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
         if hasattr(self, 'graph_frame') and hasattr(self.graph_frame, 'destroy'):

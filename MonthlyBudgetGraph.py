@@ -9,6 +9,15 @@ from DataManager import DataManager
 class MonthlyBudgetGraph():
     
     def __init__(self, root, graphs_instance):
+        """
+        The function initializes a Monthly Budget Graph Interface with a given root and graphs instance.
+        
+        :param root: The "root" parameter is the main window or root window of the application. It is
+        typically created using the Tk() function from the tkinter module
+        :param graphs_instance: The parameter "graphs_instance" is an instance of a class that contains
+        methods for creating and updating graphs. It is used in the code to access the graph-related
+        functionality
+        """
         self.root = root
         self.root.title("Monthly Budget Graph Interface")
         self.month_var = tk.StringVar() # Variable para almacenar el mes seleccionado.
@@ -19,6 +28,10 @@ class MonthlyBudgetGraph():
     
     # Método para mostrar el menú desplegable de selección de mes.  
     def show_select_month(self):
+        """
+        The function creates a dropdown menu for selecting a month and includes buttons for showing a
+        graph and returning to the main interface.
+        """
         
         # Ocultar el marco de la interfaz principal, si está visible.
         self.graphs.frame.grid_forget()
@@ -44,6 +57,10 @@ class MonthlyBudgetGraph():
 
     # Método para mostrar la gráfica de gastos y presupuesto mensuales.
     def show_month_graph(self):
+        """
+        The function `show_month_graph` displays a bar graph showing the budget and expenses for a
+        selected month.
+        """
         
         # Cargar datos desde un archivo Excel
         rent, transport, entertainment, services, personal_hygiene, insurance, debts, others = self.data_manager.load_data_expenses_from_excel('FILE.xlsx', 'Data')
@@ -97,6 +114,9 @@ class MonthlyBudgetGraph():
         
     #Método para volver a la selección de mes.    
     def return_to_month_menu(self):
+        """
+        The function returns to the month menu and updates the title of the root window.
+        """
         self.month_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
         if hasattr(self, 'graph_month_frame') and hasattr(self.graph_month_frame, 'destroy'):
