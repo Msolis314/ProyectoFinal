@@ -32,7 +32,9 @@ class PresupuestoFrame(Economy):
         :type layout: CTkFrame
         """
 
+
         super().__init__()
+        self._date = None
         self.month_frame= customtkinter.CTkFrame(master=layout, width=1500, fg_color=FG_COLOR)
         self.month_frame.pack(side=tk.LEFT, fill='both', expand=False)
         self.month_frame.columnconfigure(0,weight=1)
@@ -416,23 +418,23 @@ class Entry(customtkinter.CTkFrame):
         """Funcion para limpiar las entradas una vez se guardan los datos
         """
         self.domicilio_entry.delete(0,'end')
-        self.domicilio_var = '0'
+        self.domicilio_var = customtkinter.StringVar(value='0')
         self.higiene_entry.delete(0,'end')
-        self.higiene_var = '0'
+        self.higiene_var = customtkinter.StringVar(value='0')
         self.transporte_entry.delete(0,'end')
-        self.transporte_var = '0'
+        self.transporte_var = customtkinter.StringVar(value='0')
         self.entretenimiento_entry.delete(0,'end')
-        self.entretenimiento_var = '0'
+        self.entretenimiento_var = customtkinter.StringVar(value='0')
         self.deudas_entry.delete(0,'end')
-        self.deudas_var = '0'
+        self.deudas_var = customtkinter.StringVar(value='0')
         self.seguros_entry.delete(0,'end')
-        self.seguros_var = '0'
+        self.seguros_var = customtkinter.StringVar(value='0')
         self.vestimenta_entry.delete(0,'end')
-        self.vestimenta_var = '0'
+        self.vestimenta_var = customtkinter.StringVar(value='0')
         self.servicios_entry.delete(0,'end')
-        self.servicios_var  = '0'
+        self.servicios_var  = customtkinter.StringVar(value='0')
         self.otros_entry.delete(0,'end')
-        self.otros_entry = '0'
+        self.otros_var = customtkinter.StringVar(value='0')
     
 
         

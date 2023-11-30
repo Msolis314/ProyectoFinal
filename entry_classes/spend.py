@@ -116,6 +116,11 @@ class GastosFrame(Economy):
     def coin_label_callback(self,value):
         print(value)
     def write_data(self,data):
+        """Funcion para escribir en la tabla de gastos 
+
+        :param data: tupla con los datos  del nombre del gasto y el monto en la categoria respectiva
+        :type data: tupla 
+        """
         
         escribir_valores = '''
         INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)
@@ -130,15 +135,16 @@ class GastosFrame(Economy):
         
           
 
-        self.conn.close()
+        
     def retrive_data(self):
+        """Funcion para recopilar datos
+        """
         name = self.name_entry.get()
         print(self.amount_entry.get(),self.options_spend_var.get())
         self.set_atr(self.amount_entry.get(),self.options_spend_var.get(),self.coin_var.get())
         notas = self._notas
         mes = self._date
         tuple_data = (name, self._domicilio, self._higiene, self._transporte,self._vestimenta, self._entretenimiento, self._deudas, self._seguros,self._servicios,self._otros, notas, mes)
-        print(tuple_data)
         self.write_data(tuple_data)
         self._domicilio = 0
         self._higiene = 0 
