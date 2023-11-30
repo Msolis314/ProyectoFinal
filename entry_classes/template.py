@@ -20,7 +20,17 @@ class Economy:
         self._servicios = 0
         self._otros = 0
     def set_atr(self,entry,type,coin):
-        """Esta funcion seria para setear alguno de los atributos una vez resibida la entrada"""
+        """Esta funcion seria para setear alguno de los atributos una vez resibida la entrada
+
+        :param entry: entrada del usuario
+        :type entry: str
+        :param type: Categoria del gasto
+        :type type: moneda
+        :param coin: Tipo de cambio
+        :type coin: str
+        :raises ExceptionSystem: Levanta una excepcion si no se puede convertir el valor a un float o si es negativa
+        :raises ExceptionSystem: En caso que por alguna razon fallen los atributos preestablecidos
+        """
         if valid_amount(entry,coin) == False:
             CTkMessagebox(title="Error",message="Valor invalido",icon='cancel')
             raise ExceptionSystem("Error en el valor")
@@ -110,9 +120,26 @@ class TopNotas(customtkinter.CTkToplevel):
         self.destroy()
 
 def negative_value_excep(value):
+    """Funcion para generar una excepcion con valores negativos
+
+    :param value: numero ingresado
+    :type value: float
+    :raises ExceptionSystem: Levanta la excepcion si el numero es negativo
+    """
     if value < 0 : 
         raise ExceptionSystem("Valor ingresado no puede ser negativo")
 def valid_amount(money_amount,moneda:str):
+    """Funcion para revisar que el monto ingresado es valido
+
+    :param money_amount: entrada numerica del usuario
+    :type money_amount: str
+    :param moneda: tipo de cambio
+    :type moneda: str
+    :return: False si falla en convertir la entrada a un tipo entero
+    :rtype: Boolean
+    :return: valor convertido a colones si lo convierte a entero
+    :rtype: float
+    """
     try: 
         value = float(money_amount)
         negative_value_excep(value)

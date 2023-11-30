@@ -201,6 +201,10 @@ class IncomeFrame(Income):
         """Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido"""
         self._notas=n
     def retrive_data(self):
+        """Funcion para recopilar los datos
+
+        :raises ExceptionSystem: Si los valores no son validos levanta una excepcion
+        """
         if valid_amount(self.amount_entry.get(),self.coin_var.get()) == False:
             CTkMessagebox(title="Error",message="Entrada invalida de dinero",icon='cancel')
         else:
@@ -215,6 +219,7 @@ class IncomeFrame(Income):
             else:
                 CTkMessagebox(title="Error", message="Error al escribir en la base de datos")
                 raise ExceptionSystem("Error por entrada de tipo de ingreso no valida")
+       #Aqui debe venir una funcion que revise que el nombre no sea vacio
         self._name = self.name_entry.get()
         
 

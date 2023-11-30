@@ -193,7 +193,7 @@ class PresupuestoFrame(Economy):
         if month == 'Abril':
             self.abril.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Abril')
-            self._date - 'Abril'
+            self._date ='Abril'
         else:
             self.abril.configure(fg_color='transparent')
         if month == 'Mayo':
@@ -245,20 +245,27 @@ class PresupuestoFrame(Economy):
         else:
             self.diciembre.configure(fg_color='transparent')
     def event_guardar(self):
-        """Aqui se debe verificar las entradas del usuario y escribirlas en la base de datos"""
+        """Aqui se debe verificar las entradas del usuario y escribirlas en la base de datos
+        """
         data =self.user_entry.get_data()
         data.insert(0,self._date)
         newdata = tuple(data)
-        print(data)
+        print(newdata)
         if self._date == None:
             CTkMessagebox(title="Error", message='Debe elegir una fecha',icon='cancel')
             raise ExceptionSystem("Error en la escritura")
         if data != None and self._date != None:
             self.write_data(newdata)
+            self.user_entry.clean_entry()
         else:
             CTkMessagebox(title="Error", message="Error al escribir en la base de datos",icon='cancel')
 
     def write_data(self,data):
+        """Funcion para escribir en la base de datos
+
+        :param data: tuple con los valores de las entradas de categoria de presupuesto
+        :type data: tuple de floats
+        """
         escribir_valores = '''
         INSERT INTO presupuesto (mes, Domicilio,Higiene , Transporte,Entretenimiento,Deudas,Seguros,Vestimenta,Servicios,Otros)
         VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)
@@ -309,14 +316,14 @@ class Entry(customtkinter.CTkFrame):
                                                  font=set_font('Cascadia Mono')).grid(row = 1+ index, column=1,pady=5,padx=5)
             
         #Casillas para la entrada de datos
-        self.domicilio_var = customtkinter.StringVar()
+        self.domicilio_var = customtkinter.StringVar(value='0')
         self.domicilio_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
                                                  textvariable=self.domicilio_var)
         self.domicilio_entry.grid(row=1, column=4,pady=5)
     
-        self.higiene_var = customtkinter.StringVar(value=0)
+        self.higiene_var = customtkinter.StringVar(value='0')
         self.higiene_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -324,7 +331,7 @@ class Entry(customtkinter.CTkFrame):
         self.higiene_entry.grid(row=2, column=4,pady=5)
 
         
-        self.transporte_var = customtkinter.StringVar()
+        self.transporte_var = customtkinter.StringVar(value='0')
         self.transporte_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -332,7 +339,7 @@ class Entry(customtkinter.CTkFrame):
         self.transporte_entry.grid(row=3, column=4,pady=5)
 
         
-        self.entretenimiento_var = customtkinter.StringVar()
+        self.entretenimiento_var = customtkinter.StringVar(value='0')
         self.entretenimiento_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -340,7 +347,7 @@ class Entry(customtkinter.CTkFrame):
         self.entretenimiento_entry.grid(row=4, column=4,pady=5)
         
         
-        self.deudas_var = customtkinter.StringVar()
+        self.deudas_var = customtkinter.StringVar(value='0')
         self.deudas_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -348,13 +355,13 @@ class Entry(customtkinter.CTkFrame):
         self.deudas_entry.grid(row=5, column=4,pady=5)
 
         
-        self.seguros_var = customtkinter.StringVar()
+        self.seguros_var = customtkinter.StringVar(value='0')
         self.seguros_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
                                                  textvariable=self.seguros_var)
         self.seguros_entry.grid(row=6, column=4,pady=5)
-        self.vestimenta_var = customtkinter.StringVar()
+        self.vestimenta_var = customtkinter.StringVar(value='0')
         self.vestimenta_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -362,7 +369,7 @@ class Entry(customtkinter.CTkFrame):
         self.vestimenta_entry.grid(row=7, column=4,pady=5)
 
         
-        self.servicios_var = customtkinter.StringVar()
+        self.servicios_var = customtkinter.StringVar(value='0')
         self.servicios_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -370,7 +377,7 @@ class Entry(customtkinter.CTkFrame):
         self.servicios_entry.grid(row=8, column=4,pady=5)
 
         
-        self.otros_var = customtkinter.StringVar()
+        self.otros_var = customtkinter.StringVar(value='0')
         self.otros_entry = customtkinter.CTkEntry(self,
                                                  text_color=TEXT_COLOR,placeholder_text="descripcion", 
                                                  font=set_font('Cascadia Mono'),
@@ -389,13 +396,43 @@ class Entry(customtkinter.CTkFrame):
                                                      variable=self.coin_var)
         self.coin_entry.pack(side= tk.BOTTOM, fill = 'both',expand=True)
     def get_data(self):
+        """Funcion para recopilar los datos de las entradas, toma los datos y los pasa por la funcion que los convierte en float
+        Todavia da error, necesita que se la revise
+        ....
+        :return: lista con los valores convertidos a colones
+        :rtype: lista de floats
+        """
         tuple_data = (self.domicilio_var.get(),self.higiene_var.get(),self.transporte_var.get(),self.entretenimiento_var.get(),self.deudas_var.get(),self.seguros_var.get(),self.vestimenta_var.get(),self.servicios_var.get(),self.otros_var.get())
         check_tuple = []
         money_type = self.coin_var.get()
-        for data in tuple_data:
-            check_tuple.append(valid_amount(data,money_type))
-            continue
+        check_tuple = list(map(lambda x : valid_amount(x,money_type),tuple_data))
+        """for item in check_tuple:
+            if item == False:
+                CTkMessagebox(title="Error",message='Valor invalido')
+                self.clean_entry()
+                raise ExceptionSystem('Error en la entrada de datos')"""
         return check_tuple
+    def clean_entry(self):
+        """Funcion para limpiar las entradas una vez se guardan los datos
+        """
+        self.domicilio_entry.delete(0,'end')
+        self.domicilio_var = '0'
+        self.higiene_entry.delete(0,'end')
+        self.higiene_var = '0'
+        self.transporte_entry.delete(0,'end')
+        self.transporte_var = '0'
+        self.entretenimiento_entry.delete(0,'end')
+        self.entretenimiento_var = '0'
+        self.deudas_entry.delete(0,'end')
+        self.deudas_var = '0'
+        self.seguros_entry.delete(0,'end')
+        self.seguros_var = '0'
+        self.vestimenta_entry.delete(0,'end')
+        self.vestimenta_var = '0'
+        self.servicios_entry.delete(0,'end')
+        self.servicios_var  = '0'
+        self.otros_entry.delete(0,'end')
+        self.otros_entry = '0'
     
 
         
