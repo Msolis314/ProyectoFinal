@@ -76,6 +76,9 @@ class GraphChoice:
 
     def pay_buttom_callback(self):
         """Funcion para abrir una ventana de mensaje si se presiona el pie chart
+        ....
+        :return: Setea el atributo _graph_choice con la eleccion del grafico , si es de gastos o ingresos y el mes
+        :rtype: tupla
         """
         msg = CTkMessagebox(title="Info",message="Genera un gráfico tipo pastel de los gastos o ingresos. Elija alguna de las siguientes opciones",
                             icon="question",option_1="Cancelar",option_2="Gastos",option_3="Ingresos")
@@ -88,8 +91,14 @@ class GraphChoice:
             else:
                 self.topCalendar.focus()  # if window exists focus it
         self._graph_choice=("Pie",respuesta,self._date)
+        self.title_frame.pack_forget()
+        self.botton_frame.pack_forget()
     def bar_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el bar_graph
+
+        ...
+        :return: setea graph_choice con el grafico y el mes
+        :rtype: tupla
         """
         msg = CTkMessagebox(title="info", message="Genera un gráfico de barras comparando lo proyectado para el presupuesto con los gastos por mes",option_1="Cancelar",option_2="Aceptar")
         respuesta = msg.get()
@@ -100,6 +109,8 @@ class GraphChoice:
             else:
                 self.topCalendar.focus()  # if window exists focus it
         self._graph_choice= ("Barras_mes",self._date)
+        self.title_frame.pack_forget()
+        self.botton_frame.pack_forget()
     def year_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el year_graph
         """
@@ -107,6 +118,8 @@ class GraphChoice:
         respuesta = msg.get()
         ###Aqui deberia haber un condicional que revisa si hay datos suficientes para generar el grafico
         self._graph_choice= ("Barras_anual")
+        self.title_frame.pack_forget()
+        self.botton_frame.pack_forget()
     def reporte_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el reporte
         """
@@ -119,6 +132,8 @@ class GraphChoice:
             else:
                 self.topCalendar.focus()  # if window exists focus it
         self._graph_choice= ("Reporte",self._date)
+        self.title_frame.pack_forget()
+        self.botton_frame.pack_forget()
 
     def update_date(self,choice):
         self._date=choice
