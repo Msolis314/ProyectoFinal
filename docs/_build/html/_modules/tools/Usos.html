@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tools.Usos &mdash; documentación de Proyecto Final - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Proyecto Final
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">tools</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Proyecto Final</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">tools.Usos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para tools.Usos</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;..&#39;</span><span class="p">))</span>
+<div class="viewcode-block" id="reader_image"><a class="viewcode-back" href="../../tools.html#tools.Usos.reader_image">[documentos]</a><span class="k">def</span> <span class="nf">reader_image</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">name</span><span class="p">,</span> <span class="n">tam</span><span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcion para leer imagenes</span>
+
+<span class="sd">    :param path : directorio donde esta la imagen</span>
+<span class="sd">    :type path :str</span>
+<span class="sd">    :param name: nombre de la imagen</span>
+<span class="sd">    :type name :string</span>
+<span class="sd">    :param tam:size que se quiere de la imagen</span>
+<span class="sd">    :type tam : int </span>
+<span class="sd">    .....</span>
+
+<span class="sd">    :return:carga la imagen con la funcion customtkinter.CTkImage</span>
+<span class="sd">    :rtype:CTkImage</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">name</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="n">tam</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error al cargar las imagenes: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="center"><a class="viewcode-back" href="../../tools.html#tools.Usos.center">[documentos]</a><span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">weight_app</span><span class="p">,</span> <span class="n">height_app</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcion para colocar la ventana en el centro de la pantalla</span>
+<span class="sd">    </span>
+<span class="sd">    :param screen : objeto de pantalla</span>
+<span class="sd">    :type screen: CTk</span>
+<span class="sd">    :param weight_app:ancho ventana</span>
+<span class="sd">    :type weight_app:int</span>
+<span class="sd">    :param height_app:largo ventana</span>
+<span class="sd">    :type height_app: int </span>
+<span class="sd">    </span>
+<span class="sd">    ........</span>
+<span class="sd">    :return:Geometria de ventana</span>
+<span class="sd">    :rtype: instancia de CTk</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">screen_weight</span><span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">winfo_screenwidth</span><span class="p">()</span>
+    <span class="n">screen_height</span><span class="o">=</span> <span class="n">screen</span><span class="o">.</span><span class="n">winfo_screenheight</span><span class="p">()</span>
+    <span class="c1"># Calcular la posicion en x y y de la ventana</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tengo que obtener el offset por tanto </span>
+<span class="sd">    resto la mitad de lo valores de altura </span>
+<span class="sd">    de pantalla y ventana&quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">screen_height</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">height_app</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">screen_weight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span> <span class="p">(</span><span class="n">weight_app</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+
+    <span class="c1"># Retorna lo debe ir en geometru</span>
+    <span class="k">return</span> <span class="n">screen</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">weight_app</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">height_app</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">+</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="set_font"><a class="viewcode-back" href="../../tools.html#tools.Usos.set_font">[documentos]</a><span class="k">def</span> <span class="nf">set_font</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s1">&#39;Cascadia mono&#39;</span><span class="p">,</span><span class="n">tam</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Funcion para setear una fuente&#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFont</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="n">family</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">tam</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFont</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="s1">&#39;Cascadia mono&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">tam</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="ExceptionSystem"><a class="viewcode-back" href="../../tools.html#tools.Usos.ExceptionSystem">[documentos]</a><span class="k">class</span> <span class="nc">ExceptionSystem</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39; Clase para el manejo de excepciones&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mensaje</span><span class="o">=</span><span class="s2">&quot;Error&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mensaje</span> <span class="o">=</span> <span class="n">mensaje</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mensaje</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="convertir_moneda"><a class="viewcode-back" href="../../tools.html#tools.Usos.convertir_moneda">[documentos]</a><span class="k">def</span> <span class="nf">convertir_moneda</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">coin_type</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Colón&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">coin_type</span> <span class="o">==</span> <span class="s1">&#39;Dólar&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">amount</span><span class="o">*</span><span class="mi">532</span>
+    <span class="k">elif</span> <span class="n">coin_type</span> <span class="o">==</span> <span class="s1">&#39;Euro&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">amount</span><span class="o">*</span><span class="mf">580.44</span>
+    <span class="k">elif</span> <span class="n">coin_type</span> <span class="o">==</span> <span class="s1">&#39;Colón&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">amount</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="kc">False</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

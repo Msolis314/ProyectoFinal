@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login package &mdash; documentación de Proyecto Final - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="graph_classes package" href="graph_classes.html" />
+    <link rel="prev" title="main_window package" href="main_window.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Proyecto Final
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tools.html">tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tablesetting.html">tablesetting package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_vars.html">system_vars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_window.html">main_window package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Login package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Login.interfaz_login">Login.interfaz_login module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Login.interfaz_login.AbstractLogin"><code class="docutils literal notranslate"><span class="pre">AbstractLogin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Login.interfaz_register">Login.interfaz_register module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Login.interfaz_register.Register"><code class="docutils literal notranslate"><span class="pre">Register</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Login.login2">Login.login2 module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Login.login2.MainApp"><code class="docutils literal notranslate"><span class="pre">MainApp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Login">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="graph_classes.html">graph_classes package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Proyecto Final</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">tools</a></li>
+      <li class="breadcrumb-item active">Login package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Login.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="login-package">
+<h1>Login package<a class="headerlink" href="#login-package" title="Enlace permanente a este encabezado"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+<section id="module-Login.interfaz_login">
+<span id="login-interfaz-login-module"></span><h2>Login.interfaz_login module<a class="headerlink" href="#module-Login.interfaz_login" title="Enlace permanente a este encabezado"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Login.interfaz_login.AbstractLogin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Login.interfaz_login.</span></span><span class="sig-name descname"><span class="pre">AbstractLogin</span></span><a class="reference internal" href="_modules/Login/interfaz_login.html#AbstractLogin"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_login.AbstractLogin" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTk</span></code></p>
+<p>Clase abstracta con el frame del login</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.interfaz_login.AbstractLogin.checkpass">
+<span class="sig-name descname"><span class="pre">checkpass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/interfaz_login.html#AbstractLogin.checkpass"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_login.AbstractLogin.checkpass" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.interfaz_login.AbstractLogin.registration">
+<span class="sig-name descname"><span class="pre">registration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/interfaz_login.html#AbstractLogin.registration"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_login.AbstractLogin.registration" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Login.interfaz_register">
+<span id="login-interfaz-register-module"></span><h2>Login.interfaz_register module<a class="headerlink" href="#module-Login.interfaz_register" title="Enlace permanente a este encabezado"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Login.interfaz_register.Register">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Login.interfaz_register.</span></span><span class="sig-name descname"><span class="pre">Register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/interfaz_register.html#Register"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_register.Register" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkToplevel</span></code></p>
+<p>Clase para el registro de usuario</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.interfaz_register.Register.User_not_in">
+<span class="sig-name descname"><span class="pre">User_not_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">usuario</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/interfaz_register.html#Register.User_not_in"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_register.Register.User_not_in" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para verificar que el usuario no esta en la base de datos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.interfaz_register.Register.completeregister">
+<span class="sig-name descname"><span class="pre">completeregister</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/interfaz_register.html#Register.completeregister"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_register.Register.completeregister" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.interfaz_register.Register.valid_pass">
+<span class="sig-name descname"><span class="pre">valid_pass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/interfaz_register.html#Register.valid_pass"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.interfaz_register.Register.valid_pass" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para verificar si la entrada del password es igual a la verificacion</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Login.login2">
+<span id="login-login2-module"></span><h2>Login.login2 module<a class="headerlink" href="#module-Login.login2" title="Enlace permanente a este encabezado"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Login.login2.MainApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Login.login2.</span></span><span class="sig-name descname"><span class="pre">MainApp</span></span><a class="reference internal" href="_modules/Login/login2.html#MainApp"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.login2.MainApp" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Login.interfaz_login.AbstractLogin" title="Login.interfaz_login.AbstractLogin"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractLogin</span></code></a></p>
+<p>Clase donde se crean los metodos propios del Login</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.login2.MainApp.checkContra">
+<span class="sig-name descname"><span class="pre">checkContra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tablesetting.html#tablesetting.tablelogin.Usuario" title="tablesetting.tablelogin.Usuario"><span class="pre">Usuario</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contra</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/login2.html#MainApp.checkContra"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.login2.MainApp.checkContra" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para revisar si la contra es correcta</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.login2.MainApp.checkUser">
+<span class="sig-name descname"><span class="pre">checkUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="tablesetting.html#tablesetting.tablelogin.Usuario" title="tablesetting.tablelogin.Usuario"><span class="pre">Usuario</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/login2.html#MainApp.checkUser"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.login2.MainApp.checkUser" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para revisar si existe el usuario</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.login2.MainApp.checkpass">
+<span class="sig-name descname"><span class="pre">checkpass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/login2.html#MainApp.checkpass"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.login2.MainApp.checkpass" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>funcion para verificar la entra de constra del usuario</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Login.login2.MainApp.registration">
+<span class="sig-name descname"><span class="pre">registration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Login/login2.html#MainApp.registration"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#Login.login2.MainApp.registration" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para invocar registro de usuario</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Login">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Login" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="main_window.html" class="btn btn-neutral float-left" title="main_window package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="graph_classes.html" class="btn btn-neutral float-right" title="graph_classes package" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
