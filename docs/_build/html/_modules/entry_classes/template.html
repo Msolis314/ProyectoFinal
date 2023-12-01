@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>entry_classes.template &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">entry_classes.template</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para entry_classes.template</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Modulo para crear la clase base de funcionalidad para los gastos y el presupuesto&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">from</span> <span class="nn">CTkMessagebox</span> <span class="kn">import</span> <span class="n">CTkMessagebox</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">system_vars.Vars</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="viewcode-block" id="Economy"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.Economy">[documentos]</a><span class="k">class</span> <span class="nc">Economy</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase padre para atributos y caracteristicas de las clases de presupuesto y gasto&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span> <span class="s2">&quot;Enero&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notas</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_domicilio</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_higiene</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transporte</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vestimenta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_entretenimiento</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deudas</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seguros</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ahorros</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicios</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_otros</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="viewcode-block" id="Economy.set_atr"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.Economy.set_atr">[documentos]</a>    <span class="k">def</span> <span class="nf">set_atr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">entry</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">coin</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Esta funcion seria para setear alguno de los atributos una vez resibida la entrada</span>
+
+<span class="sd">        :param entry: entrada del usuario</span>
+<span class="sd">        :type entry: str</span>
+<span class="sd">        :param type: Categoria del gasto</span>
+<span class="sd">        :type type: moneda</span>
+<span class="sd">        :param coin: Tipo de cambio</span>
+<span class="sd">        :type coin: str</span>
+<span class="sd">        :raises ExceptionSystem: Levanta una excepcion si no se puede convertir el valor a un float o si es negativa</span>
+<span class="sd">        :raises ExceptionSystem: En caso que por alguna razon fallen los atributos preestablecidos</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Valor invalido&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">&#39;cancel&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ExceptionSystem</span><span class="p">(</span><span class="s2">&quot;Error en el valor&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Domicilio&quot;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_domicilio</span><span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Comida&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_domicilio</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Higiene&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_higiene</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Transporte&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_transporte</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Vestimenta&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vestimenta</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Entretenimiento&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_entretenimiento</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Deudas&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deudas</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Seguros&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_seguros</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Servicios&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_servicios</span><span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span> <span class="o">==</span> <span class="s2">&quot;Otros&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_otros</span> <span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span><span class="n">coin</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ExceptionSystem</span><span class="p">(</span><span class="s2">&quot;Error en los atributos permitidos&quot;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Economy.get_atr"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.Economy.get_atr">[documentos]</a>    <span class="k">def</span> <span class="nf">get_atr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Esta funcion deberia buscar en la base de datos por los atributos, seria para la del presupuesto&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+<div class="viewcode-block" id="Economy.write_data"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.Economy.write_data">[documentos]</a>    <span class="k">def</span> <span class="nf">write_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para escibrir en la base de datos&quot;&quot;&quot;</span>
+        <span class="k">pass</span></div></div>
+
+<div class="viewcode-block" id="TopCalendar"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.TopCalendar">[documentos]</a><span class="k">class</span> <span class="nc">TopCalendar</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkToplevel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase para crear una ventana externa para elegir la fecha&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">update</span> <span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">option_menu_var</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">StringVar</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Enero&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">option_calendar</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkOptionMenu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                                                         <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Enero&quot;</span><span class="p">,</span><span class="s2">&quot;Febrero&quot;</span><span class="p">,</span><span class="s2">&quot;Marzo&quot;</span><span class="p">,</span><span class="s2">&quot;Abril&quot;</span><span class="p">,</span><span class="s2">&quot;Mayo&quot;</span><span class="p">,</span><span class="s2">&quot;Junio&quot;</span><span class="p">,</span><span class="s2">&quot;Julio&quot;</span><span class="p">,</span><span class="s2">&quot;Agosto&quot;</span><span class="p">,</span><span class="s2">&quot;Septiembre&quot;</span><span class="p">,</span><span class="s2">&quot;Octubre&quot;</span><span class="p">,</span><span class="s2">&quot;Noviembre&quot;</span><span class="p">,</span><span class="s2">&quot;Diciembre&quot;</span><span class="p">],</span>
+                                                         <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                                         <span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                                         <span class="n">corner_radius</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                                                         <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">option_menu_callback</span><span class="p">,</span>
+                                                         <span class="n">dropdown_hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span>
+                                                         <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">dropdown_font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Shanti&#39;</span><span class="p">),</span>
+                                                         <span class="n">variable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">option_menu_var</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="o">=</span><span class="n">update</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">option_calendar</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTH</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="TopCalendar.option_menu_callback"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.TopCalendar.option_menu_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">option_menu_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">var</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;En esta funcion se llama a la funcion de la otra clase, se encarga de pasarle el valor elegido de fecha a la ventana principal</span>
+<span class="sd">        :param var: mes seleccionado</span>
+<span class="sd">        :type var: str</span>
+<span class="sd">        ...</span>
+<span class="sd">        :return: llama a la funcion que actualiza a la fecha</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="TopNotas"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.TopNotas">[documentos]</a><span class="k">class</span> <span class="nc">TopNotas</span><span class="p">(</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkToplevel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase para obtener la entrada de una nota cualquiera que el usuario quiera agregar al gasto o ingreso</span>
+
+<span class="sd">    :param notas_text: donde se digita la entrada de texto</span>
+<span class="sd">    :type notas_text: CTkTextbox</span>
+<span class="sd">    :param notas_save_buttom: Boton para guardar el texto</span>
+<span class="sd">    :types notas_save_buttom: CTkButton</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">update</span> <span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructora de la clase, define caracteristicas de la apariencia</span>
+
+<span class="sd">        :param update: funcion externa que sirve para conectar la ventana hija a la padre</span>
+<span class="sd">        :type update: funcion</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">center</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notas_text</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkTextbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notas_text</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">TOP</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notas_save_buttom</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Guardar&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span><span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">notas_text_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notas_save_buttom</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_text</span><span class="o">=</span><span class="n">update</span>
+
+
+<div class="viewcode-block" id="TopNotas.notas_text_callback"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.TopNotas.notas_text_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">notas_text_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">text_var</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">notas_text</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="s1">&#39;end-1c&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_text</span><span class="p">(</span><span class="n">text_var</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="negative_value_excep"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.negative_value_excep">[documentos]</a><span class="k">def</span> <span class="nf">negative_value_excep</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcion para generar una excepcion con valores negativos</span>
+
+<span class="sd">    :param value: numero ingresado</span>
+<span class="sd">    :type value: float</span>
+<span class="sd">    :raises ExceptionSystem: Levanta la excepcion si el numero es negativo</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">:</span> 
+        <span class="k">raise</span> <span class="n">ExceptionSystem</span><span class="p">(</span><span class="s2">&quot;Valor ingresado no puede ser negativo&quot;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="valid_amount"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.template.valid_amount">[documentos]</a><span class="k">def</span> <span class="nf">valid_amount</span><span class="p">(</span><span class="n">money_amount</span><span class="p">,</span><span class="n">moneda</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcion para revisar que el monto ingresado es valido</span>
+
+<span class="sd">    :param money_amount: entrada numerica del usuario</span>
+<span class="sd">    :type money_amount: str</span>
+<span class="sd">    :param moneda: tipo de cambio</span>
+<span class="sd">    :type moneda: str</span>
+<span class="sd">    :return: False si falla en convertir la entrada a un tipo entero</span>
+<span class="sd">    :rtype: Boolean</span>
+<span class="sd">    :return: valor convertido a colones si lo convierte a entero</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span> 
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">money_amount</span><span class="p">)</span>
+        <span class="n">negative_value_excep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">convertir_moneda</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="n">moneda</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error:</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="n">ExceptionSystem</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error:</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+       
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>graph_classes.graph_choice &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">graph_classes.graph_choice</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para graph_classes.graph_choice</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Módulo para desplegar las opciones de elección para el gráfico&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">system_vars.Vars</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">system_vars.config</span> <span class="k">as</span> <span class="nn">config</span>
+<span class="kn">from</span> <span class="nn">entry_classes.template</span> <span class="kn">import</span> <span class="n">TopCalendar</span>
+<span class="kn">from</span> <span class="nn">CTkMessagebox</span> <span class="kn">import</span> <span class="n">CTkMessagebox</span>
+<div class="viewcode-block" id="GraphChoice"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice">[documentos]</a><span class="k">class</span> <span class="nc">GraphChoice</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase para el display de las opciones de graficos</span>
+
+<span class="sd">    :param title_frame: frame donde se posiciona el titulo</span>
+<span class="sd">    :type titile_frame: CTkFrame</span>
+<span class="sd">    :param title_label: titulo de la seccion</span>
+<span class="sd">    :type titile_label: CTkLabel </span>
+<span class="sd">    :param botton_frame: Frame donde se ponen los widgets de los botones de opciones graficos</span>
+<span class="sd">    :type botton_frame: CTkFrame</span>
+<span class="sd">    :param _date: Mes donde se quiere graficar</span>
+<span class="sd">    :type _date: str</span>
+<span class="sd">    :param topCalendar: instancia de la ventana Calendar</span>
+<span class="sd">    :type topCalendar: TopCalendar</span>
+<span class="sd">    :param pay_graph_bottom: Boton del grafico tipo pastel</span>
+<span class="sd">    :type pay_graph_bottom: CTkBottom</span>
+<span class="sd">    :param bar_graph_bottom: Boton del grafico tipo barras por mes</span>
+<span class="sd">    :type bar_graph_bottom: CTkBottom</span>
+<span class="sd">    :param year_graph_bottom: Boton del grafico tipo barras anual</span>
+<span class="sd">    :type year_graph_bottom: CTkBottom</span>
+<span class="sd">    :param report_bottom: Boton del informe </span>
+<span class="sd">    :type report_bottom: CTkBottom</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">layout</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">FG_COLOR</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">TOP</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_label</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span> <span class="s2">&quot;Opciones de graficación&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia mono SemiBold&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">FG_COLOR</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">grid_rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">grid_rowconfigure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span><span class="kc">None</span>
+
+        <span class="n">image_pay</span> <span class="o">=</span> <span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;graficoPay.png&quot;</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay_graph_buttom</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;      Gráfico Pastel      &#39;</span><span class="p">,</span>
+                                                        <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span> <span class="n">border_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">corner_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                                                        <span class="n">image</span><span class="o">=</span><span class="n">image_pay</span><span class="p">,</span><span class="n">compound</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span><span class="n">hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_buttom_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pay_graph_buttom</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span><span class="kc">None</span>
+        <span class="n">image_bar</span> <span class="o">=</span> <span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;graficoBarras1.png&quot;</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bar_graph_buttom</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Gráfico de Barras por mes&#39;</span><span class="p">,</span>
+                                                        <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span> <span class="n">border_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">corner_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                                                        <span class="n">image</span><span class="o">=</span><span class="n">image_bar</span><span class="p">,</span><span class="n">compound</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span><span class="n">hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">bar_buttom_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bar_graph_buttom</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">image_year</span><span class="o">=</span> <span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;analitica.png&quot;</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year_graph_buttom</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;      Gráfico anual     &#39;</span><span class="p">,</span>
+                                                        <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span> <span class="n">border_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">corner_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                                                        <span class="n">image</span><span class="o">=</span><span class="n">image_year</span><span class="p">,</span><span class="n">compound</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span><span class="n">hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">year_buttom_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year_graph_buttom</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">image_report</span><span class="o">=</span><span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;reporte.png&quot;</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">report_buttom</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;     Reporte Mensual     &#39;</span><span class="p">,</span>
+                                                        <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span> <span class="n">border_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
+                                                        <span class="n">corner_radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span> 
+                                                        <span class="n">image</span><span class="o">=</span><span class="n">image_report</span><span class="p">,</span><span class="n">compound</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+                                                        <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">reporte_buttom_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">report_buttom</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="GraphChoice.pay_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.pay_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">pay_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana de mensaje si se presiona el pie chart</span>
+<span class="sd">        ....</span>
+<span class="sd">        :return: Setea el atributo _graph_choice con la eleccion del grafico , si es de gastos o ingresos y el mes</span>
+<span class="sd">        :rtype: tupla</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Info&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera un gráfico tipo pastel de los gastos o ingresos. Elija alguna de las siguientes opciones&quot;</span><span class="p">,</span>
+                            <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;question&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Gastos&quot;</span><span class="p">,</span><span class="n">option_3</span><span class="o">=</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">)</span>
+        <span class="n">respuesta</span><span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">choices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Gastos&quot;</span><span class="p">,</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">respuesta</span> <span class="o">!=</span> <span class="s2">&quot;Cancelar&quot;</span> <span class="ow">and</span> <span class="n">respuesta</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Pie&quot;</span><span class="p">,</span><span class="n">respuesta</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+<div class="viewcode-block" id="GraphChoice.bar_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.bar_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">bar_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el bar_graph</span>
+
+<span class="sd">        ...</span>
+<span class="sd">        :return: setea graph_choice con el grafico y el mes</span>
+<span class="sd">        :rtype: tupla</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera un gráfico de barras comparando lo proyectado para el presupuesto con los gastos por mes&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Aceptar&quot;</span><span class="p">)</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="s2">&quot;Aceptar&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Barras_mes&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+<div class="viewcode-block" id="GraphChoice.year_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.year_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">year_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el year_graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera un gráfico con las tendencias de ahorros,ingresos y gastos en el año&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Aceptar&quot;</span><span class="p">)</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="c1">###Aqui deberia haber un condicional que revisa si hay datos suficientes para generar el grafico</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Barras_anual&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+<div class="viewcode-block" id="GraphChoice.reporte_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.reporte_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">reporte_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el reporte</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera el reporte mensual&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Aceptar&quot;</span><span class="p">)</span>
+        <span class="n">respuesta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="s2">&quot;Aceptar&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Reporte&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="GraphChoice.update_date"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.update_date">[documentos]</a>    <span class="k">def</span> <span class="nf">update_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">choice</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span><span class="n">choice</span></div></div>
+
+
+        
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

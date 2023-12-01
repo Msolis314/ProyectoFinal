@@ -8,12 +8,13 @@ from entry_classes.template import TopCalendar
 from CTkMessagebox import CTkMessagebox
 class GraphChoice:
     """Clase para el display de las opciones de graficos
+
     :param title_frame: frame donde se posiciona el titulo
     :type titile_frame: CTkFrame
     :param title_label: titulo de la seccion
-    :type titile_label:CTkLabel 
+    :type titile_label: CTkLabel 
     :param botton_frame: Frame donde se ponen los widgets de los botones de opciones graficos
-    :type botton_frame:CTkFrame
+    :type botton_frame: CTkFrame
     :param _date: Mes donde se quiere graficar
     :type _date: str
     :param topCalendar: instancia de la ventana Calendar

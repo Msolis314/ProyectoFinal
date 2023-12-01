@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>entry_classes package &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="prev" title="graph_classes package" href="graph_classes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modulos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tools.html">tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tablesetting.html">tablesetting package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_vars.html">system_vars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_window.html">main_window package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Login.html">Login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_classes.html">graph_classes package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">entry_classes package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-entry_classes.budget">entry_classes.budget module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.budget.Entry"><code class="docutils literal notranslate"><span class="pre">Entry</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.budget.PresupuestoFrame"><code class="docutils literal notranslate"><span class="pre">PresupuestoFrame</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-entry_classes.income">entry_classes.income module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.income.Income"><code class="docutils literal notranslate"><span class="pre">Income</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.income.IncomeFrame"><code class="docutils literal notranslate"><span class="pre">IncomeFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.income.Usuario"><code class="docutils literal notranslate"><span class="pre">Usuario</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#entry-classes-pruebacal-module">entry_classes.pruebacal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-entry_classes.spend">entry_classes.spend module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.spend.GastosFrame"><code class="docutils literal notranslate"><span class="pre">GastosFrame</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-entry_classes.template">entry_classes.template module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.template.Economy"><code class="docutils literal notranslate"><span class="pre">Economy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.template.TopCalendar"><code class="docutils literal notranslate"><span class="pre">TopCalendar</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.template.TopNotas"><code class="docutils literal notranslate"><span class="pre">TopNotas</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.template.negative_value_excep"><code class="docutils literal notranslate"><span class="pre">negative_value_excep()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#entry_classes.template.valid_amount"><code class="docutils literal notranslate"><span class="pre">valid_amount()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-entry_classes">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Modulos</a></li>
+      <li class="breadcrumb-item active">entry_classes package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/entry_classes.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="entry-classes-package">
+<h1>entry_classes package<a class="headerlink" href="#entry-classes-package" title="Enlace permanente a este encabezado"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+<section id="module-entry_classes.budget">
+<span id="entry-classes-budget-module"></span><h2>entry_classes.budget module<a class="headerlink" href="#module-entry_classes.budget" title="Enlace permanente a este encabezado"></a></h2>
+<p>Modulo para configurar la entrada del presupuesto</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.budget.Entry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.budget.</span></span><span class="sig-name descname"><span class="pre">Entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#Entry"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.Entry" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkFrame</span></code></p>
+<p>Clase con las entradas del presupuesto</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>categoria_label</strong> (<em>CTkLabel</em>) – titulo de la categoria</p></li>
+<li><p><strong>categoria_entry</strong> (<em>CTkEntry</em>) – Casilla de entrada de datos</p></li>
+<li><p><strong>categoria_var</strong> (<em>str</em>) – variable donde se guarda lo digitado en la entrada de la categoria</p></li>
+<li><p><strong>title_frame</strong> (<em>CTkFrame</em>) – donde se coloca el titulo del widget</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.budget.Entry.clean_entry">
+<span class="sig-name descname"><span class="pre">clean_entry</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#Entry.clean_entry"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.Entry.clean_entry" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para limpiar las entradas una vez se guardan los datos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.budget.Entry.get_data">
+<span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#Entry.get_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.Entry.get_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para recopilar los datos de las entradas, toma los datos y los pasa por la funcion que los convierte en float
+Todavia da error, necesita que se la revise
+….
+:return: lista con los valores convertidos a colones
+:rtype: lista de floats</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.budget.PresupuestoFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.budget.</span></span><span class="sig-name descname"><span class="pre">PresupuestoFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#PresupuestoFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.PresupuestoFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#entry_classes.template.Economy" title="entry_classes.template.Economy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Economy</span></code></a></p>
+<p>Clase para el manejo de la entrada del presupuesto</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Economy</strong> (<em>Class</em>) – Clase padre que maneja los atributos y la escritura en una base de datos</p></li>
+<li><p><strong>month_frame</strong> – donde se posicionan los widgets con los meses</p></li>
+</ul>
+</dd>
+</dl>
+<p>:type month_frame : CTkFrame
+:param meses : botones para elegir cada meses llaman a una funcion para actualizar la ventana
+:type meses: CTkButtom
+:param final_frame: donde se coloca el boton de guardar
+:type final_frame: CTkFrame
+:param user_entry: instancia de la clase con las entradas del usuario
+:type user_entry: Entry</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.budget.PresupuestoFrame.change_window">
+<span class="sig-name descname"><span class="pre">change_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">month</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#PresupuestoFrame.change_window"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.PresupuestoFrame.change_window" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>month</strong> (<em>string</em>) – mes correspondiente al boton</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.budget.PresupuestoFrame.event_guardar">
+<span class="sig-name descname"><span class="pre">event_guardar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#PresupuestoFrame.event_guardar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.PresupuestoFrame.event_guardar" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Aqui se debe verificar las entradas del usuario y escribirlas en la base de datos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.budget.PresupuestoFrame.write_data">
+<span class="sig-name descname"><span class="pre">write_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/budget.html#PresupuestoFrame.write_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.budget.PresupuestoFrame.write_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para escribir en la base de datos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>tuple de floats</em>) – tuple con los valores de las entradas de categoria de presupuesto</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-entry_classes.income">
+<span id="entry-classes-income-module"></span><h2>entry_classes.income module<a class="headerlink" href="#module-entry_classes.income" title="Enlace permanente a este encabezado"></a></h2>
+<p>Módulo para las caracteristicas de la entrada de ingresos</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.income.Income">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.income.</span></span><span class="sig-name descname"><span class="pre">Income</span></span><a class="reference internal" href="_modules/entry_classes/income.html#Income"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.Income" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase padre para el manejo de ingresos, gestiona los atributos y los metodos para validar y escribir en la base de datos</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.Income.escribir_base_data">
+<span class="sig-name descname"><span class="pre">escribir_base_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#Income.escribir_base_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.Income.escribir_base_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.income.</span></span><span class="sig-name descname"><span class="pre">IncomeFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#entry_classes.income.Income" title="entry_classes.income.Income"><code class="xref py py-class docutils literal notranslate"><span class="pre">Income</span></code></a></p>
+<p>Clase que maneja el layout de la interfaz para los ingresos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Income</strong> (<em>Class</em>) – Clase padre que maneja los atributos de categoria en conjunto con los métodos de escritura en la base de datos</p>
+</dd>
+</dl>
+<p>:param name_entry:Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
+:type name_entry:CTkEntry
+:param options_income_var:variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
+:type options_income_var:str
+:param amount_entry_var:variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada
+:type amount_entry_var: str
+:param coin_var:variable donde se almacena el tipo de cambio, coin_var.get() para acceder
+:type coin_var:str
+:param others_frame: contiene widgets de otras entradas
+:type others_frame: CTkFrame
+:param final_frame: frame con el boton de salida
+:type final_frame:CTkFrame
+:param final_buttom: Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso
+:type final_buttom: CTkButtom</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.buttom_calendar_callback">
+<span class="sig-name descname"><span class="pre">buttom_calendar_callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.buttom_calendar_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.buttom_calendar_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>llama a la ventana de elegir mes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.buttom_notas_callback">
+<span class="sig-name descname"><span class="pre">buttom_notas_callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.buttom_notas_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.buttom_notas_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>llama a la ventana para notas
+…
+:return: actualiza el atributo de notas
+:rtype: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.coin_label_callback">
+<span class="sig-name descname"><span class="pre">coin_label_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.coin_label_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.coin_label_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.event_guardar">
+<span class="sig-name descname"><span class="pre">event_guardar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.event_guardar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.event_guardar" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Aqui se deben verificar las entradas del usuario y guardar el nuevo ingreso en la base de datos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.retrive_data">
+<span class="sig-name descname"><span class="pre">retrive_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.retrive_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.retrive_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para recopilar los datos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Muestra<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="tools.html#tools.Usos.ExceptionSystem" title="tools.Usos.ExceptionSystem"><strong>ExceptionSystem</strong></a> – Si los valores no son validos levanta una excepcion</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.update_date">
+<span class="sig-name descname"><span class="pre">update_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.update_date"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.update_date" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.income.IncomeFrame.update_notas">
+<span class="sig-name descname"><span class="pre">update_notas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#IncomeFrame.update_notas"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.IncomeFrame.update_notas" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.income.Usuario">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.income.</span></span><span class="sig-name descname"><span class="pre">Usuario</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombre</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/income.html#Usuario"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.income.Usuario" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="entry-classes-pruebacal-module">
+<h2>entry_classes.pruebacal module<a class="headerlink" href="#entry-classes-pruebacal-module" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+<section id="module-entry_classes.spend">
+<span id="entry-classes-spend-module"></span><h2>entry_classes.spend module<a class="headerlink" href="#module-entry_classes.spend" title="Enlace permanente a este encabezado"></a></h2>
+<p>Modulo para configurar el panel de ingresos de gastos del usuario</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.spend.</span></span><span class="sig-name descname"><span class="pre">GastosFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#entry_classes.template.Economy" title="entry_classes.template.Economy"><code class="xref py py-class docutils literal notranslate"><span class="pre">Economy</span></code></a></p>
+<p>Clase que maneja el layout de la interfaz para los gastos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Income</strong> (<em>Class</em>) – Clase padre que maneja los atributos de categoria en conjunto con los métodos de escritura en la base de datos</p></li>
+<li><p><strong>general_info</strong> – contiene los widgets que corresponde a la entrada de datos general</p></li>
+</ul>
+</dd>
+</dl>
+<p>:param name_entry:Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada
+:type name_entry:CTkEntry
+:param options_spend_var:variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()
+:type options_spend_var:str
+:param amount_entry_var:variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada
+:type amount_entry_var: str
+:param coin_var:variable donde se almacena el tipo de cambio, coin_var.get() para acceder
+:type coin_var:str
+:param others_frame: contiene widgets de otras entradas
+:type others_frame: CTkFrame
+:param final_frame: frame con el boton de salida
+:type final_frame:CTkFrame
+:param final_buttom: Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso
+:type final_buttom: CTkButtom</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.buttom_calendar_callback">
+<span class="sig-name descname"><span class="pre">buttom_calendar_callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.buttom_calendar_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.buttom_calendar_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>llama a la ventana de elegir mes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.buttom_notas_callback">
+<span class="sig-name descname"><span class="pre">buttom_notas_callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.buttom_notas_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.buttom_notas_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>llama a la ventana para notas
+…
+:return: actualiza el atributo de notas
+:rtype: str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.coin_label_callback">
+<span class="sig-name descname"><span class="pre">coin_label_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.coin_label_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.coin_label_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.retrive_data">
+<span class="sig-name descname"><span class="pre">retrive_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.retrive_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.retrive_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para recopilar datos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.update_date">
+<span class="sig-name descname"><span class="pre">update_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.update_date"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.update_date" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.update_notas">
+<span class="sig-name descname"><span class="pre">update_notas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.update_notas"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.update_notas" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.spend.GastosFrame.write_data">
+<span class="sig-name descname"><span class="pre">write_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/spend.html#GastosFrame.write_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.spend.GastosFrame.write_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para escribir en la tabla de gastos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>tupla</em>) – tupla con los datos  del nombre del gasto y el monto en la categoria respectiva</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-entry_classes.template">
+<span id="entry-classes-template-module"></span><h2>entry_classes.template module<a class="headerlink" href="#module-entry_classes.template" title="Enlace permanente a este encabezado"></a></h2>
+<p>Modulo para crear la clase base de funcionalidad para los gastos y el presupuesto</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.template.Economy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.template.</span></span><span class="sig-name descname"><span class="pre">Economy</span></span><a class="reference internal" href="_modules/entry_classes/template.html#Economy"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.Economy" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase padre para atributos y caracteristicas de las clases de presupuesto y gasto</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.template.Economy.get_atr">
+<span class="sig-name descname"><span class="pre">get_atr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#Economy.get_atr"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.Economy.get_atr" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta funcion deberia buscar en la base de datos por los atributos, seria para la del presupuesto</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.template.Economy.set_atr">
+<span class="sig-name descname"><span class="pre">set_atr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#Economy.set_atr"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.Economy.set_atr" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta funcion seria para setear alguno de los atributos una vez resibida la entrada</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>entry</strong> (<em>str</em>) – entrada del usuario</p></li>
+<li><p><strong>type</strong> (<em>moneda</em>) – Categoria del gasto</p></li>
+<li><p><strong>coin</strong> (<em>str</em>) – Tipo de cambio</p></li>
+</ul>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="tools.html#tools.Usos.ExceptionSystem" title="tools.Usos.ExceptionSystem"><strong>ExceptionSystem</strong></a> – Levanta una excepcion si no se puede convertir el valor a un float o si es negativa</p></li>
+<li><p><a class="reference internal" href="tools.html#tools.Usos.ExceptionSystem" title="tools.Usos.ExceptionSystem"><strong>ExceptionSystem</strong></a> – En caso que por alguna razon fallen los atributos preestablecidos</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.template.Economy.write_data">
+<span class="sig-name descname"><span class="pre">write_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#Economy.write_data"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.Economy.write_data" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para escibrir en la base de datos</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.template.TopCalendar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.template.</span></span><span class="sig-name descname"><span class="pre">TopCalendar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#TopCalendar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.TopCalendar" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkToplevel</span></code></p>
+<p>Clase para crear una ventana externa para elegir la fecha</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.template.TopCalendar.option_menu_callback">
+<span class="sig-name descname"><span class="pre">option_menu_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#TopCalendar.option_menu_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.TopCalendar.option_menu_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>En esta funcion se llama a la funcion de la otra clase, se encarga de pasarle el valor elegido de fecha a la ventana principal
+:param var: mes seleccionado
+:type var: str
+…
+:return: llama a la funcion que actualiza a la fecha</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="entry_classes.template.TopNotas">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">entry_classes.template.</span></span><span class="sig-name descname"><span class="pre">TopNotas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#TopNotas"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.TopNotas" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkToplevel</span></code></p>
+<p>Clase para obtener la entrada de una nota cualquiera que el usuario quiera agregar al gasto o ingreso</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>notas_text</strong> (<em>CTkTextbox</em>) – donde se digita la entrada de texto</p></li>
+<li><p><strong>notas_save_buttom</strong> – Boton para guardar el texto</p></li>
+</ul>
+</dd>
+<dt class="field-even">Types notas_save_buttom<span class="colon">:</span></dt>
+<dd class="field-even"><p>CTkButton</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="entry_classes.template.TopNotas.notas_text_callback">
+<span class="sig-name descname"><span class="pre">notas_text_callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#TopNotas.notas_text_callback"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.TopNotas.notas_text_callback" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="entry_classes.template.negative_value_excep">
+<span class="sig-prename descclassname"><span class="pre">entry_classes.template.</span></span><span class="sig-name descname"><span class="pre">negative_value_excep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#negative_value_excep"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.negative_value_excep" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para generar una excepcion con valores negativos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – numero ingresado</p>
+</dd>
+<dt class="field-even">Muestra<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="tools.html#tools.Usos.ExceptionSystem" title="tools.Usos.ExceptionSystem"><strong>ExceptionSystem</strong></a> – Levanta la excepcion si el numero es negativo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="entry_classes.template.valid_amount">
+<span class="sig-prename descclassname"><span class="pre">entry_classes.template.</span></span><span class="sig-name descname"><span class="pre">valid_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">money_amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moneda</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/entry_classes/template.html#valid_amount"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#entry_classes.template.valid_amount" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para revisar que el monto ingresado es valido</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>money_amount</strong> (<em>str</em>) – entrada numerica del usuario</p></li>
+<li><p><strong>moneda</strong> (<em>str</em>) – tipo de cambio</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>False si falla en convertir la entrada a un tipo entero</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Boolean</p>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>valor convertido a colones si lo convierte a entero</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-entry_classes">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-entry_classes" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="graph_classes.html" class="btn btn-neutral float-left" title="graph_classes package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

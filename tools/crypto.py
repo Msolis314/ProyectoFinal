@@ -2,6 +2,7 @@
 from cryptography.fernet import Fernet
 def crypting_pass(contra):
     """Esta es una funcion que permite generar la encriptacion de los pass
+
     :param contra: una contraseña
     :type contra: str
     ....
@@ -19,7 +20,8 @@ def crypting_pass(contra):
 
 def uncrypting_pass(contra):
     """Función para desencriptar la contraseña
-     :param contra: una contraseña
+    
+    :param contra: una contraseña
     :type contra: str
     ....
     :return: desencriptacion

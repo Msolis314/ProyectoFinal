@@ -6,16 +6,16 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 def reader_image(path,name, tam= (20,20)):
     """Funcion para leer imagenes
 
-    :param path : directorio donde esta la imagen
-    :type path :str
+    :param path: directorio donde esta la imagen
+    :type path: str
     :param name: nombre de la imagen
-    :type name :string
-    :param tam:size que se quiere de la imagen
-    :type tam : int 
+    :type name: string
+    :param tam: size que se quiere de la imagen
+    :type tam: int 
     .....
 
-    :return:carga la imagen con la funcion customtkinter.CTkImage
-    :rtype:CTkImage
+    :return: carga la imagen con la funcion customtkinter.CTkImage
+    :rtype: CTkImage
     """
     try:
         return customtkinter.CTkImage(Image.open(os.path.join(path,name)), size=tam)
