@@ -44,6 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -111,7 +112,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">escribir_valores</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;Datos ingresados exitosamente&#39;</span><span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="IncomeFrame"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.income.IncomeFrame">[documentos]</a><span class="k">class</span> <span class="nc">IncomeFrame</span><span class="p">(</span><span class="n">Income</span><span class="p">):</span>

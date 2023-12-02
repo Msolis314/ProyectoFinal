@@ -38,6 +38,7 @@ class Income:
         self.conn.commit()
 
         self.conn.close()
+        CTkMessagebox(title="info",message='Datos ingresados exitosamente')
 
 
 class IncomeFrame(Income):

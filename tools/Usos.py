@@ -25,7 +25,7 @@ def reader_image(path,name, tam= (20,20)):
 def center(screen, weight_app, height_app):
     """Funcion para colocar la ventana en el centro de la pantalla
     
-    :param screen : objeto de pantalla
+    :param screen: objeto de pantalla
     :type screen: CTk
     :param weight_app:ancho ventana
     :type weight_app:int
@@ -63,6 +63,15 @@ class ExceptionSystem(Exception):
         super().__init__(self.mensaje)
 
 def convertir_moneda(amount:float, coin_type:str = 'Colón'):
+    """Funcion para convertir entre euros y dolares a colones
+
+    :param amount: cantidad monetaria
+    :type amount: float
+    :param coin_type: tipo de moneda, defaults to 'Colón'
+    :type coin_type: str, optional
+    :return: Devuelve el monton convertido a colones
+    :rtype: float
+    """
     if coin_type == 'Dólar':
         return amount*532
     elif coin_type == 'Euro':

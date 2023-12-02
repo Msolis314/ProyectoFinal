@@ -44,6 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -304,8 +305,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">change_window</span><span class="p">(</span><span class="s2">&quot;export&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="MenuFrame.change_window"><a class="viewcode-back" href="../../main_window.html#main_window.menu_panel.MenuFrame.change_window">[documentos]</a>    <span class="k">def</span> <span class="nf">change_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buttom</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal</span>
+
 <span class="sd">        :param buttom: Boton seleccionado</span>
 <span class="sd">        :type buttom:str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -353,9 +354,29 @@
 
 
 <div class="viewcode-block" id="EntradaDatosFrame"><a class="viewcode-back" href="../../main_window.html#main_window.menu_panel.EntradaDatosFrame">[documentos]</a><span class="k">class</span> <span class="nc">EntradaDatosFrame</span><span class="p">(</span><span class="n">SubFrames</span><span class="p">):</span>
-    <span class="c1">#Clase para el boton data_user</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase para el boton que permite la entrada de datos</span>
+
+<span class="sd">    :param SubFrames: Clase con las caracteristicas de las subventanas</span>
+<span class="sd">    :type SubFrames: CTkFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
-        <span class="c1">#Boton 1</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Clase constructora se encarga de inicializar la ventana</span>
+
+<span class="sd">        :param master: se le pasa el principal de la padre</span>
+<span class="sd">        :type master: CTk</span>
+<span class="sd">        :param buttom_ingresos: Boton que permite acceder a la ventana de ingresos</span>
+<span class="sd">        :type buttom_ingresos: CTkButton</span>
+<span class="sd">        :param buttom_gastos: Boton que permite acceder a la ventana de gastos</span>
+<span class="sd">        :type buttom_gastos: CTkButton</span>
+<span class="sd">        :param buttom_budget: Boton que permite acceder a la ventana de presupuesto</span>
+<span class="sd">        :type buttom_budget: CTkButton</span>
+<span class="sd">        :param new_frame_income: ventana de los ingresos</span>
+<span class="sd">        :type new_frame_income: Subframe</span>
+<span class="sd">        :param new_frame_gastos: ventana de los gastos</span>
+<span class="sd">        :type new_frame_gastos: Subframe</span>
+<span class="sd">        :param new_frame_budget: ventana del presupuesto</span>
+<span class="sd">        :type new_frame_budget: Subframe</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">image_ingresos</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_image</span><span class="p">,</span><span class="s2">&quot;profits.png&quot;</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">buttom_ingresos</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">,</span>
@@ -408,14 +429,19 @@
         <span class="n">PresupuestoFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_frame_budget</span><span class="o">.</span><span class="n">_layout</span><span class="p">)</span></div></div>
         
 <div class="viewcode-block" id="Analisis"><a class="viewcode-back" href="../../main_window.html#main_window.menu_panel.Analisis">[documentos]</a><span class="k">class</span> <span class="nc">Analisis</span><span class="p">(</span><span class="n">SubFrames</span><span class="p">):</span>
-    <span class="c1">#Clase para el boton analisis</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase para el boton analisis</span>
+
+<span class="sd">    :param SubFrames: Clase padre las subventanas</span>
+<span class="sd">    :type SubFrames: CTkFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor del marco para las opciones de graficacion</span>
+
+<span class="sd">        :param master: _description_</span>
+<span class="sd">        :type master: _type_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">master</span><span class="p">)</span>
         <span class="n">GraphChoice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_layout</span><span class="p">)</span>
-        <span class="c1">#self.option_men_var= customtkinter.StringVar(value = &quot;grafica&quot;)</span>
-        <span class="c1">#self.options_analisis= customtkinter.CTkOptionMenu(self._layout, values=[&quot;Grafica&quot;,&quot;Pie chart&quot;,&quot;muestreo&quot;,&quot;Comparacion&quot;],command=self.get_option_menu_choice ,variable=self.option_men_var)</span>
-
-        <span class="c1">#self.options_analisis.grid(row=0, column=0,padx=20,pady=10,sticky=&quot;nsew&quot;)</span>
    <span class="c1">#Prueba</span>
 <div class="viewcode-block" id="Analisis.get_option_menu_choice"><a class="viewcode-back" href="../../main_window.html#main_window.menu_panel.Analisis.get_option_menu_choice">[documentos]</a>    <span class="k">def</span> <span class="nf">get_option_menu_choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">choice</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span></div></div>

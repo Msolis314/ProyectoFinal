@@ -44,6 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -77,6 +78,7 @@
 <span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>
 <span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">system_vars.Vars</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tablesetting.base_to_excel</span> <span class="kn">import</span> <span class="n">data_to_excel</span>
 <span class="kn">import</span> <span class="nn">system_vars.config</span> <span class="k">as</span> <span class="nn">config</span>
 <span class="kn">from</span> <span class="nn">entry_classes.template</span> <span class="kn">import</span> <span class="n">TopCalendar</span>
 <span class="kn">from</span> <span class="nn">CTkMessagebox</span> <span class="kn">import</span> <span class="n">CTkMessagebox</span>
@@ -167,7 +169,9 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Pie&quot;</span><span class="p">,</span><span class="n">respuesta</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+        <span class="n">data_to_excel</span><span class="p">(</span><span class="n">respuesta</span><span class="p">)</span></div>
+        <span class="c1">#Aqui va la funcion que llama a lo graficos tipo pie, se le pasa la fecha y si es de ingreso o gastos</span>
 <div class="viewcode-block" id="GraphChoice.bar_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.bar_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">bar_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el bar_graph</span>
 

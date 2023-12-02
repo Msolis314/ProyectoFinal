@@ -47,9 +47,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introducción</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modulos</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">tools package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-tools.Usos">tools.Usos module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#tools.Usos.ExceptionSystem"><code class="docutils literal notranslate"><span class="pre">ExceptionSystem</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tools.Usos.center"><code class="docutils literal notranslate"><span class="pre">center()</span></code></a></li>
@@ -103,9 +103,9 @@
              
   <section id="tools-package">
 <h1>tools package<a class="headerlink" href="#tools-package" title="Enlace permanente a este encabezado"></a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Enlace permanente a este encabezado"></a></h2>
-</section>
+<p>Herramientas utiles en el proyecto.
+Submodules
+———-</p>
 <section id="module-tools.Usos">
 <span id="tools-usos-module"></span><h2>tools.Usos module<a class="headerlink" href="#module-tools.Usos" title="Enlace permanente a este encabezado"></a></h2>
 <dl class="py exception">
@@ -119,9 +119,12 @@
 <dt class="sig sig-object py" id="tools.Usos.center">
 <span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#center"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.center" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Funcion para colocar la ventana en el centro de la pantalla</p>
-<p>:param screen : objeto de pantalla
-:type screen: CTk
-:param weight_app:ancho ventana
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>CTk</em>) – objeto de pantalla</p>
+</dd>
+</dl>
+<p>:param weight_app:ancho ventana
 :type weight_app:int
 :param height_app:largo ventana
 :type height_app: int</p>
@@ -130,7 +133,22 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="tools.Usos.convertir_moneda">
 <span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">convertir_moneda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Colón'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#convertir_moneda"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.convertir_moneda" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
+<dd><p>Funcion para convertir entre euros y dolares a colones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amount</strong> (<em>float</em>) – cantidad monetaria</p></li>
+<li><p><strong>coin_type</strong> (<em>str</em><em>, </em><em>optional</em>) – tipo de moneda, defaults to “Colón”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Devuelve el monton convertido a colones</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tools.Usos.reader_image">

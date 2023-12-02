@@ -44,6 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -99,7 +100,7 @@
 <div class="viewcode-block" id="center"><a class="viewcode-back" href="../../tools.html#tools.Usos.center">[documentos]</a><span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">weight_app</span><span class="p">,</span> <span class="n">height_app</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcion para colocar la ventana en el centro de la pantalla</span>
 <span class="sd">    </span>
-<span class="sd">    :param screen : objeto de pantalla</span>
+<span class="sd">    :param screen: objeto de pantalla</span>
 <span class="sd">    :type screen: CTk</span>
 <span class="sd">    :param weight_app:ancho ventana</span>
 <span class="sd">    :type weight_app:int</span>
@@ -137,6 +138,15 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mensaje</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="convertir_moneda"><a class="viewcode-back" href="../../tools.html#tools.Usos.convertir_moneda">[documentos]</a><span class="k">def</span> <span class="nf">convertir_moneda</span><span class="p">(</span><span class="n">amount</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">coin_type</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Colón&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funcion para convertir entre euros y dolares a colones</span>
+
+<span class="sd">    :param amount: cantidad monetaria</span>
+<span class="sd">    :type amount: float</span>
+<span class="sd">    :param coin_type: tipo de moneda, defaults to &#39;Colón&#39;</span>
+<span class="sd">    :type coin_type: str, optional</span>
+<span class="sd">    :return: Devuelve el monton convertido a colones</span>
+<span class="sd">    :rtype: float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">coin_type</span> <span class="o">==</span> <span class="s1">&#39;Dólar&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">amount</span><span class="o">*</span><span class="mi">532</span>
     <span class="k">elif</span> <span class="n">coin_type</span> <span class="o">==</span> <span class="s1">&#39;Euro&#39;</span><span class="p">:</span>

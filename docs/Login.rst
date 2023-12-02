@@ -1,6 +1,6 @@
 Login package
 =============
-
+Paquete con los elementos del sistema de registro
 Submodules
 ----------
 

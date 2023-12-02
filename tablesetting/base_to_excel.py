@@ -28,5 +28,5 @@ def data_to_excel(nombre_tabla):
       cell = sheet.cell(row = i, column = j)
       cell.value = col
       j += 1
-  book.save(f"{nombre_tabla}.xlsx")
+  book.save(f"basedata\{nombre_tabla}.xlsx")
   conn.close()

@@ -47,6 +47,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introducción</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modulos</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="tools.html">tools package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tablesetting.html">tablesetting package</a></li>
@@ -106,6 +107,7 @@
              
   <section id="main-window-package">
 <h1>main_window package<a class="headerlink" href="#main-window-package" title="Enlace permanente a este encabezado"></a></h1>
+<p>Paquete con los elementos de la ventana principal</p>
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Enlace permanente a este encabezado"></a></h2>
 </section>
@@ -126,6 +128,12 @@
 <dt class="sig sig-object py" id="main_window.menu_panel.Analisis">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">Analisis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#Analisis"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.Analisis" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#main_window.menu_panel.SubFrames" title="main_window.menu_panel.SubFrames"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubFrames</span></code></a></p>
+<p>Clase para el boton analisis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SubFrames</strong> (<em>CTkFrame</em>) – Clase padre las subventanas</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="main_window.menu_panel.Analisis.get_option_menu_choice">
 <span class="sig-name descname"><span class="pre">get_option_menu_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#Analisis.get_option_menu_choice"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.Analisis.get_option_menu_choice" title="Enlazar permanentemente con esta definición"></a></dt>
@@ -144,6 +152,12 @@
 <dt class="sig sig-object py" id="main_window.menu_panel.EntradaDatosFrame">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">EntradaDatosFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#EntradaDatosFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.EntradaDatosFrame" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#main_window.menu_panel.SubFrames" title="main_window.menu_panel.SubFrames"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubFrames</span></code></a></p>
+<p>Clase para el boton que permite la entrada de datos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SubFrames</strong> (<em>CTkFrame</em>) – Clase con las caracteristicas de las subventanas</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="main_window.menu_panel.EntradaDatosFrame.event_boton1">
 <span class="sig-name descname"><span class="pre">event_boton1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#EntradaDatosFrame.event_boton1"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.EntradaDatosFrame.event_boton1" title="Enlazar permanentemente con esta definición"></a></dt>
@@ -214,9 +228,13 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.change_window">
 <span class="sig-name descname"><span class="pre">change_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buttom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.change_window"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.change_window" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd><p>Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal
-:param buttom: Boton seleccionado
-:type buttom:str</p>
+<dd><p>Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>buttom</strong> – Boton seleccionado</p>
+</dd>
+</dl>
+<p>:type buttom:str</p>
 </dd></dl>
 
 <dl class="py method">

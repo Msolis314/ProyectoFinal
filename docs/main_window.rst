@@ -1,5 +1,6 @@
 main\_window package
 ====================
+Paquete con los elementos de la ventana principal
 
 Submodules
 ----------

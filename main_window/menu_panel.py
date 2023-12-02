@@ -230,8 +230,8 @@ class MenuFrame(customtkinter.CTkFrame):
         self.change_window("export")
 
     def change_window(self,buttom:str):
-        """
-        Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal
+        """Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal
+
         :param buttom: Boton seleccionado
         :type buttom:str
         """
@@ -279,9 +279,29 @@ class SubFrames(customtkinter.CTkFrame):
 
 
 class EntradaDatosFrame(SubFrames):
-    #Clase para el boton data_user
+    """Clase para el boton que permite la entrada de datos
+
+    :param SubFrames: Clase con las caracteristicas de las subventanas
+    :type SubFrames: CTkFrame
+    """
     def __init__(self,master):
-        #Boton 1
+        """Clase constructora se encarga de inicializar la ventana
+
+        :param master: se le pasa el principal de la padre
+        :type master: CTk
+        :param buttom_ingresos: Boton que permite acceder a la ventana de ingresos
+        :type buttom_ingresos: CTkButton
+        :param buttom_gastos: Boton que permite acceder a la ventana de gastos
+        :type buttom_gastos: CTkButton
+        :param buttom_budget: Boton que permite acceder a la ventana de presupuesto
+        :type buttom_budget: CTkButton
+        :param new_frame_income: ventana de los ingresos
+        :type new_frame_income: Subframe
+        :param new_frame_gastos: ventana de los gastos
+        :type new_frame_gastos: Subframe
+        :param new_frame_budget: ventana del presupuesto
+        :type new_frame_budget: Subframe
+        """
         super().__init__(master)
         self.image_ingresos=customtkinter.CTkImage(Image.open(os.path.join(path_image,"profits.png")), size=(40,40))
         self.buttom_ingresos= customtkinter.CTkButton(master=self._layout,
@@ -334,14 +354,19 @@ class EntradaDatosFrame(SubFrames):
         PresupuestoFrame(self.new_frame_budget._layout)
         
 class Analisis(SubFrames):
-    #Clase para el boton analisis
+    """Clase para el boton analisis
+
+    :param SubFrames: Clase padre las subventanas
+    :type SubFrames: CTkFrame
+    """
     def __init__(self,master):
+        """Constructor del marco para las opciones de graficacion
+
+        :param master: _description_
+        :type master: _type_
+        """
         super().__init__(master)
         GraphChoice(self._layout)
-        #self.option_men_var= customtkinter.StringVar(value = "grafica")
-        #self.options_analisis= customtkinter.CTkOptionMenu(self._layout, values=["Grafica","Pie chart","muestreo","Comparacion"],command=self.get_option_menu_choice ,variable=self.option_men_var)
-
-        #self.options_analisis.grid(row=0, column=0,padx=20,pady=10,sticky="nsew")
    #Prueba
     def get_option_menu_choice(self,choice):
         print(choice)

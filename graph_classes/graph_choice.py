@@ -3,6 +3,7 @@ import customtkinter
 import tkinter as tk
 from tools.Usos import *
 from system_vars.Vars import *
+from tablesetting.base_to_excel import data_to_excel
 import system_vars.config as config
 from entry_classes.template import TopCalendar
 from CTkMessagebox import CTkMessagebox
@@ -94,6 +95,8 @@ class GraphChoice:
         self._graph_choice=("Pie",respuesta,self._date)
         self.title_frame.pack_forget()
         self.botton_frame.pack_forget()
+        data_to_excel(respuesta)
+        #Aqui va la funcion que llama a lo graficos tipo pie, se le pasa la fecha y si es de ingreso o gastos
     def bar_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el bar_graph
 
@@ -121,6 +124,7 @@ class GraphChoice:
         self._graph_choice= ("Barras_anual")
         self.title_frame.pack_forget()
         self.botton_frame.pack_forget()
+        
     def reporte_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el reporte
         """
