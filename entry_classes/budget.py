@@ -163,7 +163,7 @@ class PresupuestoFrame(Economy):
     
         
     def change_window(self,month):
-        """_summary_
+        """Funcion para elegir el mes 
 
         :param month: mes correspondiente al boton 
         :type month: string
