@@ -50,6 +50,40 @@ def new_data(user):
     c.execute(tabla_ingresos)
     c.execute(tabla_gastos)
     c.execute(tabla_presupuesto)
-    conn.commit()
+    c.execute('SELECT * FROM ingresos LIMIT 1')
+    first_row = c.fetchone()
+
+    if first_row == None:
+
+        escribir_valores = '''
+            INSERT INTO ingresos (nombre, salario, comisiones, ventas, otros , notas, mes)
+            VALUES (?, ?, ?, ?, ?, ?,?)
+            '''
+        dataingresos = ("nombre","Salario","Comisiones","Ventas","Otros Ingresos","notas","Months")
+        conn.execute(escribir_valores, dataingresos)
+        conn.commit()
+    c.execute('SELECT * FROM gastos LIMIT 1')
+    first_row = c.fetchone()
+    if first_row == None:
+        escribir_valores = '''
+            INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)
+            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)
+            '''
+        datagastos = ("nombre", "Domicilio","Higiene" , "Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros", "notas", "mes")
+        conn.execute(escribir_valores, datagastos)
+        conn.commit()
+    c.execute('SELECT * FROM presupuesto LIMIT 1')
+    first_row = c.fetchone()
+    if first_row == None:
+        datapresupuesto = ("Months", "Domicilio","Higiene" , "Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros")
+        escribir_valores = '''
+            INSERT INTO presupuesto (mes, Domicilio,Higiene , Transporte,Entretenimiento,Deudas,Seguros,Vestimenta,Servicios,Otros)
+            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)
+            '''
+            
+        conn.execute(escribir_valores, datapresupuesto)
+        conn.commit()
+       
+
     conn.close()
 

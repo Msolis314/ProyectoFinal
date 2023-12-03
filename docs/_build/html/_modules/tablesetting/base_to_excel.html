@@ -44,7 +44,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Desarrollo Teórico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html#instalacion">Instalación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../intro.html#uso">Uso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -104,6 +106,34 @@
       <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">col</span>
       <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
   <span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;basedata\</span><span class="si">{</span><span class="n">nombre_tabla</span><span class="si">}</span><span class="s2">.xlsx&quot;</span><span class="p">)</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="data_excel_save"><a class="viewcode-back" href="../../tablesetting.html#tablesetting.base_to_excel.data_excel_save">[documentos]</a><span class="k">def</span> <span class="nf">data_excel_save</span><span class="p">(</span><span class="n">nombre_tabla</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&quot;&quot;&quot;Funcion para guardar una tabla de la base de datos a un directorio de la computadore</span>
+
+<span class="sd">  :param nombre_tabla: nombre de la tabla puede ser ingresos, presupuesto o gastos</span>
+<span class="sd">  :type nombre_tabla: str</span>
+<span class="sd">  :param path: path donde se desea guardas</span>
+<span class="sd">  :type path: str</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">current_database</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">currentuser</span><span class="si">}</span><span class="s1">.db&#39;</span>
+  <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">current_database</span><span class="p">)</span>  
+  <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+  <span class="n">book</span> <span class="o">=</span> <span class="n">openpyxl</span><span class="o">.</span><span class="n">Workbook</span><span class="p">()</span>
+  <span class="n">sheet</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">active</span>
+  <span class="n">consulta</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;SELECT * FROM </span><span class="si">{</span><span class="n">nombre_tabla</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">consulta</span><span class="p">)</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+      <span class="n">cell</span> <span class="o">=</span> <span class="n">sheet</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span> <span class="n">j</span><span class="p">)</span>
+      <span class="n">cell</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">col</span>
+      <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="n">path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">nombre_tabla</span><span class="si">}</span><span class="s1">.xlsx&#39;</span>
+  <span class="n">book</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
   <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 </pre></div>
 
