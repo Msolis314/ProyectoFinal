@@ -86,7 +86,3 @@ class AnnualGraph():
         canvas_widget.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
 
         self.root.title("Bar Graph")
-
-        # Botón para regresar a la interfaz principal.
-        btn_return = tkk.Button(self.graph_frame, text="Back", command=self.graphs.return_to_main_interface, style='TButton')
-        btn_return.grid(pady=10)

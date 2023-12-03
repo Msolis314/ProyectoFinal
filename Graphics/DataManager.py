@@ -1,13 +1,14 @@
 import pandas as pd
-# The DataManager class provides methods to load data from an Excel file into separate lists
-# representing different income and expense categories.
+
+# Cargar datos del excel.
 class DataManager:
     def __init__(self):
         """
         The function initializes a variable called "excel_data" with a value of None.
         """
         self.excel_data = None
-
+        
+    # Datos de ingresos.
     def load_data_incomes_from_excel(self, file, sheet):
         """
         The function `load_data_incomes_from_excel` loads data from an Excel file into a DataFrame and
@@ -35,6 +36,7 @@ class DataManager:
         except Exception as e:
             print(f"Error loading data from Excel: {e}")
             
+    # Datos de gastos.        
     def load_data_expenses_from_excel(self, file, sheet):
         """
         The function `load_data_expenses_from_excel` loads data from an Excel file into separate lists
@@ -66,6 +68,7 @@ class DataManager:
         except Exception as e:
             print(f"Error loading data from Excel: {e}")
             
+    # Datos de presupuesto.
     def load_data_budget_from_excel(self, file, sheet):
         """
         The function `load_data_budget_from_excel` loads data from an Excel file into separate lists
