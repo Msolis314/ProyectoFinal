@@ -12,6 +12,7 @@ from entry_classes.income import IncomeFrame
 from entry_classes.spend import GastosFrame
 from entry_classes.budget import PresupuestoFrame
 from graph_classes.graph_choice import GraphChoice
+from Download.descarga import DescargaChoice
 from pathlib import Path
 #path_image =path_image= os.path.join(os.path.dirname(os.path.realpath("Documents")),r"./Imagenes")
 import system_vars.config  as config
@@ -375,14 +376,17 @@ class Exportardatos(SubFrames):
     # Clase para el boton de exportar datos
     def __init__(self,master):
         super().__init__(master)
-        self.title_frame3= customtkinter.CTkLabel(self._layout, text ="Opciones de descarga",font=customtkinter.CTkFont(family="Century Gothic", weight="bold"))
+        """self.title_frame3= customtkinter.CTkLabel(self._layout, text ="Opciones de descarga",font=customtkinter.CTkFont(family="Century Gothic", weight="bold"))
         self.title_frame3.grid(row=0, column=0, padx=20,pady=20, sticky="nsew",columnspan=2)
         #Radio buttoms
         self.radio_var = customtkinter.IntVar(value=0)
         self.op1=customtkinter.CTkRadioButton(self._layout, text="Excel",font=customtkinter.CTkFont(family="Century Gothic"),command=self.radio_event,variable=self.radio_var, value =1)
         self.op1.grid(row=1, column=0, padx=10, pady =(0,20),sticky="w")
         self.op2=customtkinter.CTkRadioButton(self._layout, text="Graficos",font=customtkinter.CTkFont(family="Century Gothic"),command=self.radio_event,variable=self.radio_var, value =2)
-        self.op2.grid(row=1, column=1, padx=10, pady =(0,20), sticky="w")
+        self.op2.grid(row=1, column=1, padx=10, pady =(0,20), sticky="w")"""
+        DescargaChoice(self._layout)
+
         
     def radio_event(self):
+        pass
         print(f'radio var is {self.radio_var.get()}')
