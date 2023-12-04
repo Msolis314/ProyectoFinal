@@ -6,7 +6,7 @@
       <a href="#comenzar">Comenzar</a>
       <ul>
         <li><a href="#dependencias">Dependencias</a></li>
-        <li><a href="#instalacion">Instalación</a></li>
+        <li><a href="#instalación">Instalación</a></li>
       </ul>
     </li>
     <li><a href="#uso">Uso</a></li>
