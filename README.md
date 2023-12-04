@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 <details>
   <summary>Contenidos</summary>
   <ol>
@@ -42,6 +44,9 @@ Además, se pueden registrar gastos por categoría. Para cada mes, el usuario pu
 El programa permite comparar los gastos que se generan en el mes con el presupuesto proyectado, con el propósito de que el usuario pueda administrar sus finanzas de forma más consciente y proactiva y así aumentar sus ahorros mensualmente.
 
 Además, la aplicación genera gráficos con información relevante, como es la comparación entre gastos y presupuesto, mencionada anteriormente, así como la distribución de gastos y de ingresos por categoría en un mes dado.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Comenzar
 ### Dependencias
 
@@ -78,6 +83,9 @@ La configuración mostrada anteriormente está contenida en el archivo `requirem
 ```sh
 pip install -r requirements.txt
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ### Instalación
 
 Primero, se debe clonar localmente el repositorio remoto que se encuentra en GitHub:
@@ -89,10 +97,18 @@ git clone https://github.com/Msolis314/ProyectoFinal.git
 Una vez clonado, se puede ingresar a la carpeta del proyecto y efectuar la configuración de las dependencias según lo detallado en la sección precedente.
 
 Es recomendable, de ser posible, utilizar un entorno virtual para establecer la configuración de dependencias y requerimientos del proyecto. Para esto, se puede utilizar herramientas como Anaconda o alternativas equivalentes.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Uso
 
 ```sh
 python3 ./main.py
 ```
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Funcionamiento
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
