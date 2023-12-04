@@ -257,10 +257,34 @@ class PresupuestoFrame(Economy):
             CTkMessagebox(title="Error", message='Debe elegir una fecha',icon='cancel')
             raise ExceptionSystem("Error en la escritura")
         if data != None and self._date != None:
-            self.write_data(newdata)
-            self.user_entry.clean_entry()
+            if self.check_existing_data(self._date):
+                sobrescribir = messagebox.askquestion("Advertencia", f"Ya existen datos para {self._date}. ¿Desea sobrescribirlos?")
+                if sobrescribir == 'yes':
+                    self.write_data(newdata)
+                    self.user_entry.clean_entry()
+            else:
+                self.write_data(newdata)
+                self.user_entry.clean_entry()
         else:
             CTkMessagebox(title="Error", message="Error al escribir en la base de datos",icon='cancel')
+
+    def check_existing_data():
+        """Función para verificar si ya existen datos para un mes dado.
+
+        :param date: Mes para el cual se quiere verificar la existencia de datos.
+        :type date: str
+        :return: True si existen datos, False si no.
+        :rtype: bool
+        """
+        query = "SELECT COUNT(*) FROM presupuesto WHERE mes = ?"
+        current_data_base = f'{config.currentuser}.db'
+        conn = sqlite3.connect(current_data_base)
+        cursor = conn.cursor()
+        cursor.execute(query, (date,))
+        count = cursor.fetchone()[0]
+        conn.close
+
+        return count > 0
 
     def write_data(self,data):
         """Funcion para escribir en la base de datos
