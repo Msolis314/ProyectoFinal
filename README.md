@@ -85,17 +85,17 @@ La versión de Python utilizada es la 3.11.5.
 
 Para la implementación de la interfaz gráfica se utilizó Tkinter,  una biblioteca estándar de Python que permite crear interfaces gráficas de usuario (GUI), por lo que únicamente requiere de incluir `import tkinter as tk` en el código.  Además, se utilizo un módulo derivado llamado `customtkinter`, el cual permite crear aplicaciones con una apariencia más moderna. Para el desarrollo de la estructura de la aplicación, se hizo uso de la documentación tanto de `tkinter` como de `customtkinter`.
 
-Esta biblioteca proporciona una variedad de _widgets_ que se pueden utilizar para construir la interfaz gráfica sobre la ventana base de la GUI, como por ejemplo recuadros para el ingreso de texto o números, botones para guardar datos o menús desplegables para seleccionar opciones. Sigue un modelo de programación basado en eventos, lo que permite asociar las funciones y los métodos a eventos específicos, como presionar una tecla o dar clic. Tkinter resulta una solución interesante para este proyecto, donde la interfaz es sencilla, y además debido a su amplia documentación y comunidad activa.
+Esta biblioteca proporciona una variedad de _widgets_ que se pueden utilizar para construir la interfaz gráfica sobre la ventana base de la GUI, como por ejemplo recuadros para el ingreso de texto o números, botones para guardar datos o menús desplegables para seleccionar opciones (Amos, 2022). Sigue un modelo de programación basado en eventos, lo que permite asociar las funciones y los métodos a eventos específicos, como presionar una tecla o dar clic. Tkinter resulta una solución interesante para este proyecto, donde la interfaz es sencilla, y además debido a su amplia documentación y comunidad activa.
 
-Debido al paradigma de programación orientada a objetos seguido en el desarrollo del proyecto, y en particular en la implementación de la interfaz gráfica, las clases en la mayoría de los casos son hijas de alguna de las clases predefinidas por `customtkinter`. Esta biblioteca permite modificar muchos de los atributos de los elementos de la interfaz, como el color de fondo y el texto, para mejorar el diseño de la aplicación. Además, para el posicionamiento en _frames_, que son widgets especializados para dividir la ventana, existen tres métodos:
+Debido al paradigma de programación orientada a objetos seguido en el desarrollo del proyecto, y en particular en la implementación de la interfaz gráfica, las clases en la mayoría de los casos son hijas de alguna de las clases predefinidas por `customtkinter`. Esta biblioteca permite modificar muchos de los atributos de los elementos de la interfaz, como el color de fondo y el texto, para mejorar el diseño de la aplicación. Además, para el posicionamiento en _frames_, que son widgets especializados para dividir la ventana, existen tres métodos (Bansal, R. 2023):
 
 1. `pack()`, el cual va distribuyendo los widgets en bloques para luego posicionarlos en la ventana principal.
 2. `grid()`, que organiza los widgets en una matriz definida por el programador.
 3. `place()` permite posicionar el widget con coordenadas x, y.
 
-En la mayoría de los casos se hizo uso de `grid()` por la flexibilidad para determinar el acomodo en filas y columnas; no obstante, también se utilizó `pack()` para apilar frames o posicionar widgets en lugares relativos. Se hizo uso de las opciones `pady` y `padx` para configurar las distancias alrededor del objeto. Se debe tener en cuenta que los distintos métodos de posicionamiento no se pueden combinar en un mismo frame.
+En la mayoría de los casos se hizo uso de `grid()` por la flexibilidad para determinar el acomodo en filas y columnas; no obstante, también se utilizó `pack()` para apilar frames o posicionar widgets en lugares relativos (Shipman, 2013). Se hizo uso de las opciones `pady` y `padx` para configurar las distancias alrededor del objeto. Se debe tener en cuenta que los distintos métodos de posicionamiento no se pueden combinar en un mismo frame.
 
-Para la creación de una aplicación se debe considerar también el manejo de eventos. Por defecto, para ejecutar cualquier ventana en `tkinter`, se debe llamar al método `mainloop()`, el cual se encarga de crear un bucle infinito que responde cuando sucede algún evento. Un evento es cualquier acción que desencadene un efecto para la GUI, como presionar un botón o seleccionar una opción. Internamente, la biblioteca se encarga de la gestión de estos eventos manteniendo una lista de los eventos ocurridos y escribiendo cualquier nuevo evento que se necesite agregar. Se hace un uso importante de las funciones tipo `callback`. Por ejemplo, cuando se desea dar alguna funcionalidad a un botón, se le pasa por argumento a command la función deseada.
+Para la creación de una aplicación se debe considerar también el manejo de eventos. Por defecto, para ejecutar cualquier ventana en `tkinter`, se debe llamar al método `mainloop()`, el cual se encarga de crear un bucle infinito que responde cuando sucede algún evento. Un evento es cualquier acción que desencadene un efecto para la GUI, como presionar un botón o seleccionar una opción (Amos, 2022). Internamente, la biblioteca se encarga de la gestión de estos eventos manteniendo una lista de los eventos ocurridos y escribiendo cualquier nuevo evento que se necesite agregar. Se hace un uso importante de las funciones tipo `callback`. Por ejemplo, cuando se desea dar alguna funcionalidad a un botón, se le pasa por argumento a command la función deseada.
 
 En resumen, para la creación de la interfaz, se utilizaron tres principios:
 
@@ -318,6 +318,12 @@ Error en la descarga al no seleccionar un directorio válido:
 ![error_descarga](https://raw.githubusercontent.com/mareyes1/Lab2/main/error_descarga.jpeg)
 
 ## Referencias
+
+Amos, D. (2022). Python GUI Programming With Tkinter – Real Python. https://realpython.com/python-gui-tkinter/
+
+Bansal, R. (2023, November). Python GUI – tkinter. GeeksforGeeks. https://www.geeksforgeeks.org/python-gui-tkinter/
+
+Shipman, J. (2013). Tkinter 8.5 reference: a GUI for Python. New Mexico Tech. https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/grid.html
 
 Dale, D., Droettboom M., Firing, E., Hunter, J., and the Matplotlib development team. (s.f). *API Reference*. Matplotlib. https://matplotlib.org/stable/api/index.html
 
