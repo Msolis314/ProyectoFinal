@@ -90,6 +90,7 @@ class TopCalendar(customtkinter.CTkToplevel):
         
         :return: llama a la funcion que actualiza a la fecha
         """
+        print(var)
         self.update_date(var)
         self.destroy()
 

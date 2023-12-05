@@ -7,6 +7,7 @@ from tablesetting.base_to_excel import data_to_excel
 import system_vars.config as config
 from entry_classes.template import TopCalendar
 from CTkMessagebox import CTkMessagebox
+from .call_graphs import graph_choices
 class GraphChoice:
     """Clase para el display de las opciones de graficos
 
@@ -35,6 +36,8 @@ class GraphChoice:
         self.title_label = customtkinter.CTkLabel(self.title_frame, text= "Opciones de graficación",font=set_font('Cascadia mono SemiBold', 24))
         self.title_label.pack()
 
+        #Instancias de la clase para elegir grafica
+        self.graph_choices_instance = graph_choices(layout)
 
         self.botton_frame = customtkinter.CTkFrame(layout,fg_color=FG_COLOR)
         self.botton_frame.pack(fill='both',expand=True,side=tk.BOTTOM)
@@ -52,7 +55,7 @@ class GraphChoice:
                                                         command=self.pay_buttom_callback)
         self.pay_graph_buttom.grid(row=1, column=1,pady=20,padx=20)
         self.topCalendar= None
-        self._date=None
+        self._date='Marzo'
         image_bar = reader_image(Path_Image,"graficoBarras1.png",(50,50))
         self.bar_graph_buttom = customtkinter.CTkButton(self.botton_frame,width=40,text='Gráfico de Barras por mes',
                                                         font=set_font(),fg_color=BORDER_COLOR, border_color=BORDER_COLOR,
@@ -85,18 +88,22 @@ class GraphChoice:
         msg = CTkMessagebox(title="Info",message="Genera un gráfico tipo pastel de los gastos o ingresos. Elija alguna de las siguientes opciones",
                             icon="question",option_1="Cancelar",option_2="Gastos",option_3="Ingresos")
         respuesta= msg.get()
-        choices = ["Gastos","Ingresos"]
+        """choices = ["Gastos","Ingresos"]
         if respuesta != "Cancelar" and respuesta in choices:
             if self.topCalendar is None or not self.topCalendar.winfo_exists():
                 self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed
                 self.topCalendar.wm_transient(config.app)
+                data_to_excel(respuesta)
             else:
                 self.topCalendar.focus()  # if window exists focus it
-        self._graph_choice=("Pie",respuesta,self._date)
+        self._graph_choice=("Pie",respuesta,self._date)"""
         self.title_frame.pack_forget()
         self.botton_frame.pack_forget()
-        data_to_excel(respuesta)
         #Aqui va la funcion que llama a lo graficos tipo pie, se le pasa la fecha y si es de ingreso o gastos
+        try:
+            self.graph_choices_instance.call_income_budget(self._date,respuesta)
+        except:
+            os.remove(f'basedata\{respuesta}.xlsx')
     def bar_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el bar_graph
 

@@ -171,79 +171,244 @@ class PresupuestoFrame(Economy):
         self._date = None
         if month == 'Enero':
             #Aqui debe ir una funcion que revise si hay datos en enero y le dice al usuario
-            self.enero.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Enero')
-            self._date='Enero'
+            if self.check_existing_data('Enero') == False:
+
+                self.enero.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Enero')
+                self._date='Enero'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Enero')
+                    self.enero.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Enero')
+                    self._date='Enero'
+                else:
+                    self._date=None
+                    self.enero.configure(fg_color='transparent')
+
            
         else:
             self.enero.configure(fg_color='transparent')
             
         if month == 'Febrero':
+            if self.check_existing_data('Febrero') == False:
 
-            self.febrero.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Febrero')
-            self._date='Febrero'
+                self.febrero.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Febrero')
+                self._date='Febrero'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Febrero')
+                    self.febrero.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Febrero')
+                    self._date='Febrero'
+                else:
+                    self._date=None
+                    self.febrero.configure(fg_color='transparent')
+
         else:
             self.febrero.configure(fg_color='transparent')
             
         if month == 'Marzo':
-            self.marzo.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Marzo')
-            self._date = 'Marzo'
+            if self.check_existing_data('Marzo') == False:
+
+                self.marzo.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Marzo')
+                self._date='Marzo'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Marzo')
+                    self.marzo.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Marzo')
+                    self._date='Marzo'
+                else:
+                    self._date=None
+                    self.marzo.configure(fg_color='transparent')
         else:
             self.marzo.configure(fg_color='transparent')
         if month == 'Abril':
-            self.abril.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Abril')
-            self._date ='Abril'
+            if self.check_existing_data('Abril') == False:
+
+                self.abril.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Abril')
+                self._date='Abril'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Enero')
+                    self.abril.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Enero')
+                    self._date='Abril'
+                else:
+                    self._date=None
+                    self.abril.configure(fg_color='transparent')
         else:
             self.abril.configure(fg_color='transparent')
         if month == 'Mayo':
-            self.mayo.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Mayo')
-            self._date = 'Mayo'
+            if self.check_existing_data('Mayo') == False:
+
+                self.mayo.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Enero')
+                self._date='Mayo'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Mayo')
+                    self.mayo.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Mayo')
+                    self._date='Mayo'
+                else:
+                    self._date=None
+                    self.mayo.configure(fg_color='transparent')
         else:
             self.mayo.configure(fg_color='transparent')
         if month == 'Junio':
-            self.junio.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Junio')
-            self._date = 'Junio'
+            if self.check_existing_data('Junio') == False:
+
+                self.junio.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Junio')
+                self._date='Junio'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Junio')
+                    self.junio.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Junio')
+                    self._date='Junio'
+                else:
+                    self._date=None
+                    self.junio.configure(fg_color='transparent')
         else:
             self.junio.configure(fg_color='transparent')
         if month == 'Julio':
+            if self.check_existing_data('Julio') == False:
+
+                self.julio.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Julio')
+                self._date='Julio'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Julio')
+                    self.julio.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Julio')
+                    self._date='Julio'
+                else:
+                    self._date=None
+                    self.julio.configure(fg_color='transparent')
             self.julio.configure(fg_color=BUTTOM_HOVER)
             self.user_entry.title_label.configure(text='Presupuesto Julio')
             self._date = 'Julio'
         else:
             self.julio.configure(fg_color='transparent')
         if month == 'Agosto':
-            self.agosto.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Agosto')
-            self._date = 'Agosto'
+            if self.check_existing_data('Agosto') == False:
+
+                self.agosto.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Agosto')
+                self._date='Agosto'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Agosto')
+                    self.agosto.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Agosto')
+                    self._date='Agosto'
+                else:
+                    self._date=None
+                    self.agosto.configure(fg_color='transparent')
+            
         else:
             self.agosto.configure(fg_color='transparent')
         if month == 'Septiembre':
-            self.septiembre.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Septiembre')
-            self._date= 'Septiembre'
+            if self.check_existing_data('Septiembre') == False:
+
+                self.septiembre.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Septiembre')
+                self._date='Septiembre'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Septiembre')
+                    self.septiembre.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Septiembre')
+                    self._date='Septiembre'
+                else:
+                    self._date=None
+                    self.septiembre.configure(fg_color='transparent')
+            
         else:
             self.septiembre.configure(fg_color='transparent')
         if month == 'Octubre':
-            self.octubre.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Octubre')
-            self._date = 'Octubre'
+            if self.check_existing_data('Octubre') == False:
+
+                self.octubre.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Octubre')
+                self._date='Octubre'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Octubre')
+                    self.octubre.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Octubre')
+                    self._date='Octubre'
+                else:
+                    self._date=None
+                    self.octubre.configure(fg_color='transparent')
+            
         else:
             self.octubre.configure(fg_color='transparent')
         if month == 'Noviembre':
-            self.noviembre.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Noviembre')
-            self._date = 'Noviembre'
+            if self.check_existing_data('Noviembre') == False:
+
+                self.noviembre.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Noviembre')
+                self._date='Noviembre'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Noviembre')
+                    self.noviembre.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Noviembre')
+                    self._date='Noviembre'
+                else:
+                    self._date=None
+                    self.noviembre.configure(fg_color='transparent')
+            
         else:
             self.noviembre.configure(fg_color='transparent')
         if month == 'Diciembre':
-            self.diciembre.configure(fg_color=BUTTOM_HOVER)
-            self.user_entry.title_label.configure(text='Presupuesto Diciembre')
-            self._date = 'Diciembre'
+            if self.check_existing_data('Diciembre') == False:
+
+                self.diciembre.configure(fg_color=BUTTOM_HOVER)
+                self.user_entry.title_label.configure(text='Presupuesto Diciembre')
+                self._date='Diciembre'
+            else:
+                mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
+                response = mag.get()
+                if response == 'Yes':
+                    self.delete_row('Diciembre')
+                    self.diciembre.configure(fg_color=BUTTOM_HOVER)
+                    self.user_entry.title_label.configure(text='Presupuesto Diciembre')
+                    self._date='Diciembre'
+                else:
+                    self._date=None
+                    self.diciembre.configure(fg_color='transparent')
+
         else:
             self.diciembre.configure(fg_color='transparent')
     def event_guardar(self):
@@ -258,6 +423,8 @@ class PresupuestoFrame(Economy):
             raise ExceptionSystem("Error en la escritura")
         if data != None and self._date != None:
             self.write_data(newdata)
+            self._date=None
+            self.user_entry.title_label.configure(text="Presupuesto")
             self.user_entry.clean_entry()
         else:
             CTkMessagebox(title="Error", message="Error al escribir en la base de datos",icon='cancel')
@@ -278,7 +445,35 @@ class PresupuestoFrame(Economy):
         self.conn.commit()
         self.conn.close()
         CTkMessagebox(title="info",message='Datos ingresados exitosamente')
+    def check_existing_data(self,month):
+        """Función para verificar si ya existen datos para un mes dado.
 
+        :param date: Mes para el cual se quiere verificar la existencia de datos.
+        :type date: str
+        :return: True si existen datos, False si no.
+        :rtype: bool
+        """
+        query = "SELECT COUNT(*) FROM presupuesto WHERE mes = ?"
+        current_data_base = f'{config.currentuser}.db'
+
+        conn = sqlite3.connect(current_data_base)
+        date = month
+        cursor = conn.cursor()
+        cursor.execute(query, (date,))
+        count = cursor.fetchone()[0]
+        conn.close
+
+        return count > 0
+    def delete_row(self,month):
+        current_data_base = f'{config.currentuser}.db'
+
+        conn = sqlite3.connect(current_data_base)
+        date = month
+        cursor = conn.cursor()
+        query = "DELETE FROM presupuesto WHERE mes = ?;"
+        cursor.execute(query, (date,))
+        conn.commit()
+        conn.close()
 class Entry(customtkinter.CTkFrame):
     """Clase con las entradas del presupuesto
 

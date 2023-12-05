@@ -1,5 +1,5 @@
 import customtkinter
-import ttkbootstrap as tk
+import tkinter as tk
 import os
 from tools.Usos import reader_image
 from tools.Usos import center

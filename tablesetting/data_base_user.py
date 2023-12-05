@@ -59,7 +59,7 @@ def new_data(user):
             INSERT INTO ingresos (nombre, salario, comisiones, ventas, otros , notas, mes)
             VALUES (?, ?, ?, ?, ?, ?,?)
             '''
-        dataingresos = ("nombre","Salario","Comisiones","Ventas","Otros Ingresos","notas","Months")
+        dataingresos = ("nombre","Salario","Comisiones","Ventas","Otros","notas","Months")
         conn.execute(escribir_valores, dataingresos)
         conn.commit()
     c.execute('SELECT * FROM gastos LIMIT 1')
@@ -69,7 +69,7 @@ def new_data(user):
             INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)
             VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)
             '''
-        datagastos = ("nombre", "Domicilio","Higiene" , "Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros", "notas", "mes")
+        datagastos = ("nombre", "Domicilio","Higiene" , "Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros", "notas", "Meses")
         conn.execute(escribir_valores, datagastos)
         conn.commit()
     c.execute('SELECT * FROM presupuesto LIMIT 1')
