@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tools package &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="tablesetting package" href="tablesetting.html" />
+    <link rel="prev" title="Modulos" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modulos</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tools package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-tools.Usos">tools.Usos module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tools.Usos.ExceptionSystem"><code class="docutils literal notranslate"><span class="pre">ExceptionSystem</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools.Usos.center"><code class="docutils literal notranslate"><span class="pre">center()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools.Usos.convertir_moneda"><code class="docutils literal notranslate"><span class="pre">convertir_moneda()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools.Usos.reader_image"><code class="docutils literal notranslate"><span class="pre">reader_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools.Usos.set_font"><code class="docutils literal notranslate"><span class="pre">set_font()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tools.crypto">tools.crypto module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tools.crypto.crypting_pass"><code class="docutils literal notranslate"><span class="pre">crypting_pass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tools.crypto.uncrypting_pass"><code class="docutils literal notranslate"><span class="pre">uncrypting_pass()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-tools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tablesetting.html">tablesetting package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_vars.html">system_vars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_window.html">main_window package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Login.html">Login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_classes.html">graph_classes package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entry_classes.html">entry_classes package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Download.html">Download package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Modulos</a></li>
+      <li class="breadcrumb-item active">tools package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tools.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tools-package">
+<h1>tools package<a class="headerlink" href="#tools-package" title="Enlace permanente a este encabezado"></a></h1>
+<p>Herramientas utiles en el proyecto.
+Submodules
+———-</p>
+<section id="module-tools.Usos">
+<span id="tools-usos-module"></span><h2>tools.Usos module<a class="headerlink" href="#module-tools.Usos" title="Enlace permanente a este encabezado"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="tools.Usos.ExceptionSystem">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">ExceptionSystem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mensaje</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Error'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#ExceptionSystem"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.ExceptionSystem" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Clase para el manejo de excepciones</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.Usos.center">
+<span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_app</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_app</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#center"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.center" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para colocar la ventana en el centro de la pantalla</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>CTk</em>) – objeto de pantalla</p>
+</dd>
+</dl>
+<p>:param weight_app:ancho ventana
+:type weight_app:int
+:param height_app:largo ventana
+:type height_app: int</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.Usos.convertir_moneda">
+<span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">convertir_moneda</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Colón'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#convertir_moneda"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.convertir_moneda" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para convertir entre euros y dolares a colones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>amount</strong> (<em>float</em>) – cantidad monetaria</p></li>
+<li><p><strong>coin_type</strong> (<em>str</em><em>, </em><em>optional</em>) – tipo de moneda, defaults to “Colón”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Devuelve el monton convertido a colones</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.Usos.reader_image">
+<span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">reader_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(20,</span> <span class="pre">20)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#reader_image"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.reader_image" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para leer imagenes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – directorio donde esta la imagen</p></li>
+<li><p><strong>name</strong> (<em>string</em>) – nombre de la imagen</p></li>
+<li><p><strong>tam</strong> (<em>int</em>) – size que se quiere de la imagen</p></li>
+</ul>
+</dd>
+</dl>
+<hr class="docutils" />
+<dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>carga la imagen con la funcion customtkinter.CTkImage</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p>CTkImage</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.Usos.set_font">
+<span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">set_font</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">family</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Cascadia</span> <span class="pre">mono'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tam</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#set_font"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.set_font" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion para setear una fuente</p>
+</dd></dl>
+
+</section>
+<section id="module-tools.crypto">
+<span id="tools-crypto-module"></span><h2>tools.crypto module<a class="headerlink" href="#module-tools.crypto" title="Enlace permanente a este encabezado"></a></h2>
+<p>Módulo para manejar la parte de encriptación de contraseñas</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.crypto.crypting_pass">
+<span class="sig-prename descclassname"><span class="pre">tools.crypto.</span></span><span class="sig-name descname"><span class="pre">crypting_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/crypto.html#crypting_pass"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.crypto.crypting_pass" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta es una funcion que permite generar la encriptacion de los pass</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>contra</strong> (<em>str</em>) – una contraseña</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.crypto.uncrypting_pass">
+<span class="sig-prename descclassname"><span class="pre">tools.crypto.</span></span><span class="sig-name descname"><span class="pre">uncrypting_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contra</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/crypto.html#uncrypting_pass"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.crypto.uncrypting_pass" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Función para desencriptar la contraseña</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>contra</strong> (<em>str</em>) – una contraseña</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-tools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tools" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="modules.html" class="btn btn-neutral float-left" title="Modulos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="tablesetting.html" class="btn btn-neutral float-right" title="tablesetting package" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

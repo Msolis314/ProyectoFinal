@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>entry_classes.spend &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">entry_classes.spend</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para entry_classes.spend</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Modulo para configurar el panel de ingresos de gastos del usuario&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">from</span> <span class="nn">.template</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tools.Usos</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">system_vars.Vars</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">system_vars.config</span> <span class="k">as</span> <span class="nn">config</span>
+
+<div class="viewcode-block" id="GastosFrame"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame">[documentos]</a><span class="k">class</span> <span class="nc">GastosFrame</span><span class="p">(</span><span class="n">Economy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase que maneja el layout de la interfaz para los gastos</span>
+
+<span class="sd">    :param Income: Clase padre que maneja los atributos de categoria en conjunto con los métodos de escritura en la base de datos</span>
+<span class="sd">    :type Income: Class</span>
+<span class="sd">    :param general_info: contiene los widgets que corresponde a la entrada de datos general </span>
+<span class="sd">    :type general_infor: CTkFrame</span>
+<span class="sd">    :param name_entry:Donde se digita el nombre del gasto, se accede al valor con name_entry.get(), se debe validar que no este vacía la entrada</span>
+<span class="sd">    :type name_entry:CTkEntry</span>
+<span class="sd">    :param options_spend_var:variable donde se almacena la elección de la categoría de gasto, se accede al valor con options_spend_var.get()</span>
+<span class="sd">    :type options_spend_var:str</span>
+<span class="sd">    :param amount_entry_var:variable donde se almacena el mónto del ingreso, se accede al valor con amount_entry_var.get(), se debe convertir el valor a un float y validar está entrada</span>
+<span class="sd">    :type amount_entry_var: str</span>
+<span class="sd">    :param coin_var:variable donde se almacena el tipo de cambio, coin_var.get() para acceder </span>
+<span class="sd">    :type coin_var:str</span>
+<span class="sd">    :param others_frame: contiene widgets de otras entradas</span>
+<span class="sd">    :type others_frame: CTkFrame</span>
+<span class="sd">    :param final_frame: frame con el boton de salida</span>
+<span class="sd">    :type final_frame:CTkFrame</span>
+<span class="sd">    :param final_buttom: Al presionar este botón se debe llamar un método que use métodos de la clase Economy para validar entradas, expulse error o guarde las entradas según sea el caso</span>
+<span class="sd">    :type final_buttom: CTkButtom</span>
+<span class="sd">    &quot;&quot;&quot;</span>  
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">layout</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Contructora de la clase, configura aspectos de la apariencia</span>
+
+<span class="sd">        :param layout: Frame padre donde se quieren posicionar los widgets</span>
+<span class="sd">        :type layout: CTkFrame</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">general_info</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="n">layout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="c1">#Widgets para darle un nombre a la entrada de ingreso</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_label</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Descripcion del gasto&quot;</span><span class="p">,</span>
+                                                 <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span>
+                                                 <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia Mono&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_entry</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkEntry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span>
+                                                 <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span><span class="n">placeholder_text</span><span class="o">=</span><span class="s2">&quot;descripcion&quot;</span><span class="p">,</span> 
+                                                 <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia Mono&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="c1">#Eleccion del tipo de ingreso</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">descriptive_label</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Categoría de Gasto&quot;</span><span class="p">,</span>
+                                                 <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span>
+                                                 <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia mono&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">descriptive_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="c1">#Variable que guarda la eleccion de la categoria</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options_spend_var</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">StringVar</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Domicilio&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">options_spend</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkOptionMenu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Domicilio&quot;</span><span class="p">,</span><span class="s2">&quot;Comida&quot;</span><span class="p">,</span><span class="s2">&quot;Higiene&quot;</span><span class="p">,</span><span class="s2">&quot;Transporte&quot;</span><span class="p">,</span><span class="s2">&quot;Vestimenta&quot;</span><span class="p">,</span><span class="s2">&quot;Entretenimiento&quot;</span><span class="p">,</span><span class="s2">&quot;Deudas&quot;</span><span class="p">,</span><span class="s2">&quot;Seguros&quot;</span><span class="p">,</span><span class="s2">&quot;Servicios&quot;</span><span class="p">,</span><span class="s2">&quot;Otros&quot;</span><span class="p">],</span>
+                                                         <span class="n">dropdown_hover_color</span><span class="o">=</span><span class="n">HOVER_COLOR</span><span class="p">,</span><span class="n">dropdown_font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Shanti&#39;</span><span class="p">),</span><span class="n">variable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options_spend_var</span><span class="p">)</span>
+        <span class="c1">#se accederia al valor self.options_spend_var.get() este hay que pasarlo por una funcion set de Economy y asignarlo al atributo categoria</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">options_spend</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="c1">#Digitar el monto</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount_label</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span> 
+                                                  <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Mónto&quot;</span><span class="p">,</span> <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">,</span> 
+                                                  <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia mono&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkEntry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span> 
+                                                   <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia mono&#39;</span><span class="p">),</span>
+                                                   <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+        <span class="c1">#Tipo de moneda </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coin_label</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span>
+                                                <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Tipo de cambio&#39;</span><span class="p">,</span>
+                                                <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span> 
+                                                <span class="n">text_color</span><span class="o">=</span><span class="n">TEXT_COLOR</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coin_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coin_var</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">StringVar</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="s2">&quot;Dolar&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coin_entry</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkSegmentedButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">general_info</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Dólar&quot;</span><span class="p">,</span> <span class="s2">&quot;Colón&quot;</span><span class="p">,</span> <span class="s2">&quot;Euro&quot;</span><span class="p">],</span>
+                                                     <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coin_label_callback</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Shanti&#39;</span><span class="p">),</span>
+                                                     <span class="n">variable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">coin_var</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coin_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+         <span class="c1">#creo un nuevo frame</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_others_frame</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="n">layout</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_others_frame</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_others_frame</span><span class="o">.</span><span class="n">grid_columnconfigure</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_others_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+        <span class="c1">#Boton de notas</span>
+        <span class="n">notas_image</span> <span class="o">=</span> <span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;notas.png&quot;</span><span class="p">,</span><span class="n">tam</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_notas</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_others_frame</span><span class="p">,</span>
+                                                      <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Notas&quot;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                                      <span class="n">image</span><span class="o">=</span><span class="n">notas_image</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span> 
+                                                      <span class="n">compound</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+                                                      <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">buttom_notas_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">buttom_notas</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span> <span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+
+        <span class="c1">#Boton de calendario</span>
+        <span class="n">calendar_image</span> <span class="o">=</span> <span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;calendario.png&quot;</span><span class="p">,</span><span class="n">tam</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calendario</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_others_frame</span><span class="p">,</span>
+                                                      <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Mes&quot;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                                                      <span class="n">image</span><span class="o">=</span><span class="n">calendar_image</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span> 
+                                                      <span class="n">compound</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+                                                      <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">buttom_calendar_callback</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calendario</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span> <span class="p">,</span> <span class="n">column</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">topNotas</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">final_frame</span><span class="o">=</span><span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="n">layout</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">final_frame</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nsew&quot;</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">final_buttom</span><span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">final_frame</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;Guardar&quot;</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="n">tam</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span><span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">retrive_data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">final_buttom</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTH</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        
+<div class="viewcode-block" id="GastosFrame.coin_label_callback"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.coin_label_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">coin_label_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+<div class="viewcode-block" id="GastosFrame.write_data"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.write_data">[documentos]</a>    <span class="k">def</span> <span class="nf">write_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para escribir en la tabla de gastos </span>
+
+<span class="sd">        :param data: tupla con los datos  del nombre del gasto y el monto en la categoria respectiva</span>
+<span class="sd">        :type data: tupla </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="n">escribir_valores</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)</span>
+<span class="s1">        VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)</span>
+<span class="s1">        &#39;&#39;&#39;</span>
+        <span class="n">current_data_base</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">currentuser</span><span class="si">}</span><span class="s1">.db&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">current_data_base</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">escribir_valores</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;Datos ingresados exitosamente&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+        
+          
+
+        
+<div class="viewcode-block" id="GastosFrame.retrive_data"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.retrive_data">[documentos]</a>    <span class="k">def</span> <span class="nf">retrive_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para recopilar datos</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_entry</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">options_spend_var</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_atr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">options_spend_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">coin_var</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="n">notas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_notas</span>
+        <span class="n">mes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date</span>
+        <span class="n">tuple_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_domicilio</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_higiene</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transporte</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_vestimenta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_entretenimiento</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deudas</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seguros</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_servicios</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_otros</span><span class="p">,</span> <span class="n">notas</span><span class="p">,</span> <span class="n">mes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write_data</span><span class="p">(</span><span class="n">tuple_data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_domicilio</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_higiene</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ahorros</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_transporte</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vestimenta</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_entretenimiento</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deudas</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_seguros</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_servicios</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_otros</span> <span class="o">=</span> <span class="mi">0</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notas</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GastosFrame.buttom_notas_callback"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.buttom_notas_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">buttom_notas_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;llama a la ventana para notas</span>
+<span class="sd">        ...</span>
+<span class="sd">        :return: actualiza el atributo de notas </span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topNotas</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topNotas</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topNotas</span> <span class="o">=</span> <span class="n">TopNotas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_notas</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1">#Crear la ventana sino existe</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topNotas</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topNotas</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1">#Si existe la enfoca</span></div>
+<div class="viewcode-block" id="GastosFrame.buttom_calendar_callback"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.buttom_calendar_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">buttom_calendar_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;llama a la ventana de elegir mes </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span></div>
+<div class="viewcode-block" id="GastosFrame.update_date"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.update_date">[documentos]</a>    <span class="k">def</span> <span class="nf">update_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span><span class="n">n</span></div>
+<div class="viewcode-block" id="GastosFrame.update_notas"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.spend.GastosFrame.update_notas">[documentos]</a>    <span class="k">def</span> <span class="nf">update_notas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Esta en una funcion para pasar parametros entre ventanas, solamente actualiza uno de los atributos de la clase con un parametro elegido&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_notas</span><span class="o">=</span><span class="n">n</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

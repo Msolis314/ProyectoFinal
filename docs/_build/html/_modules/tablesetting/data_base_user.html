@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tablesetting.data_base_user &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">tablesetting.data_base_user</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para tablesetting.data_base_user</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+
+
+<div class="viewcode-block" id="new_data"><a class="viewcode-back" href="../../tablesetting.html#tablesetting.data_base_user.new_data">[documentos]</a><span class="k">def</span> <span class="nf">new_data</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+    
+    <span class="n">data_base_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s1">.db&#39;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">data_base_name</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">tabla_ingresos</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    CREATE TABLE IF NOT EXISTS ingresos (</span>
+<span class="s1">        nombre TEXT,</span>
+<span class="s1">        salario REAL,</span>
+<span class="s1">        comisiones REAL,</span>
+<span class="s1">        ventas REAL,</span>
+<span class="s1">        otros REAL,</span>
+<span class="s1">        notas TEXT,</span>
+<span class="s1">        mes TEXT</span>
+<span class="s1">    )</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">tabla_gastos</span><span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    CREATE TABLE IF NOT EXISTS gastos (</span>
+<span class="s1">        nombre TEXT,</span>
+<span class="s1">        Domicilio TEXT,</span>
+<span class="s1">        Higiene TEXT,</span>
+<span class="s1">        Transporte TEXT,</span>
+<span class="s1">        Entretenimiento TEXT,</span>
+<span class="s1">        Deudas TEXT,</span>
+<span class="s1">        Seguros TEXT,</span>
+<span class="s1">        Vestimenta TEXT,</span>
+<span class="s1">        Servicios TEXT,</span>
+<span class="s1">        Otros TEXT,</span>
+<span class="s1">        notas TEXT,</span>
+<span class="s1">        mes TEXT</span>
+<span class="s1">    )</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">tabla_presupuesto</span><span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    CREATE TABLE IF NOT EXISTS presupuesto (</span>
+<span class="s1">        mes TEXT,</span>
+<span class="s1">        Domicilio TEXT,</span>
+<span class="s1">        Higiene TEXT,</span>
+<span class="s1">        Transporte TEXT,</span>
+<span class="s1">        Entretenimiento TEXT,</span>
+<span class="s1">        Deudas TEXT,</span>
+<span class="s1">        Vestimenta TEXT,</span>
+<span class="s1">        Seguros TEXT,</span>
+<span class="s1">        Servicios TEXT,</span>
+<span class="s1">        Otros TEXT</span>
+<span class="s1">    )</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">tabla_ingresos</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">tabla_gastos</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">tabla_presupuesto</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM ingresos LIMIT 1&#39;</span><span class="p">)</span>
+    <span class="n">first_row</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">first_row</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">escribir_valores</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            INSERT INTO ingresos (nombre, salario, comisiones, ventas, otros , notas, mes)</span>
+<span class="s1">            VALUES (?, ?, ?, ?, ?, ?,?)</span>
+<span class="s1">            &#39;&#39;&#39;</span>
+        <span class="n">dataingresos</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span><span class="s2">&quot;Salario&quot;</span><span class="p">,</span><span class="s2">&quot;Comisiones&quot;</span><span class="p">,</span><span class="s2">&quot;Ventas&quot;</span><span class="p">,</span><span class="s2">&quot;Otros&quot;</span><span class="p">,</span><span class="s2">&quot;notas&quot;</span><span class="p">,</span><span class="s2">&quot;Months&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">escribir_valores</span><span class="p">,</span> <span class="n">dataingresos</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM gastos LIMIT 1&#39;</span><span class="p">)</span>
+    <span class="n">first_row</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">first_row</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">escribir_valores</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            INSERT INTO gastos (nombre, Domicilio,Higiene , Transporte,Vestimenta,Entretenimiento,Deudas,Seguros,Servicios,Otros, notas, mes)</span>
+<span class="s1">            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)</span>
+<span class="s1">            &#39;&#39;&#39;</span>
+        <span class="n">datagastos</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;nombre&quot;</span><span class="p">,</span> <span class="s2">&quot;Domicilio&quot;</span><span class="p">,</span><span class="s2">&quot;Higiene&quot;</span> <span class="p">,</span> <span class="s2">&quot;Transporte&quot;</span><span class="p">,</span><span class="s2">&quot;Vestimenta&quot;</span><span class="p">,</span><span class="s2">&quot;Entretenimiento&quot;</span><span class="p">,</span><span class="s2">&quot;Deudas&quot;</span><span class="p">,</span><span class="s2">&quot;Seguros&quot;</span><span class="p">,</span><span class="s2">&quot;Servicios&quot;</span><span class="p">,</span><span class="s2">&quot;Otros&quot;</span><span class="p">,</span> <span class="s2">&quot;notas&quot;</span><span class="p">,</span> <span class="s2">&quot;Meses&quot;</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">escribir_valores</span><span class="p">,</span> <span class="n">datagastos</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM presupuesto LIMIT 1&#39;</span><span class="p">)</span>
+    <span class="n">first_row</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">first_row</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">datapresupuesto</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Meses&quot;</span><span class="p">,</span> <span class="s2">&quot;Domicilio&quot;</span><span class="p">,</span><span class="s2">&quot;Higiene&quot;</span> <span class="p">,</span> <span class="s2">&quot;Transporte&quot;</span><span class="p">,</span><span class="s2">&quot;Vestimenta&quot;</span><span class="p">,</span><span class="s2">&quot;Entretenimiento&quot;</span><span class="p">,</span><span class="s2">&quot;Deudas&quot;</span><span class="p">,</span><span class="s2">&quot;Seguros&quot;</span><span class="p">,</span><span class="s2">&quot;Servicios&quot;</span><span class="p">,</span><span class="s2">&quot;Otros&quot;</span><span class="p">)</span>
+        <span class="n">escribir_valores</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            INSERT INTO presupuesto (mes, Domicilio,Higiene , Transporte,Entretenimiento,Deudas,Seguros,Vestimenta,Servicios,Otros)</span>
+<span class="s1">            VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)</span>
+<span class="s1">            &#39;&#39;&#39;</span>
+            
+        <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">escribir_valores</span><span class="p">,</span> <span class="n">datapresupuesto</span><span class="p">)</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+       
+
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

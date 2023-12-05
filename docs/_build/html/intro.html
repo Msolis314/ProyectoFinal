@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Desarrollo Teórico &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modulos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Desarrollo Teórico</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="desarrollo-teorico">
+<h1>Desarrollo Teórico<a class="headerlink" href="#desarrollo-teorico" title="Enlace permanente a este encabezado"></a></h1>
+<dl class="simple">
+<dt>Para la construcción de la interfaz gráfica se utilizó la biblioteca “tkinter”, que viene por defecto en Python, y un derivado de esta llamado “customtkinter”, que permite crear aplicaciones con una apariencia más moderna. Para el desarrollo de la estructura de la aplicación, se hizo uso de la documentación de tkinter y customtkinter, así como de tutoriales. Según (Amos, 2022), el elemento base de una GUI es la ventana, y en ella se van incorporando otras estructuras conocidas como “widgets”. La primera ventana de la aplicación es creada en el submódulo “interfaz_login”, heredando de la clase que proporciona la biblioteca “customtkinter” para crear ventanas. Cabe señalar que la programación de toda la interfaz gráfica se realizó siguiendo el paradigma de programación orientada a objetos. Por ende, las clases son en la mayoría de los casos hijas de alguna de las clases predefinidas por “customtkinter”::</dt><dd><p>class AbstractLogin(customtkinter.CTk)</p>
+</dd>
+</dl>
+<p>Después de crearse la ventana principal, se le pueden agregar otros elementos, cada uno definido por una clase particular. Algunos de los más utilizados en el presente trabajo son:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27.3%" />
+<col style="width: 18.2%" />
+<col style="width: 54.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Widget</p></th>
+<th class="head"><p>Tipo</p></th>
+<th class="head"><p>Descripcion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Label</p></td>
+<td><p>CTkLabel</p></td>
+<td><p>Caja de texto</p></td>
+</tr>
+<tr class="row-odd"><td><p>Entry</p></td>
+<td><p>CTkEntry</p></td>
+<td><p>Entradas de texto</p></td>
+</tr>
+<tr class="row-even"><td><p>Botón</p></td>
+<td><p>CTkButton</p></td>
+<td><p>Botón con alguna acción</p></td>
+</tr>
+</tbody>
+</table>
+<p>La biblioteca de “customtkinter” permite modificar muchos de los atributos de estos elementos, como el color de fondo o el tipo de texto, para mejorar el diseño de la aplicación. Además, para posicionarlos en los diferentes frames (widgets especializados para dividir la ventana), existen 3 métodos según (Bansal, R. 2023):</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>pack(), el cual va distribuyendo los widgets en bloques para luego posicionarlos en la ventana principal. El tamaño que ocupa cada bloque lo define el propio widget, además permite centrarlo con distintas opciones.</p></li>
+<li><p>grid(), organiza los widgets en una matriz definida por el programador.</p></li>
+<li><p>place(), posición en x y y del widget.</p></li>
+</ol>
+</div></blockquote>
+<p>En la mayoría de los casos, se hizo uso de grid() por la flexibilidad para determinar el acomodo en filas y columnas; no obstante, también se utilizó pack() para apilar frames o posicionar widgets en lugares relativos. De hecho, según (Shipman, 2013), el método grid() soporta diferentes atributos para acomodar distancias relativas en la aplicación. Se hizo uso de las opciones pady y padx para configurar las distancias alrededor del objeto. Además, es importante notar que los distintos métodos de posicionamiento no se pueden combinar en un mismo frame.</p>
+<p>Otro aspecto a considerar para la creación de una aplicación es el manejo de eventos. Por defecto, para ejecutar cualquier ventana en tkinter, se debe llamar al método mainloop(), el cual se encarga de crear un bucle infinito que responde cuando sucede algún evento. Un evento, como lo destaca (Amos, 2022), es cualquier acción que desencadene un efecto para la GUI, como presionar un botón o seleccionar una opción. Internamente, la biblioteca se encarga de la gestión de estos eventos manteniendo una lista de los eventos ocurridos y escribiendo cualquier nuevo evento que se necesite agregar. Es importante mencionar que se hace un gran uso de las funciones tipo callback. Por ejemplo, cuando se desea dar alguna funcionalidad a un botón, se le pasa por argumento a command la función deseada.</p>
+<p>Por ende, para la creación de la interfaz, se utilizaron tres principios:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Crear widgets para los componentes de la GUI.</p></li>
+<li><p>Posicionar los widgets siguiendo cierta geometría según el método.</p></li>
+<li><p>Dar funcionalidad por medio de eventos.</p></li>
+</ol>
+</div></blockquote>
+<p>Cabe mencionar que, por motivos estéticos, se hizo uso de una librería derivada de tkinter creada por Tom Schimansky llamada “customtkinter”. Esta librería permite crear widgets con un aspecto más moderno e interactivo y, además, se puede mezclar con otras funcionalidades de la librería tkinter. Otro módulo de terceros utilizado fue CTkmessagebox, el cual agrega la funcionalidad de proporcionar ventanas de mensajes a la interfaz, lo cual resulta muy útil para gestionar las interacciones con el usuario.</p>
+<p>En lo referente a la interfaz, también se utilizó la biblioteca PILLOW para el procesamiento de las imágenes en conjunto con las funcionalidades propias de “customtkinter”. Específicamente, se utilizó el comando Image en conjunto con la funcionalidad CTkimage para contener imágenes de la siguiente forma:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+</pre></div>
+</div>
+<blockquote>
+<div><blockquote>
+<div><p>try:
+return customtkinter.CTkImage(Image.open(os.path.join(path,name)), size=tam)</p>
+</div></blockquote>
+<dl class="simple">
+<dt>except FileNotFoundError as e:</dt><dd><p>print(f»Error al cargar las imagenes: {e}»)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Código que se encuentra en:</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="tools.Usos.reader_image">
+<span class="sig-prename descclassname"><span class="pre">tools.Usos.</span></span><span class="sig-name descname"><span class="pre">reader_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tools/Usos.html#reader_image"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#tools.Usos.reader_image" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>función para leer imagenes</p>
+</dd></dl>
+
+</section>
+<section id="instalacion">
+<h1>Instalación<a class="headerlink" href="#instalacion" title="Enlace permanente a este encabezado"></a></h1>
+</section>
+<section id="uso">
+<h1>Uso<a class="headerlink" href="#uso" title="Enlace permanente a este encabezado"></a></h1>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

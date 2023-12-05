@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main_window package &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Login package" href="Login.html" />
+    <link rel="prev" title="system_vars package" href="system_vars.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modulos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tools.html">tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tablesetting.html">tablesetting package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_vars.html">system_vars package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">main_window package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-main_window.master">main_window.master module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.master.Panel"><code class="docutils literal notranslate"><span class="pre">Panel</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-main_window.menu_panel">main_window.menu_panel module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.Analisis"><code class="docutils literal notranslate"><span class="pre">Analisis</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.BodyFrame"><code class="docutils literal notranslate"><span class="pre">BodyFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.EntradaDatosFrame"><code class="docutils literal notranslate"><span class="pre">EntradaDatosFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.Exportardatos"><code class="docutils literal notranslate"><span class="pre">Exportardatos</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.MainWindow"><code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.MenuFrame"><code class="docutils literal notranslate"><span class="pre">MenuFrame</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.SubFrames"><code class="docutils literal notranslate"><span class="pre">SubFrames</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main_window.menu_panel.UpperBar"><code class="docutils literal notranslate"><span class="pre">UpperBar</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-main_window.prueba_path">main_window.prueba_path module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-main_window">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Login.html">Login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_classes.html">graph_classes package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entry_classes.html">entry_classes package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Download.html">Download package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Modulos</a></li>
+      <li class="breadcrumb-item active">main_window package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/main_window.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="main-window-package">
+<h1>main_window package<a class="headerlink" href="#main-window-package" title="Enlace permanente a este encabezado"></a></h1>
+<p>Paquete con los elementos de la ventana principal</p>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+<section id="module-main_window.master">
+<span id="main-window-master-module"></span><h2>main_window.master module<a class="headerlink" href="#module-main_window.master" title="Enlace permanente a este encabezado"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.master.Panel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.master.</span></span><span class="sig-name descname"><span class="pre">Panel</span></span><a class="reference internal" href="_modules/main_window/master.html#Panel"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.master.Panel" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTk</span></code></p>
+<p>Panel principal, hereda de CTk</p>
+</dd></dl>
+
+</section>
+<section id="module-main_window.menu_panel">
+<span id="main-window-menu-panel-module"></span><h2>main_window.menu_panel module<a class="headerlink" href="#module-main_window.menu_panel" title="Enlace permanente a este encabezado"></a></h2>
+<p>Módulo que contiene toda la estructura de la ventana principal del programa</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.Analisis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">Analisis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#Analisis"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.Analisis" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#main_window.menu_panel.SubFrames" title="main_window.menu_panel.SubFrames"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubFrames</span></code></a></p>
+<p>Clase para el boton analisis</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SubFrames</strong> (<em>CTkFrame</em>) – Clase padre las subventanas</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.Analisis.get_option_menu_choice">
+<span class="sig-name descname"><span class="pre">get_option_menu_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">choice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#Analisis.get_option_menu_choice"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.Analisis.get_option_menu_choice" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.BodyFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">BodyFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#BodyFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.BodyFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkFrame</span></code></p>
+<p>Clase que configura la ventana principal</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.EntradaDatosFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">EntradaDatosFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#EntradaDatosFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.EntradaDatosFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#main_window.menu_panel.SubFrames" title="main_window.menu_panel.SubFrames"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubFrames</span></code></a></p>
+<p>Clase para el boton que permite la entrada de datos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SubFrames</strong> (<em>CTkFrame</em>) – Clase con las caracteristicas de las subventanas</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.EntradaDatosFrame.event_boton1">
+<span class="sig-name descname"><span class="pre">event_boton1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#EntradaDatosFrame.event_boton1"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.EntradaDatosFrame.event_boton1" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.EntradaDatosFrame.event_boton2">
+<span class="sig-name descname"><span class="pre">event_boton2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#EntradaDatosFrame.event_boton2"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.EntradaDatosFrame.event_boton2" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.EntradaDatosFrame.event_boton3">
+<span class="sig-name descname"><span class="pre">event_boton3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#EntradaDatosFrame.event_boton3"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.EntradaDatosFrame.event_boton3" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.Exportardatos">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">Exportardatos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#Exportardatos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.Exportardatos" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#main_window.menu_panel.SubFrames" title="main_window.menu_panel.SubFrames"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubFrames</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.Exportardatos.radio_event">
+<span class="sig-name descname"><span class="pre">radio_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#Exportardatos.radio_event"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.Exportardatos.radio_event" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.MainWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">MainWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">currentuser</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MainWindow"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MainWindow" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTk</span></code></p>
+<p>Clase que controla la ventana principal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>customtkinter</strong> (<em>Class</em>) – Clase padre de la biblioteca</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MainWindow.sections">
+<span class="sig-name descname"><span class="pre">sections</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MainWindow.sections"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MainWindow.sections" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion donde se crean las instancias de las diferentes secciones del programa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>up_panel</strong> (<a class="reference internal" href="#main_window.menu_panel.UpperBar" title="main_window.menu_panel.UpperBar"><em>UpperBar</em></a>) – Panel superior</p></li>
+<li><p><strong>menu_panel</strong> (<a class="reference internal" href="#main_window.menu_panel.MenuFrame" title="main_window.menu_panel.MenuFrame"><em>MenuFrame</em></a>) – Panel del menu</p></li>
+<li><p><strong>body_panel</strong> – Panel de la seccion de display del programa</p></li>
+</ul>
+</dd>
+</dl>
+<p>:type body_panel:BodyFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MainWindow.toggle_panel">
+<span class="sig-name descname"><span class="pre">toggle_panel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MainWindow.toggle_panel"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MainWindow.toggle_panel" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>funcion para contraer o desplegar el menu lateral</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">MenuFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkFrame</span></code></p>
+<p>Clase que define al menu lateral</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.change_window">
+<span class="sig-name descname"><span class="pre">change_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buttom</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.change_window"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.change_window" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Esta es la funcion que se encarga de cambiar lo que se ve en el panel principal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>buttom</strong> – Boton seleccionado</p>
+</dd>
+</dl>
+<p>:type buttom:str</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.evento3">
+<span class="sig-name descname"><span class="pre">evento3</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.evento3"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.evento3" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.evento_analisis">
+<span class="sig-name descname"><span class="pre">evento_analisis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.evento_analisis"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.evento_analisis" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.evento_apariencia">
+<span class="sig-name descname"><span class="pre">evento_apariencia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.evento_apariencia"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.evento_apariencia" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.evento_data_user">
+<span class="sig-name descname"><span class="pre">evento_data_user</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.evento_data_user"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.evento_data_user" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.evento_logout">
+<span class="sig-name descname"><span class="pre">evento_logout</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.evento_logout"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.evento_logout" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.MenuFrame.widgets_menu">
+<span class="sig-name descname"><span class="pre">widgets_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#MenuFrame.widgets_menu"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.MenuFrame.widgets_menu" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Funcion que maneja los widgets del menu</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>body</strong> (<em>CTkFrame</em>) – Frame donde se quieren posicionar los widgets</p></li>
+<li><p><strong>root</strong> (<em>CTk</em>) – Ventana Principal</p></li>
+<li><p><strong>data_user</strong> (<em>CTkButtom</em>) – Boton que despliega las opciones para la entrada del usuario</p></li>
+<li><p><strong>_analisis</strong> (<em>CTkButtom</em>) – Boton que despliega las opciones para graficacion</p></li>
+<li><p><strong>exportar_datos</strong> (<em>CTkButtom</em>) – Boton que despliega las opciones para exportar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.SubFrames">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">SubFrames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#SubFrames"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.SubFrames" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkFrame</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.SubFrames.get_frame">
+<span class="sig-name descname"><span class="pre">get_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#SubFrames.get_frame"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.SubFrames.get_frame" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="main_window.menu_panel.UpperBar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">main_window.menu_panel.</span></span><span class="sig-name descname"><span class="pre">UpperBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">master</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">User</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#UpperBar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.UpperBar" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">CTkFrame</span></code></p>
+<p>Clase de la barra superior</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="main_window.menu_panel.UpperBar.widgets_upper_bar">
+<span class="sig-name descname"><span class="pre">widgets_upper_bar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main_window/menu_panel.html#UpperBar.widgets_upper_bar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#main_window.menu_panel.UpperBar.widgets_upper_bar" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-main_window.prueba_path">
+<span id="main-window-prueba-path-module"></span><h2>main_window.prueba_path module<a class="headerlink" href="#module-main_window.prueba_path" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+<section id="module-main_window">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-main_window" title="Enlace permanente a este encabezado"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="system_vars.html" class="btn btn-neutral float-left" title="system_vars package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="Login.html" class="btn btn-neutral float-right" title="Login package" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

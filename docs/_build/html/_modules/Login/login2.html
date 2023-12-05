@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login.login2 &mdash; documentación de Presupuesto Mensual - 0.0.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Presupuesto Mensual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Presupuesto Mensual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Código de módulo</a></li>
+      <li class="breadcrumb-item active">Login.login2</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Código fuente para Login.login2</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">import</span> <span class="nn">ttkbootstrap</span> <span class="k">as</span> <span class="nn">tk</span>
+<span class="kn">from</span> <span class="nn">main_window.master</span> <span class="kn">import</span> <span class="n">Panel</span>
+<span class="kn">from</span> <span class="nn">main_window.menu_panel</span> <span class="kn">import</span> <span class="n">MainWindow</span>
+<span class="kn">from</span> <span class="nn">.interfaz_login</span> <span class="kn">import</span> <span class="n">AbstractLogin</span>
+<span class="kn">from</span> <span class="nn">tablesetting.tablelogin</span> <span class="kn">import</span> <span class="n">Usuario</span>
+<span class="kn">from</span> <span class="nn">tablesetting.users_mem</span> <span class="kn">import</span> <span class="n">Usuario_mem</span>
+<span class="kn">from</span> <span class="nn">CTkMessagebox</span> <span class="kn">import</span> <span class="n">CTkMessagebox</span>
+<span class="kn">from</span> <span class="nn">.interfaz_register</span> <span class="kn">import</span> <span class="n">Register</span>
+<span class="kn">import</span> <span class="nn">tools.crypto</span> <span class="k">as</span> <span class="nn">cr</span>
+<span class="kn">import</span> <span class="nn">system_vars.config</span> <span class="k">as</span> <span class="nn">config</span>
+<span class="kn">from</span> <span class="nn">tablesetting.data_base_user</span> <span class="kn">import</span> <span class="n">new_data</span>
+<div class="viewcode-block" id="MainApp"><a class="viewcode-back" href="../../Login.html#Login.login2.MainApp">[documentos]</a><span class="k">class</span> <span class="nc">MainApp</span><span class="p">(</span><span class="n">AbstractLogin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase donde se crean los metodos propios del Login&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">usuario_mem</span><span class="o">=</span> <span class="n">Usuario_mem</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sign_up_window</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    
+<div class="viewcode-block" id="MainApp.checkpass"><a class="viewcode-back" href="../../Login.html#Login.login2.MainApp.checkpass">[documentos]</a>    <span class="k">def</span> <span class="nf">checkpass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;funcion para verificar la entra de constra del usuario&quot;&quot;&quot;</span>
+        <span class="n">user_data</span> <span class="p">:</span> <span class="n">Usuario</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">usuario_mem</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">User</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">checkUser</span><span class="p">(</span><span class="n">user_data</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">checkContra</span><span class="p">(</span><span class="n">user_data</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">get</span><span class="p">())</span></div>
+        
+        
+    
+<div class="viewcode-block" id="MainApp.checkContra"><a class="viewcode-back" href="../../Login.html#Login.login2.MainApp.checkContra">[documentos]</a>    <span class="k">def</span> <span class="nf">checkContra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">Usuario</span><span class="p">,</span> <span class="n">contra</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Funcion para revisar si la contra es correcta&#39;&#39;&#39;</span>
+        <span class="n">byte_pass</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">uncrypting_pass</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span> <span class="n">contra</span> <span class="o">==</span> <span class="n">byte_pass</span><span class="p">):</span>
+            <span class="n">new_data</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">&#39;cancel&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="MainApp.checkUser"><a class="viewcode-back" href="../../Login.html#Login.login2.MainApp.checkUser">[documentos]</a>    <span class="k">def</span> <span class="nf">checkUser</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">Usuario</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Funcion para revisar si existe el usuario&#39;&#39;&#39;</span>
+        <span class="n">status</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">user</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">status</span><span class="o">=</span><span class="kc">False</span>
+            <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;Usuario no existente, porfavor registrarse para continuar&#39;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Message&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">status</span></div>
+<div class="viewcode-block" id="MainApp.registration"><a class="viewcode-back" href="../../Login.html#Login.login2.MainApp.registration">[documentos]</a>    <span class="k">def</span> <span class="nf">registration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para invocar registro de usuario&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sign_up_window</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">sign_up_window</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sign_up_window</span> <span class="o">=</span> <span class="n">Register</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sign_up_window</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span></div></div>
+        
+
+
+
+<span class="n">MainApp</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2023, Mariana Solis, Mario Reyes, Candy Rojas.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
