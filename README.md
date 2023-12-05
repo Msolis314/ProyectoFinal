@@ -153,6 +153,8 @@ Al respecto, todos los objetivos fueron cumplidos satisfactoriamente, consideran
 
 En cuanto a las limitaciones, la aplicación no permite hacer un seguimiento multianual de la información. Si bien es un aspecto fuera del alcance del proyecto, esta funcionalidad podría ser implementada sin mayor dificultad debido al diseño modular de la solución desarrollada.
 
+Además, se recomienda el desarrollo utilizando plataformas basadas en Unix/Linux, las cuales proporcionan un ambiente de desarrollo mucho más limpio y robusto para trabajar, en comparación con el uso de plataformas Windows. Una vez superada la curva de aprendizaje enfrentada al inicio del curso, resulta mucho más intuitivo y es más poderoso trabajar desde la terminal de Linux, además de que proporciona mayor eficiencia y seguridad. Una limitación enfrentada en relación con este tema, estuvo relacionada con el uso de máquinas virtuales para levantar el ambiente Linux, las cuales presentaron problemas de desempeño y de disponibilidad de recursos como memoria de trabajo y almacenamiento (debido a la configuración de la máquina virtual y las limitaciones de hardware de la máquina física utilizada), por lo cual una parte del desarrollo se llevó a cabo al final utilizando Windows, lo que provocó errores y dificultades relacionadas con la configuración del entorno de desarrollo requerido para la implementación de la aplicación, impidiendo en algunos casos la ejecución del programa completo con todas sus features debido a bugs difíciles de depurar.
+
 <p align="right">(<a href="#readme-top">regresar</a>)</p>
 
 ## Comenzar
