@@ -106,8 +106,8 @@ class IncomesPie():
             self.graph_frame.grid_columnconfigure(0,weight=1)
             self.graph_frame.grid_columnconfigure(2,weight=1)
             self.graph_frame.grid(row=0, column=0, sticky='nsew')
-            title = f'Gráfico Pastel {selected_month_name}'
-            self.titleLabel = customtkinter.CTkLabel(self.graph_frame,text=title,font=set_font(tam=15))
+            title = f'Gráfico Pastel Ingresos {selected_month_name}'
+            self.titleLabel = customtkinter.CTkLabel(self.graph_frame,text_color=TEXT_COLOR,text=title,font=set_font(tam=15))
             self.titleLabel.grid(row=0,column=1,pady=20)
 
             fig = Figure(figsize=(5, 5), dpi=100)

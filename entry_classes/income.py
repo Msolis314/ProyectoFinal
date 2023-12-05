@@ -208,6 +208,13 @@ class IncomeFrame(Income):
         """
         if valid_amount(self.amount_entry.get(),self.coin_var.get()) == False:
             CTkMessagebox(title="Error",message="Entrada invalida de dinero",icon='cancel')
+            self.amount_entry.delete(0,'end')
+            self.name_entry.delete(0,'end')
+            self._salario =0
+            self._comisiones =0
+            self._ventas =0
+            self._otros = 0
+            raise Exception
         else:
             if self.options_income_var.get() == "Salario":
                 self._salario= valid_amount(self.amount_entry.get(),self.coin_var.get())

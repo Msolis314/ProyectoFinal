@@ -57,91 +57,96 @@ class MonthlyBudgetGraph:
         The function `show_month_graph` displays a bar graph showing the budget and expenses for a
         selected month.
         """
-        #Para guardar los datos por mes.
-        monthly_data = {
-            'Months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            'Budget': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            'Expenses': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
-        
-        # Cargar datos desde un archivo Excel
-        try:
-            months_expenses_list, total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others = self.data_manager.load_data_expenses_from_excel(self.pathexp, 'Sheet')
-            months_budget_list, budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others = self.data_manager.load_data_budget_from_excel(self.pathbud, 'Sheet')
-        except:
-            data_to_excel('Gastos')
-            data_to_excel('Presupuesto')
-            months_expenses_list, total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others = self.data_manager.load_data_expenses_from_excel(self.pathexp, 'Sheet')
-            months_budget_list, budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others = self.data_manager.load_data_budget_from_excel(self.pathbud, 'Sheet')
-        
-        
-        # Calcular gastos totales por mes.
-        list_expenses = zip(total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others)
-        monthly_expenses = [sum(tupla) for tupla in list_expenses]
-        #Gastos por meses
-        data_expenses = {
-            'Months': months_expenses_list,
-            'Expenses': monthly_expenses}
-        # Integrar datos de data_expenses en annual_data
-        for month, expense in zip(data_expenses['Months'], data_expenses['Expenses']):
-            index = monthly_data['Months'].index(month)
-            monthly_data['Expenses'][index] = expense
-            
-        # Calcular presupuesto totales por mes.
-        list_budget = zip(budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others)
-        monthly_budget = [sum(tupla) for tupla in list_budget]
-        #Gastos por meses
-        data_budget = {
-            'Months': months_budget_list,
-            'Budget': monthly_budget}
-        # Integrar datos de data_expenses en annual_data
-        for month, budget in zip(data_budget['Months'], data_budget['Budget']):
-            index = monthly_data['Months'].index(month)
-            monthly_data['Budget'][index] = budget
-        
         # Obtiene el mes seleccionado y el índice de este mes.
         selected_month = self.month_var
-        # Obtiene el índice del mes seleccionado.
-        index = monthly_data['Months'].index(selected_month)
+        if selected_month !=None:
+            #Para guardar los datos por mes.
+            monthly_data = {
+                'Months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                'Budget': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                'Expenses': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+            
+            # Cargar datos desde un archivo Excel
+            try:
+                months_expenses_list, total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others = self.data_manager.load_data_expenses_from_excel(self.pathexp, 'Sheet')
+                months_budget_list, budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others = self.data_manager.load_data_budget_from_excel(self.pathbud, 'Sheet')
+            except:
+                data_to_excel('Gastos')
+                data_to_excel('Presupuesto')
+                months_expenses_list, total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others = self.data_manager.load_data_expenses_from_excel(self.pathexp, 'Sheet')
+                months_budget_list, budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others = self.data_manager.load_data_budget_from_excel(self.pathbud, 'Sheet')
+            
+            
+            # Calcular gastos totales por mes.
+            list_expenses = zip(total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others)
+            monthly_expenses = [sum(tupla) for tupla in list_expenses]
+            #Gastos por meses
+            data_expenses = {
+                'Months': months_expenses_list,
+                'Expenses': monthly_expenses}
+            # Integrar datos de data_expenses en annual_data
+            for month, expense in zip(data_expenses['Months'], data_expenses['Expenses']):
+                index = monthly_data['Months'].index(month)
+                monthly_data['Expenses'][index] = expense
+                
+            # Calcular presupuesto totales por mes.
+            list_budget = zip(budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others)
+            monthly_budget = [sum(tupla) for tupla in list_budget]
+            #Gastos por meses
+            data_budget = {
+                'Months': months_budget_list,
+                'Budget': monthly_budget}
+            # Integrar datos de data_expenses en annual_data
+            for month, budget in zip(data_budget['Months'], data_budget['Budget']):
+                index = monthly_data['Months'].index(month)
+                monthly_data['Budget'][index] = budget
+            
+            # Obtiene el mes seleccionado y el índice de este mes.
+            selected_month = self.month_var
+            # Obtiene el índice del mes seleccionado.
+            index = monthly_data['Months'].index(selected_month)
 
-        # Oculta el marco actual.
-        #self.month_frame.grid_forget()
+            # Oculta el marco actual.
+            #self.month_frame.grid_forget()
 
-        # Crear un nuevo marco para la gráfica.
-        self.graph_month_frame = customtkinter.CTkFrame(self.root,fg_color='transparent')
-        self.graph_month_frame.grid_rowconfigure(0,weight=1)
-        self.graph_month_frame.grid_columnconfigure(0,weight=1)
-        self.graph_month_frame.grid_columnconfigure(2,weight=1)
-        self.graph_month_frame.grid(row=0, column=0, sticky='nsew')
+            # Crear un nuevo marco para la gráfica.
+            self.graph_month_frame = customtkinter.CTkFrame(self.root,fg_color='transparent')
+            self.graph_month_frame.grid_rowconfigure(0,weight=1)
+            self.graph_month_frame.grid_columnconfigure(0,weight=1)
+            self.graph_month_frame.grid_columnconfigure(2,weight=1)
+            self.graph_month_frame.grid(row=0, column=0, sticky='nsew')
 
 
-        # Crea una nueva figura y un eje para la gráfica de barras.
-        fig = Figure(figsize=(6, 4), dpi=100)
-        ax = fig.add_subplot(111)
+            # Crea una nueva figura y un eje para la gráfica de barras.
+            fig = Figure(figsize=(6, 4), dpi=100)
+            ax = fig.add_subplot(111)
 
-        # Configura posiciones de las barras y sus dimensiones.
-        ax.bar(0, monthly_data['Budget'][index], width=0.4, label='Budget', align='center')
-        ax.bar(1, monthly_data['Expenses'][index], width=0.4, label='Expenses', align='center')
+            # Configura posiciones de las barras y sus dimensiones.
+            ax.bar(0, monthly_data['Budget'][index], width=0.4, label='Budget', align='center')
+            ax.bar(1, monthly_data['Expenses'][index], width=0.4, label='Expenses', align='center')
 
-        # Agrega barras para el presupuesto y los gastos.
-        ax.set_xticks([0, 1])
-        ax.set_xticklabels(['Budget', 'Expenses'])
-        ax.set_ylabel('Amount')
-        ax.set_title(f'Budget and Expenses for {selected_month}')
-        
-        # Muestra leyenda.
-        ax.legend(loc='lower right')
+            # Agrega barras para el presupuesto y los gastos.
+            ax.set_xticks([0, 1])
+            ax.set_xticklabels(['Budget', 'Expenses'])
+            ax.set_ylabel('Amount')
+            ax.set_title(f'Budget and Expenses for {selected_month}')
+            
+            # Muestra leyenda.
+            ax.legend(loc='lower right')
 
-        # Agrega la gráfica al marco de la interfaz.
-        canvas = FigureCanvasTkAgg(fig, master=self.graph_month_frame)
-        canvas_widget = canvas.get_tk_widget()
-        canvas_widget.grid(row=1, column=1, sticky=(tk.W, tk.E, tk.N, tk.S))
+            # Agrega la gráfica al marco de la interfaz.
+            canvas = FigureCanvasTkAgg(fig, master=self.graph_month_frame)
+            canvas_widget = canvas.get_tk_widget()
+            canvas_widget.grid(row=1, column=1, sticky=(tk.W, tk.E, tk.N, tk.S))
 
+            #Botón para volver a la selección de mes.
         #Botón para volver a la selección de mes.
-       #Botón para volver a la selección de mes.
-        btn_return = customtkinter.CTkButton(self.graph_month_frame, text="Volver",font=set_font(), command=self.return_to_month_menu)
-        btn_return.grid(row=2, column=1,pady=20)
-        os.remove(self.pathbud)
-        os.remove(self.pathexp)
+            btn_return = customtkinter.CTkButton(self.graph_month_frame, text="Volver",font=set_font(), command=self.return_to_month_menu)
+            btn_return.grid(row=2, column=1,pady=20)
+            os.remove(self.pathbud)
+            os.remove(self.pathexp)
+        else:
+            CTkMessagebox(title="Error",message="Debe elegir un mes",icon='cancel')
 
     def return_to_month_menu(self):
         """

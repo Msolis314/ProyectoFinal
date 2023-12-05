@@ -415,19 +415,22 @@ class PresupuestoFrame(Economy):
         """Aqui se debe verificar las entradas del usuario y escribirlas en la base de datos
         """
         data =self.user_entry.get_data()
-        data.insert(0,self._date)
-        newdata = tuple(data)
-        print(newdata)
+        
+        
+        
         if self._date == None:
-            CTkMessagebox(title="Error", message='Debe elegir una fecha',icon='cancel')
+            CTkMessagebox(title="Error", message='Debe elegir una fecha')
             raise ExceptionSystem("Error en la escritura")
         if data != None and self._date != None:
+            data.insert(0,self._date)
+            newdata = tuple(data)
             self.write_data(newdata)
+            
             self._date=None
             self.user_entry.title_label.configure(text="Presupuesto")
             self.user_entry.clean_entry()
         else:
-            CTkMessagebox(title="Error", message="Error al escribir en la base de datos",icon='cancel')
+            CTkMessagebox(title="Error", message="Error al escribir en la base de datos")
 
     def write_data(self,data):
         """Funcion para escribir en la base de datos
@@ -603,12 +606,10 @@ class Entry(customtkinter.CTkFrame):
         check_tuple = []
         money_type = self.coin_var.get()
         check_tuple = list(map(lambda x : valid_amount(x,money_type),tuple_data))
-        """for item in check_tuple:
-            if item == False:
-                CTkMessagebox(title="Error",message='Valor invalido')
-                self.clean_entry()
-                raise ExceptionSystem('Error en la entrada de datos')"""
-        return check_tuple
+        if any(item is False for item in check_tuple):
+            return None
+        else:
+            return check_tuple
     def clean_entry(self):
         """Funcion para limpiar las entradas una vez se guardan los datos
         """
