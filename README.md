@@ -216,6 +216,12 @@ python3 ./main.py
 
 En esta sección se muestra la apariencia del programa en funcionamiento.
 
+### Reporte mensual
+
+En la pantalla de visualización de datos es posible desplegar un reporte mensual en formato de tabla resumen para mostrar el detalle de gastos y presupuesto por categoría, así como la diferencia entre ambos valores, la cual muestra el remanente que indica la magnitud de los posibles ahorros en ese mes, o bien, del sobregiro en los gastos en caso de que éstos superen lo presupuestado en una partida dada.
+
+![tabla_reporte_mensual](https://raw.githubusercontent.com/mareyes1/Lab2/main/reporte_mensual.jpeg)
+
 ### Gráficos
 
 #### Gráfico de ingresos
@@ -240,7 +246,7 @@ Gráfico que muestra la comparación entre los gastos ejecutados en un mes dado 
 
 Gráfico que muestra simultáneamente los ingresos, los gastos y los ahorros para todos los meses del año, lo que permite una visualización general del comportamiento histórico, conforme a los objetivos del proyecto.
 
-![reporte_anual](https://raw.githubusercontent.com/mareyes1/Lab2/main/grafica_reporte_anual.jpeg)
+![grafica_reporte_anual](https://raw.githubusercontent.com/mareyes1/Lab2/main/grafica_reporte_anual.jpeg)
 
 <p align="right">(<a href="#readme-top">regresar</a>)</p>
 
