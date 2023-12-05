@@ -2,6 +2,9 @@ import customtkinter
 from .DataManager import DataManager
 from .IncomesPie import IncomesPie
 from .ExpensePie import ExpensePie
+from .MontlyBudget import MonthlyBudgetGraph
+from .Annualgraph import AnnualGraph
+from .Report import Report
 from tablesetting.base_to_excel import data_to_excel
 import os
 class graph_choices:
@@ -24,3 +27,20 @@ class graph_choices:
         data_to_excel('Presupuesto')
         pathb=f"basedata\Presupuesto.xlsx"
         pathg= f"basedata\Gastos.xlsx"
+
+        montly_budget_instance = MonthlyBudgetGraph(self.root,pathb,pathg,'Sheet')
+        montly_budget_instance.show_select_month()
+    def call_anual_graph(self):
+        data_to_excel('Gastos')
+        data_to_excel('Ingresos')
+        pathg= f"basedata\Gastos.xlsx"
+        pathi=f"basedata\Ingresos.xlsx"
+        annual_graph_instance = AnnualGraph(self.root, pathg,pathi)
+        annual_graph_instance.show_annual_graph()
+    def call_report(self):
+        data_to_excel('Gastos')
+        data_to_excel('Presupuesto')
+        pathb=f"basedata\Presupuesto.xlsx"
+        pathg= f"basedata\Gastos.xlsx"
+        report_instance = Report(self.root,pathg,pathb,'Sheet')
+        report_instance.show_select_month()

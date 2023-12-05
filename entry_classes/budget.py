@@ -242,9 +242,9 @@ class PresupuestoFrame(Economy):
                 mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
                 response = mag.get()
                 if response == 'Yes':
-                    self.delete_row('Enero')
+                    self.delete_row('Abril')
                     self.abril.configure(fg_color=BUTTOM_HOVER)
-                    self.user_entry.title_label.configure(text='Presupuesto Enero')
+                    self.user_entry.title_label.configure(text='Presupuesto Abril')
                     self._date='Abril'
                 else:
                     self._date=None
@@ -255,7 +255,7 @@ class PresupuestoFrame(Economy):
             if self.check_existing_data('Mayo') == False:
 
                 self.mayo.configure(fg_color=BUTTOM_HOVER)
-                self.user_entry.title_label.configure(text='Presupuesto Enero')
+                self.user_entry.title_label.configure(text='Presupuesto Mayo')
                 self._date='Mayo'
             else:
                 mag = CTkMessagebox(title="?",message="Existen datos en el mes seleccionado desea reescribirlos?",icon="question", option_1="Cancel", option_2="No", option_3="Yes")
@@ -614,31 +614,22 @@ class Entry(customtkinter.CTkFrame):
         """
         self.domicilio_entry.delete(0,'end')
         self.domicilio_entry.insert(0,'0')
-        self.domicilio_var = customtkinter.StringVar(value='0')
         self.higiene_entry.delete(0,'end')
         self.higiene_entry.insert(0,'0')
-        self.higiene_var = customtkinter.StringVar(value='0')
         self.transporte_entry.delete(0,'end')
         self.transporte_entry.insert(0,'0')
-        self.transporte_var = customtkinter.StringVar(value='0')
         self.entretenimiento_entry.delete(0,'end')
         self.entretenimiento_entry.insert(0,'0')
-        self.entretenimiento_var = customtkinter.StringVar(value='0')
         self.deudas_entry.delete(0,'end')
         self.deudas_entry.insert(0,'0')
-        self.deudas_var = customtkinter.StringVar(value='0')
         self.seguros_entry.delete(0,'end')
         self.seguros_entry.insert(0,'0')
-        self.seguros_var = customtkinter.StringVar(value='0')
         self.vestimenta_entry.delete(0,'end')
         self.vestimenta_entry.insert(0,'0')
-        self.vestimenta_var = customtkinter.StringVar(value='0')
         self.servicios_entry.delete(0,'end')
         self.servicios_entry.insert(0,'0')
-        self.servicios_var  = customtkinter.StringVar(value='0')
         self.otros_entry.delete(0,'end')
         self.otros_entry.insert(0,'0')
-        self.otros_var = customtkinter.StringVar(value='0')
     
 
         

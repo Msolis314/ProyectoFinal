@@ -114,23 +114,22 @@ class GraphChoice:
         msg = CTkMessagebox(title="info", message="Genera un gráfico de barras comparando lo proyectado para el presupuesto con los gastos por mes",option_1="Cancelar",option_2="Aceptar")
         respuesta = msg.get()
         if respuesta == "Aceptar":
-            if self.topCalendar is None or not self.topCalendar.winfo_exists():
-                self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed
-                self.topCalendar.wm_transient(config.app)
-            else:
-                self.topCalendar.focus()  # if window exists focus it
-        self._graph_choice= ("Barras_mes",self._date)
-        self.title_frame.pack_forget()
-        self.botton_frame.pack_forget()
+            self.title_frame.pack_forget()
+            self.botton_frame.pack_forget()
+            self.graph_choices_instance.call_montly_budget()
+        
     def year_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el year_graph
         """
         msg = CTkMessagebox(title="info", message="Genera un gráfico con las tendencias de ahorros,ingresos y gastos en el año",option_1="Cancelar",option_2="Aceptar")
         respuesta = msg.get()
         ###Aqui deberia haber un condicional que revisa si hay datos suficientes para generar el grafico
+        if respuesta == "Aceptar":
+            self.title_frame.pack_forget()
+            self.botton_frame.pack_forget()
+            self.graph_choices_instance.call_anual_graph()
         self._graph_choice= ("Barras_anual")
-        self.title_frame.pack_forget()
-        self.botton_frame.pack_forget()
+        
         
     def reporte_buttom_callback(self):
         """Funcion para abrir una ventana si se presiona el reporte
@@ -138,14 +137,11 @@ class GraphChoice:
         msg = CTkMessagebox(title="info", message="Genera el reporte mensual",option_1="Cancelar",option_2="Aceptar")
         respuesta = msg.get()
         if respuesta == "Aceptar":
-            if self.topCalendar is None or not self.topCalendar.winfo_exists():
-                self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed
-                self.topCalendar.wm_transient(config.app)
-            else:
-                self.topCalendar.focus()  # if window exists focus it
-        self._graph_choice= ("Reporte",self._date)
-        self.title_frame.pack_forget()
-        self.botton_frame.pack_forget()
+            self.title_frame.pack_forget()
+            self.botton_frame.pack_forget()
+            self.graph_choices_instance.call_report()
+            
+    
 
     def update_date(self,choice):
         self._date=choice

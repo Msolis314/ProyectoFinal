@@ -12,7 +12,7 @@ from system_vars.Vars import *
 from tablesetting.base_to_excel import data_to_excel
 import system_vars.config as config
 
-class MonthlyBudgetGraph:
+class Report:
     
     def __init__(self,  root,pathexpense,pathbudget,sheet):
         """
@@ -50,19 +50,20 @@ class MonthlyBudgetGraph:
                                                          font=set_font(),dropdown_font=set_font('Shanti'),
                                                          variable=self.option_menu_var)
         self.option_calendar.pack(fill=tk.BOTH,expand=True,pady=20)
-        self.buttom_display = customtkinter.CTkButton(self.month_frame, text="Generar grafico",font=set_font(),command=self.update_date,fg_color=BUTTOM_HOVER)
+        self.buttom_display = customtkinter.CTkButton(self.month_frame, text="Generar Reporte",font=set_font(),command=self.update_date,fg_color=BUTTOM_HOVER)
         self.buttom_display.pack(fill= tk.BOTH,side=tk.BOTTOM, expand=True)
     def show_month_graph(self):
         """
         The function `show_month_graph` displays a bar graph showing the budget and expenses for a
         selected month.
         """
+        selected_month_name = self.month_var
         #Para guardar los datos por mes.
         monthly_data = {
-            'Months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            'Categories': ['Domicilio','Higiene','Transporte','Entretenimiento','Deudas','Seguros','Servicios','Otros'],
             'Budget': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             'Expenses': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
-        
+        dict_compare = {'Domicilio':[],'Higiene':[],'Transporte':[],'Entretenimiento':[],'Deudas':[],'Seguros':[],'Servicios':[],'Otros':[]}
         # Cargar datos desde un archivo Excel
         try:
             months_expenses_list, total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others = self.data_manager.load_data_expenses_from_excel(self.pathexp, 'Sheet')
@@ -73,35 +74,41 @@ class MonthlyBudgetGraph:
             months_expenses_list, total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others = self.data_manager.load_data_expenses_from_excel(self.pathexp, 'Sheet')
             months_budget_list, budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others = self.data_manager.load_data_budget_from_excel(self.pathbud, 'Sheet')
         
+        try:
+            selected_month_index_ex = months_expenses_list.index(selected_month_name)
+            selected_month_index_bud=months_budget_list.index(selected_month_name)
+        except:
+            CTkMessagebox(title="Error",message="Datos insuficientes para el mes")
+            self.return_to_month_menu()
+            os.remove(self.pathexp)
+            os.remove(self.pathbud)
+            raise Exception
+        dict_compare['Domicilio'].append(total_rent[selected_month_index_ex])
+        dict_compare['Transporte'].append(total_transport[selected_month_index_ex])
+        dict_compare['Entretenimiento'].append(total_entertainment[selected_month_index_ex])
+        dict_compare['Servicios'].append(total_services[selected_month_index_ex])
+        dict_compare['Seguros'].append(total_insurances[selected_month_index_ex])
+        dict_compare['Deudas'].append(total_debts[selected_month_index_ex])
+        dict_compare['Higiene'].append(total_hygiene[selected_month_index_ex])
+        dict_compare['Otros'].append(total_others[selected_month_index_ex])
         
-        # Calcular gastos totales por mes.
-        list_expenses = zip(total_rent, total_transport, total_entertainment, total_services, total_hygiene, total_insurances, total_debts, total_others)
-        monthly_expenses = [sum(tupla) for tupla in list_expenses]
-        #Gastos por meses
-        data_expenses = {
-            'Months': months_expenses_list,
-            'Expenses': monthly_expenses}
-        # Integrar datos de data_expenses en annual_data
-        for month, expense in zip(data_expenses['Months'], data_expenses['Expenses']):
-            index = monthly_data['Months'].index(month)
-            monthly_data['Expenses'][index] = expense
-            
-        # Calcular presupuesto totales por mes.
-        list_budget = zip(budget_rent, budget_transport, budget_entertainment, budget_services, budget_hygiene, budget_insurances, budget_debts, budget_others)
-        monthly_budget = [sum(tupla) for tupla in list_budget]
-        #Gastos por meses
-        data_budget = {
-            'Months': months_budget_list,
-            'Budget': monthly_budget}
-        # Integrar datos de data_expenses en annual_data
-        for month, budget in zip(data_budget['Months'], data_budget['Budget']):
-            index = monthly_data['Months'].index(month)
-            monthly_data['Budget'][index] = budget
+        dict_compare['Domicilio'].append(budget_rent[selected_month_index_bud])
+        dict_compare['Transporte'].append(budget_transport[selected_month_index_bud])
+        dict_compare['Entretenimiento'].append(budget_entertainment[selected_month_index_bud])
+        dict_compare['Servicios'].append(budget_services[selected_month_index_bud])
+        dict_compare['Seguros'].append(budget_insurances[selected_month_index_bud])
+        dict_compare['Deudas'].append(budget_debts[selected_month_index_bud])
+        dict_compare['Higiene'].append(budget_hygiene[selected_month_index_bud])
+        dict_compare['Otros'].append(budget_others[selected_month_index_bud])
         
-        # Obtiene el mes seleccionado y el índice de este mes.
-        selected_month = self.month_var
-        # Obtiene el índice del mes seleccionado.
-        index = monthly_data['Months'].index(selected_month)
+        for key in dict_compare:
+            try:
+                
+                dif = dict_compare[key][1]- dict_compare[key][0]
+            except:
+                dif = 0
+            dict_compare[key].append(dif)
+        
 
         # Oculta el marco actual.
         #self.month_frame.grid_forget()
@@ -110,36 +117,40 @@ class MonthlyBudgetGraph:
         self.graph_month_frame = customtkinter.CTkFrame(self.root,fg_color='transparent')
         self.graph_month_frame.grid_rowconfigure(0,weight=1)
         self.graph_month_frame.grid_columnconfigure(0,weight=1)
-        self.graph_month_frame.grid_columnconfigure(2,weight=1)
+        self.graph_month_frame.grid_columnconfigure(4,weight=1)
         self.graph_month_frame.grid(row=0, column=0, sticky='nsew')
+        self.Label_bud = customtkinter.CTkLabel(self.graph_month_frame,text='Gasto',font=set_font(),text_color=TEXT_COLOR)
+        self.Label_bud.grid(row=0, column=1,padx=30)
+        self.Label_spend = customtkinter.CTkLabel(self.graph_month_frame,text='Presupuesto',font=set_font(),text_color=TEXT_COLOR)
+        self.Label_spend.grid(row=0, column=2,padx=30)
+        self.Label_dif = customtkinter.CTkLabel(self.graph_month_frame,text='Diferencia',font=set_font(),text_color=TEXT_COLOR)
+        self.Label_dif.grid(row=0, column=3,padx=30)
+        for index,type_cat in enumerate(monthly_data['Categories']):
+             customtkinter.CTkLabel(self.graph_month_frame,text=type_cat,text_color=TEXT_COLOR,
+                                                 font=set_font('Cascadia Mono')).grid(row = 1+ index, column=0,pady=5,padx=5)
+        
+        for index, key in enumerate(dict_compare):
+            customtkinter.CTkLabel(self.graph_month_frame,text=f'{dict_compare[key][0]}',text_color=TEXT_COLOR,
+                                                 font=set_font('Cascadia Mono')).grid(row = 1+ index, column=1,pady=5,padx=5)
+        
+        for index, key in enumerate(dict_compare):
+            customtkinter.CTkLabel(self.graph_month_frame,text=f'{dict_compare[key][1]}',text_color=TEXT_COLOR,
+                                                 font=set_font('Cascadia Mono')).grid(row = 1+ index, column=2,pady=5,padx=5)
+        for index, key in enumerate(dict_compare):
+            customtkinter.CTkLabel(self.graph_month_frame,text=f'{dict_compare[key][2]}',text_color=TEXT_COLOR,
+                                                 font=set_font('Cascadia Mono')).grid(row = 1+ index, column=3,pady=5,padx=5)
+
+
+
 
 
         # Crea una nueva figura y un eje para la gráfica de barras.
-        fig = Figure(figsize=(6, 4), dpi=100)
-        ax = fig.add_subplot(111)
-
-        # Configura posiciones de las barras y sus dimensiones.
-        ax.bar(0, monthly_data['Budget'][index], width=0.4, label='Budget', align='center')
-        ax.bar(1, monthly_data['Expenses'][index], width=0.4, label='Expenses', align='center')
-
-        # Agrega barras para el presupuesto y los gastos.
-        ax.set_xticks([0, 1])
-        ax.set_xticklabels(['Budget', 'Expenses'])
-        ax.set_ylabel('Amount')
-        ax.set_title(f'Budget and Expenses for {selected_month}')
-        
-        # Muestra leyenda.
-        ax.legend(loc='lower right')
-
-        # Agrega la gráfica al marco de la interfaz.
-        canvas = FigureCanvasTkAgg(fig, master=self.graph_month_frame)
-        canvas_widget = canvas.get_tk_widget()
-        canvas_widget.grid(row=1, column=1, sticky=(tk.W, tk.E, tk.N, tk.S))
+       
 
         #Botón para volver a la selección de mes.
        #Botón para volver a la selección de mes.
-        btn_return = customtkinter.CTkButton(self.graph_month_frame, text="Volver",font=set_font(), command=self.return_to_month_menu)
-        btn_return.grid(row=2, column=1,pady=20)
+        btn_return = customtkinter.CTkButton(self.graph_month_frame,hover_color=HOVER_COLOR,fg_color=BORDER_COLOR ,text="Volver",font=set_font(), command=self.return_to_month_menu)
+        btn_return.grid(row=12, column=0,columnspan=7,pady=40,sticky='nsew')
         os.remove(self.pathbud)
         os.remove(self.pathexp)
 

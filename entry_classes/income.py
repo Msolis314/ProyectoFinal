@@ -23,7 +23,7 @@ class Income:
         self._date= "Enero"
         self._notas = ""
         self._salario = 0
-        self._comisiones = None
+        self._comisiones = 0
         self._ventas= 0
         self._otros = 0
     def escribir_base_data(self,data):

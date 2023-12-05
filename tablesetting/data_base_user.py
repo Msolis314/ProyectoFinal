@@ -75,7 +75,7 @@ def new_data(user):
     c.execute('SELECT * FROM presupuesto LIMIT 1')
     first_row = c.fetchone()
     if first_row == None:
-        datapresupuesto = ("Months", "Domicilio","Higiene" , "Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros")
+        datapresupuesto = ("Meses", "Domicilio","Higiene" , "Transporte","Vestimenta","Entretenimiento","Deudas","Seguros","Servicios","Otros")
         escribir_valores = '''
             INSERT INTO presupuesto (mes, Domicilio,Higiene , Transporte,Entretenimiento,Deudas,Seguros,Vestimenta,Servicios,Otros)
             VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)
