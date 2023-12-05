@@ -294,15 +294,17 @@ Gráfico que muestra simultáneamente los ingresos, los gastos y los ahorros par
 
 ### Descarga de información
 
-Opciones de descarga
+La aplicación ofrece la posibilidad de descargar la información.
+
+Opciones de descarga:
 
 ![opciones_descarga](https://raw.githubusercontent.com/mareyes1/Lab2/main/opciones%20descarga.jpeg)
 
-Seleccionar carpeta de descarga
+Seleccionar carpeta de descarga:
 
 ![seleccionar_carpeta](https://raw.githubusercontent.com/mareyes1/Lab2/main/ventana_descargar.jpeg)
 
-Error de descarga
+Error en la descarga al no seleccionar un directorio válido:
 
 ![error_descarga](https://raw.githubusercontent.com/mareyes1/Lab2/main/error_descarga.jpeg)
 
