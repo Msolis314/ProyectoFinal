@@ -1,3 +1,9 @@
+"""Modulo para reporte
+
+    :raises Exception: _description_
+    :return: _description_
+    :rtype: _type_
+    """
 import tkinter as tk
 from tkinter import ttk as tkk
 import customtkinter
@@ -16,7 +22,7 @@ class Report:
     
     def __init__(self,  root,pathexpense,pathbudget,sheet):
         """
-        The function initializes a Monthly Budget Graph Interface with a given root and graphs instance.
+        funcion para darle al usuario un reporte de sus gastos y presupuesto
         
         :param root: The "root" parameter is the main window or root window of the application. It is
         typically created using the Tk() function from the tkinter module
@@ -54,8 +60,7 @@ class Report:
         self.buttom_display.pack(fill= tk.BOTH,side=tk.BOTTOM, expand=True)
     def show_month_graph(self):
         """
-        The function `show_month_graph` displays a bar graph showing the budget and expenses for a
-        selected month.
+        funcion para desplegar el reporte
         """
         selected_month_name = self.month_var
         #Para guardar los datos por mes.

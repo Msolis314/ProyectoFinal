@@ -34,6 +34,8 @@ class AnnualGraph():
     
     # Método para mostrar la gráfica de gastos y presupuesto anuales.
     def show_annual_graph(self):
+        """Para generar el grafico del historial anual
+        """
         
         #Para guardar los datos por mes.
         annual_data = {

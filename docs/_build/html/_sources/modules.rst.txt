@@ -11,3 +11,4 @@ Modulos
    Login
    graph_classes
    entry_classes
+   Download

@@ -44,9 +44,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Desarrollo Teórico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html#instalacion">Instalación</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html#uso">Uso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -84,6 +81,7 @@
 <span class="kn">import</span> <span class="nn">system_vars.config</span> <span class="k">as</span> <span class="nn">config</span>
 <span class="kn">from</span> <span class="nn">entry_classes.template</span> <span class="kn">import</span> <span class="n">TopCalendar</span>
 <span class="kn">from</span> <span class="nn">CTkMessagebox</span> <span class="kn">import</span> <span class="n">CTkMessagebox</span>
+<span class="kn">from</span> <span class="nn">.call_graphs</span> <span class="kn">import</span> <span class="n">graph_choices</span>
 <div class="viewcode-block" id="GraphChoice"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice">[documentos]</a><span class="k">class</span> <span class="nc">GraphChoice</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Clase para el display de las opciones de graficos</span>
 
@@ -112,6 +110,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">title_label</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span> <span class="s2">&quot;Opciones de graficación&quot;</span><span class="p">,</span><span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(</span><span class="s1">&#39;Cascadia mono SemiBold&#39;</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title_label</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
 
+        <span class="c1">#Instancias de la clase para elegir grafica</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph_choices_instance</span> <span class="o">=</span> <span class="n">graph_choices</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">layout</span><span class="p">,</span><span class="n">fg_color</span><span class="o">=</span><span class="n">FG_COLOR</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">side</span><span class="o">=</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">)</span>
@@ -129,7 +129,7 @@
                                                         <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pay_buttom_callback</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pay_graph_buttom</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">pady</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">padx</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span><span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span><span class="s1">&#39;Marzo&#39;</span>
         <span class="n">image_bar</span> <span class="o">=</span> <span class="n">reader_image</span><span class="p">(</span><span class="n">Path_Image</span><span class="p">,</span><span class="s2">&quot;graficoBarras1.png&quot;</span><span class="p">,(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bar_graph_buttom</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Gráfico de Barras por mes&#39;</span><span class="p">,</span>
                                                         <span class="n">font</span><span class="o">=</span><span class="n">set_font</span><span class="p">(),</span><span class="n">fg_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span> <span class="n">border_color</span><span class="o">=</span><span class="n">BORDER_COLOR</span><span class="p">,</span>
@@ -162,18 +162,22 @@
         <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Info&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera un gráfico tipo pastel de los gastos o ingresos. Elija alguna de las siguientes opciones&quot;</span><span class="p">,</span>
                             <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;question&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Gastos&quot;</span><span class="p">,</span><span class="n">option_3</span><span class="o">=</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">)</span>
         <span class="n">respuesta</span><span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-        <span class="n">choices</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Gastos&quot;</span><span class="p">,</span><span class="s2">&quot;Ingresos&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">respuesta</span> <span class="o">!=</span> <span class="s2">&quot;Cancelar&quot;</span> <span class="ow">and</span> <span class="n">respuesta</span> <span class="ow">in</span> <span class="n">choices</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Pie&quot;</span><span class="p">,</span><span class="n">respuesta</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;choices = [&quot;Gastos&quot;,&quot;Ingresos&quot;]</span>
+<span class="sd">        if respuesta != &quot;Cancelar&quot; and respuesta in choices:</span>
+<span class="sd">            if self.topCalendar is None or not self.topCalendar.winfo_exists():</span>
+<span class="sd">                self.topCalendar = TopCalendar(self.update_date,config.app)  # create window if its None or destroyed</span>
+<span class="sd">                self.topCalendar.wm_transient(config.app)</span>
+<span class="sd">                data_to_excel(respuesta)</span>
+<span class="sd">            else:</span>
+<span class="sd">                self.topCalendar.focus()  # if window exists focus it</span>
+<span class="sd">        self._graph_choice=(&quot;Pie&quot;,respuesta,self._date)&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
-        <span class="n">data_to_excel</span><span class="p">(</span><span class="n">respuesta</span><span class="p">)</span></div>
         <span class="c1">#Aqui va la funcion que llama a lo graficos tipo pie, se le pasa la fecha y si es de ingreso o gastos</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph_choices_instance</span><span class="o">.</span><span class="n">call_income_budget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">,</span><span class="n">respuesta</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;basedata\</span><span class="si">{</span><span class="n">respuesta</span><span class="si">}</span><span class="s1">.xlsx&#39;</span><span class="p">)</span></div>
 <div class="viewcode-block" id="GraphChoice.bar_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.bar_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">bar_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el bar_graph</span>
 
@@ -184,23 +188,22 @@
         <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera un gráfico de barras comparando lo proyectado para el presupuesto con los gastos por mes&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Aceptar&quot;</span><span class="p">)</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="s2">&quot;Aceptar&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Barras_mes&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph_choices_instance</span><span class="o">.</span><span class="n">call_montly_budget</span><span class="p">()</span></div>
+        
 <div class="viewcode-block" id="GraphChoice.year_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.year_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">year_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el year_graph</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera un gráfico con las tendencias de ahorros,ingresos y gastos en el año&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Aceptar&quot;</span><span class="p">)</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
         <span class="c1">###Aqui deberia haber un condicional que revisa si hay datos suficientes para generar el grafico</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Barras_anual&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+        <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="s2">&quot;Aceptar&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph_choices_instance</span><span class="o">.</span><span class="n">call_anual_graph</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Barras_anual&quot;</span><span class="p">)</span></div>
+        
         
 <div class="viewcode-block" id="GraphChoice.reporte_buttom_callback"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.reporte_buttom_callback">[documentos]</a>    <span class="k">def</span> <span class="nf">reporte_buttom_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Funcion para abrir una ventana si se presiona el reporte</span>
@@ -208,14 +211,11 @@
         <span class="n">msg</span> <span class="o">=</span> <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Genera el reporte mensual&quot;</span><span class="p">,</span><span class="n">option_1</span><span class="o">=</span><span class="s2">&quot;Cancelar&quot;</span><span class="p">,</span><span class="n">option_2</span><span class="o">=</span><span class="s2">&quot;Aceptar&quot;</span><span class="p">)</span>
         <span class="n">respuesta</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">respuesta</span> <span class="o">==</span> <span class="s2">&quot;Aceptar&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">winfo_exists</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span> <span class="o">=</span> <span class="n">TopCalendar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_date</span><span class="p">,</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># create window if its None or destroyed</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">wm_transient</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">app</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">topCalendar</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>  <span class="c1"># if window exists focus it</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_choice</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Reporte&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">title_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">botton_frame</span><span class="o">.</span><span class="n">pack_forget</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph_choices_instance</span><span class="o">.</span><span class="n">call_report</span><span class="p">()</span></div>
+            
+    
 
 <div class="viewcode-block" id="GraphChoice.update_date"><a class="viewcode-back" href="../../graph_classes.html#graph_classes.graph_choice.GraphChoice.update_date">[documentos]</a>    <span class="k">def</span> <span class="nf">update_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">choice</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span><span class="n">choice</span></div></div>

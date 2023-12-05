@@ -33,7 +33,6 @@ El programa le brinda al usuario la opción de visualizar gráficamente los dato
    :maxdepth: 2
    :caption: Contents:
 
-   intro
    modules
 
 

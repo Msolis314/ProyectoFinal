@@ -44,9 +44,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html">Desarrollo Teórico</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html#instalacion">Instalación</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../intro.html#uso">Uso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../modules.html">Modulos</a></li>
 </ul>
 
@@ -100,7 +97,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_date</span><span class="o">=</span> <span class="s2">&quot;Enero&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_notas</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_salario</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_comisiones</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_comisiones</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ventas</span><span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_otros</span> <span class="o">=</span> <span class="mi">0</span>
 <div class="viewcode-block" id="Income.escribir_base_data"><a class="viewcode-back" href="../../entry_classes.html#entry_classes.income.Income.escribir_base_data">[documentos]</a>    <span class="k">def</span> <span class="nf">escribir_base_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
@@ -285,6 +282,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">valid_amount</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">coin_var</span><span class="o">.</span><span class="n">get</span><span class="p">())</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
             <span class="n">CTkMessagebox</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Entrada invalida de dinero&quot;</span><span class="p">,</span><span class="n">icon</span><span class="o">=</span><span class="s1">&#39;cancel&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;end&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_salario</span> <span class="o">=</span><span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_comisiones</span> <span class="o">=</span><span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_ventas</span> <span class="o">=</span><span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_otros</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">raise</span> <span class="ne">Exception</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">options_income_var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Salario&quot;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_salario</span><span class="o">=</span> <span class="n">valid_amount</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount_entry</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">coin_var</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
