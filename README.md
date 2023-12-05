@@ -216,12 +216,6 @@ python3 ./main.py
 
 En esta sección se muestra la apariencia del programa en funcionamiento.
 
-### Interfaz gráfica principal
-
-### Registro de usuario
-
-### Ingreso de datos
-
 ### Gráficos
 
 #### Gráfico de ingresos
@@ -241,6 +235,12 @@ Gráfico de pastel que muestra los porcentajes para cada una de las categorías 
 Gráfico que muestra la comparación entre los gastos ejecutados en un mes dado versus el presupuesto proyectado para ese mes.
 
 ![grafica_presupuesto](https://raw.githubusercontent.com/mareyes1/Lab2/main/grafica_presupuesto.jpeg)
+
+#### Gráfico de reporte anual
+
+Gráfico que muestra simultáneamente los ingresos, los gastos y los ahorros para todos los meses del año, lo que permite una visualización general del comportamiento histórico, conforme a los objetivos del proyecto.
+
+![reporte_anual](https://raw.githubusercontent.com/mareyes1/Lab2/main/grafica_reporte_anual.jpeg)
 
 <p align="right">(<a href="#readme-top">regresar</a>)</p>
 
