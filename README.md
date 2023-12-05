@@ -216,6 +216,48 @@ python3 ./main.py
 
 En esta sección se muestra la apariencia del programa en funcionamiento.
 
+### Ingreso de usuario
+
+Pantalla para el ingreso del usuario:
+
+![sign_in](https://raw.githubusercontent.com/mareyes1/Lab2/main/sign_in_screen.jpeg)
+
+Mensaje de error si el usuario no existe y debe registrarse:
+
+![usuario_no_existe](https://raw.githubusercontent.com/mareyes1/Lab2/main/usuario_no_existe_registro.jpeg)
+
+Mensaje de error mostrado si el nombre de usuario o la contraseña son incorrectos:
+
+![contrasena_incorrecta](https://raw.githubusercontent.com/mareyes1/Lab2/main/contrasena_incorrecta.jpeg)
+
+### Registro de nuevo usuario
+
+Si el usuario no existe, puede registrarse con un nombre de usuario y una contraseña.
+
+Si en el proceso de registro, las contraseñas no son iguales al momento de verificar la contraseña seleccionada, se muestra el siguiente mensaje de error:
+
+![contrasenas_diferentes](https://raw.githubusercontent.com/mareyes1/Lab2/main/contrasenas_no_iguales.jpeg)
+
+Si el usuario que se quiere registrar ya existe, de igual forma se muestra una ventana de error:
+
+![usuario_existe](https://raw.githubusercontent.com/mareyes1/Lab2/main/usuario_ya_existe.jpeg)
+
+### Uso del programa
+
+Una vez registrado un usuario y luego de realizar el ingreso, se puede hacer uso de las funciones del programa, como se muestra de seguido.
+
+Se tiene una pantalla para la entrada de datos sobre ingresos. Si la entrada de datos se da de forma correcta, se ve de la siguiente forma:
+
+![entrada_correcta](https://raw.githubusercontent.com/mareyes1/Lab2/main/ingreso_correcto.jpeg)
+
+En caso de que la entrada de datos resulte inválida:
+
+![entrada_invalida](https://raw.githubusercontent.com/mareyes1/Lab2/main/entrada_invalida.jpeg)
+
+Como se comentó anteriormente, se tiene la capacidad de actualizar los montos de las partidas del presupuesto mensual. En caso de que se desee sobreescribir el presupuesto, se gestiona en la interfaz gráfica como se muestra a continuación:
+
+![sobreescribir](https://raw.githubusercontent.com/mareyes1/Lab2/main/sobreescribir_budget.jpeg)
+
 ### Reporte mensual
 
 En la pantalla de visualización de datos es posible desplegar un reporte mensual en formato de tabla resumen para mostrar el detalle de gastos y presupuesto por categoría, así como la diferencia entre ambos valores, la cual muestra el remanente que indica la magnitud de los posibles ahorros en ese mes, o bien, del sobregiro en los gastos en caso de que éstos superen lo presupuestado en una partida dada.
@@ -249,6 +291,20 @@ Gráfico que muestra simultáneamente los ingresos, los gastos y los ahorros par
 ![grafica_reporte_anual](https://raw.githubusercontent.com/mareyes1/Lab2/main/grafica_reporte_anual.jpeg)
 
 <p align="right">(<a href="#readme-top">regresar</a>)</p>
+
+### Descarga de información
+
+Opciones de descarga
+
+![opciones_descarga](https://raw.githubusercontent.com/mareyes1/Lab2/main/opciones%20descarga.jpeg)
+
+Seleccionar carpeta de descarga
+
+![seleccionar_carpeta](https://raw.githubusercontent.com/mareyes1/Lab2/main/ventana_descargar.jpeg)
+
+Error de descarga
+
+![error_descarga](https://raw.githubusercontent.com/mareyes1/Lab2/main/error_descarga.jpeg)
 
 ## Referencias
 
