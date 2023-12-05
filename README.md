@@ -131,7 +131,16 @@ Finalmente, fue necesario unir posteriormente la funcionalidad de generar las gr
 
 El diagrama de clases muestra gráficamente la lógica de diseño del proyecto basada en programación orientada a objetos.
 
+A continuación se muestra la propuesta inicial utilizada como punto de partida para crear el programa. Esta muestra como se deben relacionar las clases de ingresos, gastos y presupuesto. No obstante, a la hora de pasar del diseño planteado en el diagrama a la implementación de la GUI mediante código, cada una de esas clases terminó por ser un módulo. Además, fue necesario visualizar cada parte de la interfaz como un objeto que recibe o escribe atributos de otra sección.
+
+Diagrama UML inicial:
+
 ![diagrama_UML](https://raw.githubusercontent.com/mareyes1/Lab2/main/UML_proyecto_final.jpeg)
+
+El diagrama final, por cuestiones de simplicidad, se limitó a delimitar las clases general y como interactúan entre sí. Además, su objetivo, más que mostrar la forma en que deben comportarse las funcionalidades de la aplicación, es presentar un diagrama de cómo deben interrelacionarse las distintas partes de la GUI:
+
+![diagrama_UML](https://github.com/Msolis314/Clases/blob/main/UML.png)
+
 #### Objetivos y limitaciones
 
 Los objetivos del proyecto fueron los siguientes:
